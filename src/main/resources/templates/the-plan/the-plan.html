@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:replace="partials :: title"/>
+    <links th:replace="partials :: link"/>
+</head>
 </head>
 <body>
-
+<nav th:replace="partials :: navbar"/>
+<h1 th:replace="partials :: header"/>
+<script th:replace="partials :: scripts"/>
+<div th:replace="partials :: footer"/>
 </body>
 </html>
