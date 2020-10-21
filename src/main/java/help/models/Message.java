@@ -31,7 +31,7 @@ public class Message {
 
     //Do we need to add a group id (think we can pull group_id from user )
 
-
+    // extract group id method
 
 
 

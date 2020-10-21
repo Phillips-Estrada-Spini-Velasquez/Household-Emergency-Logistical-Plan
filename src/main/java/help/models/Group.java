@@ -20,7 +20,7 @@ public class Group {
     private String rallyPointCoordinates;
 
     //One to Many because one group x many users
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    @ManyToMany(mappedBy = "groups")
     private List<User> users;
 
 

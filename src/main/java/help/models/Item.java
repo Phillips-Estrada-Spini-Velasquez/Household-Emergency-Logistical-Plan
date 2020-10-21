@@ -16,7 +16,8 @@ public class Item {
     @Column(nullable = false, length = 255)
     private String title;
 
-    //omitted description - dont think we need since we have title
+    @Column(length = 255)
+    private String description;
 
     @Column(nullable = false, length = 255)
     private String location;
@@ -32,6 +33,9 @@ public class Item {
             inverseJoinColumns={@JoinColumn(name="category_id")}
     )
     private List<ItemCategory> categories;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Checklist> checklists;
 
 
     //Empty constructor - do not delete.edit
