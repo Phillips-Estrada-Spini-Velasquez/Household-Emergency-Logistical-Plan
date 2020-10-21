@@ -1,27 +1,35 @@
 package help.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "checklist_items")
-@AssociationOverrides({
-        @AssociationOverride(name = "checklist",
-                joinColumns = @JoinColumn(name = "checklist_id")),
-        @AssociationOverride(name = "pk.item",
-                joinColumns = @JoinColumn(name = "item_id")) })
+@IdClass(ChecklistItemPK.class)
 public class ChecklistItem {
 
-    private String id;
-
-    public ChecklistItem() {
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Id
-    public String getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "checklist_id", referencedColumnName = "id")
+    private Checklist checklist;
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    private Item item;
+
+    @Column(name = "is_checked")
+    private boolean isChecked;
+
+    @OneToOne
+//    @Column(name = "checked_by")
+    private User checkedBy;
+
+    @Column(nullable = false)
+    private Date date;
+
 }

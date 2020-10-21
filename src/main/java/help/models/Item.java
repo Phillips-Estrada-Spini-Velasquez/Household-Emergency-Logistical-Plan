@@ -34,8 +34,8 @@ public class Item {
     )
     private List<ItemCategory> categories;
 
-    @ManyToMany(mappedBy = "items")
-    private List<Checklist> checklists;
+    @OneToMany(mappedBy = "item")
+    private List<ChecklistItem> checklistAssoc;
 
 
     //Empty constructor - do not delete.edit
