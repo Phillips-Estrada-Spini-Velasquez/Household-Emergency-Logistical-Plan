@@ -1,4 +1,7 @@
 package help.repositories;
 
-public interface MessageRepository {
+import help.models.Message;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MessageRepository extends JpaRepository<Message, Long> {
 }
