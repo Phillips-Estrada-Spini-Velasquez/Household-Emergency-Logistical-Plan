@@ -1,12 +1,8 @@
 package help.models;
 
-import help.repositories.ChecklistRepository;
-
 public class Checklist {
 
-    private final ChecklistRepository checklistDao;
+    //Empty constructor - do not delete/edit
+    public Checklist(){}
 
-    public Checklist(ChecklistRepository categoryDao) {
-        this.checklistDao = categoryDao;
-    }
 }

@@ -1,12 +1,8 @@
 package help.models;
 
-import help.repositories.ItemRepository;
-
 public class Item {
 
-    private final ItemRepository itemDao;
+    //Empty constructor - do not delete.edit
+    public Item(){}
 
-    public Item(ItemRepository itemDao) {
-        this.itemDao = itemDao;
-    }
 }

@@ -1,11 +1,8 @@
 package help.models;
 
-import help.repositories.UserRepository;
-
 public class User {
-    private final UserRepository userDao;
 
-    public User(UserRepository userDao) {
-        this.userDao = userDao;
-    }
+    //Empty constructor - do not delete/edit
+    public User(){}
+
 }
