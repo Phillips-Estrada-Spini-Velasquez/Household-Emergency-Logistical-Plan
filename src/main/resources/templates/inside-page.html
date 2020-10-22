@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:replace="partials/title :: title"/>
-    <div th:replace="partials/links :: links"/>
+    <title>Home</title>
+    <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<nav th:replace="partials/navbar :: navbar"/>
-<h1 th:replace="partials/header :: header"/>
-<script th:replace="partials/scripts :: scripts"/>
-<div th:replace="partials/footer :: footer"/>
+<header th:replace="partials/header :: header"></header>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<main class="container">
+    <h1>This is the home page</h1>
+</main>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/scripts :: scriptPartials"></script>
 </body>
 </html>
