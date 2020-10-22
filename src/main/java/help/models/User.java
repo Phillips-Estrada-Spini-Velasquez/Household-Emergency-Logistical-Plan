@@ -41,7 +41,7 @@ public class User {
     @Column(columnDefinition = "integer default 9")
     private long zip;
 
-    //Many to Many because many users x one group - casey suggested many to many but it makes me want to cry - lets discuss
+    //Many to Many because many users x many group - casey suggested many to many but it makes me want to cry - lets discuss
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable (
             name = "users_groups",
@@ -49,6 +49,11 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "group_id")}
     )
     private List<Group> groups;
+
+
+    // method - link user to messages
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Message> messages;
 
 
     //Empty constructor - do not delete/edit
@@ -174,7 +179,7 @@ public class User {
         this.groups = groups;
     }
 
-    // method - link user to messages
+
 
 
 }

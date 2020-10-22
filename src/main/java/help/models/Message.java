@@ -26,8 +26,8 @@ public class Message {
 
     //Messages to User will be many-to-one because many messages can be posted by one group
     @ManyToOne
-    @JoinColumn (name = "user_id")
-    private User user;
+    @JoinColumn (name = "owner_id")
+    private User owner;
 
     //Do we need to add a group id (think we can pull group_id from user )
 
@@ -43,7 +43,7 @@ public class Message {
         this.createDateTime = createDateTime;
         this.updateDateTime = updateDateTime;
         this.body = body;
-        this.user = user;
+        this.owner = user;
     }
 
     public long getId() {
@@ -78,11 +78,11 @@ public class Message {
         this.body = body;
     }
 
-    public User getUser() {
-        return user;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setOwner(User user) {
+        this.owner = owner;
     }
 }
