@@ -8,22 +8,55 @@
 <body>
 <header th:replace="partials/header :: header"></header>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<h1>Create an account</h1>
+
+<div class="d-flex justify-content-center">
+<div class="card mt-5" style="width: 55rem;">
+    <div class="card-header">
+        <h1>Create an account</h1>
+    </div>
+
 <form th:action="@{/register}" method="POST" th:object="${user}">
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}"/>
-    <label for="firstName">first name</label>
+
+    <div class="d-flex flex-column">
+    <div class="d-flex flex-row justify-content-between">
+    <label for="username">Last name</label>
+    <input id="username" th:field="*{lastName}"/>
+
+    <label for="firstName">First name</label>
     <input id="firstName" th:field="*{firstName}"/>
-    <label for="lastName">last name</label>
-    <input id="lastName" th:field="*{lastName}"/>
-    <label for="email">Email</label>
+
+    <label for="lastName">Username</label>
+    <input id="lastName" th:field="*{username}"/>
+    </div>
+
+
+    <br>
+
+    <div class="d-flex flex-row justify-content-center">
+        <div class="pr-3">
+    <label for="email"> Email</label>
     <input id="email" th:field="*{email}"/>
+        </div>
+
+
+        <div class="pl-3">
     <label for="password">Password</label>
     <input id="password" type="password" th:field="*{password}"/>
-    <input value="Sign me up!" type="submit"/>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+    <input value="Sign me up -->" type="submit"/>
+    </div>
+    </div>
+
 </form>
+</div>
+</div>
+
 <footer th:replace="partials/footer :: footer"></footer>
 <script th:replace="partials/scripts :: scripts"></script>
+
 </body>
 </html>
 
