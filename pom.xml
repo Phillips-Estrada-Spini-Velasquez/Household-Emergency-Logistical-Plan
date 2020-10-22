@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>help</groupId>
-    <artifactId>blog</artifactId>
+    <artifactId>help</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>help</name>
     <description>Household Emergency Logistical Plan</description>
