@@ -23,9 +23,45 @@ public class Group {
     @ManyToMany(mappedBy = "groups")
     private List<User> users;
 
-
-
-
     //Empty constructor - do not delete/edit
     public Group(){}
+
+    public Group(long id, String name, String rallyPointCoordinates, List<User> users) {
+        this.id = id;
+        this.name = name;
+        this.rallyPointCoordinates = rallyPointCoordinates;
+        this.users = users;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRallyPointCoordinates() {
+        return rallyPointCoordinates;
+    }
+
+    public void setRallyPointCoordinates(String rallyPointCoordinates) {
+        this.rallyPointCoordinates = rallyPointCoordinates;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }

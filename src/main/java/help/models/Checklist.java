@@ -28,4 +28,33 @@ public class Checklist {
     //Empty constructor - do not delete/edit
     public Checklist(){}
 
+    public Checklist(long id, String title, List<ChecklistItem> itemAssoc) {
+        this.id = id;
+        this.title = title;
+        this.itemAssoc = itemAssoc;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<ChecklistItem> getItemAssoc() {
+        return itemAssoc;
+    }
+
+    public void setItemAssoc(List<ChecklistItem> itemAssoc) {
+        this.itemAssoc = itemAssoc;
+    }
 }
