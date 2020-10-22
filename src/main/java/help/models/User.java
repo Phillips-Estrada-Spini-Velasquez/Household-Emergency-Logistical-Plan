@@ -1,5 +1,8 @@
 package help.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class User {
     private String email;
 
     @Column(nullable = false, length = 255)
+    @JsonIgnore
     private String password;
 
     @Column(columnDefinition = "integer default 10")
@@ -53,6 +57,7 @@ public class User {
 
     // method - link user to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonBackReference
     private List<Message> messages;
 
 

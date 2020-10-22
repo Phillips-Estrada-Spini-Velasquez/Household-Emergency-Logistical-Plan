@@ -5,10 +5,9 @@ import help.repositories.MessageRepository;
 import help.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class MessageController {
@@ -27,6 +26,16 @@ public class MessageController {
     public String index(Model model) {
         model.addAttribute("messages", messageDao.findAll());
         return "/messages/index";
+    }
+
+    @GetMapping("/messages.json")
+    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
+        return messageDao.findAll();
+    }
+
+    @GetMapping("/messages/ajax")
+    public String viewAllMessagesWithAjax() {
+        return "messages/ajax";
     }
 
     @GetMapping("/messages/show/{id}")
