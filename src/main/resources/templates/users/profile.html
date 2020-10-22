@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:replace="partials/title :: title"/>
-    <div th:replace="partials/links :: links"/>
-</head>
-</head>
-<body>
-<nav th:replace="partials/navbar :: navbar"/>
-<h1 th:replace="partials/header :: header"/>
-<script th:replace="partials/scripts :: scripts"/>
-<div th:replace="partials/footer :: footer"/>
-</body>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <title>Show Posts</title>
+            <link th:replace="partials/links :: links"/>
+        </head>
+        <body>
+            <header th:replace="partials/header :: header"></header>
+            <nav th:replace="partials/navbar :: navbar"></nav>
+
+            <h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
+
+            <main class="container">
+                <h2>Posts by this user:</h2>
+                <show_message th:if="${user.messages}">
+                    <div th:each="post : ${user.messages}">
+                        <h2 th:text="${message.title}"></h2>
+                        <p th:text="${message.description}"></p>
+                        <br>
+                    </div>
+                </show_message>
+            </main>
+
+        <footer th:replace="partials/footer :: footer"></footer>
+        <script th:replace="partials/scripts :: scriptPartials"></script>
+    </body>
 </html>

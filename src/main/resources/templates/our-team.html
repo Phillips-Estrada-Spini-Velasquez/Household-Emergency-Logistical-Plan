@@ -1,14 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:replace="partials/title :: title"/>
-    <div th:replace="partials/links :: links"/>
-</head>
-<body>
-<nav th:replace="partials/navbar :: navbar"/>
-<h1 th:replace="partials/header :: header"/>
-<script th:replace="partials/scripts :: scripts"/>
-<div th:replace="partials/footer :: footer"/>
-</body>
-</html>
+    <html xmlns:th="http://www.thymeleaf.org" lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Home</title>
+            <link th:replace="partials/links :: links"/>
+        </head>
+        <body>
+            <header th:replace="partials/header :: header"></header>
+            <nav th:replace="partials/navbar :: navbar"></nav>
+
+<!--    ABOUT OUR PROJECT JUMBOTRON-->
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">H.E.L.P.</h1>
+                    <p class="lead">Household Emergency Logistic Planner</p>
+                </div>
+            </div>
+
+<!--    ABOUT US FLIP CARDS-->
+            <container class="container-fluid text-center">
+                <section class="d-flex justify-content-around border-dark mx-5 my-5">
+                    <div class="flip-card shadow-lg">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img" alt="Avatar" style="width:300px;height:500px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>HEADER</h1>
+                                <p>NAME</p>
+                                <p>TITLE</p>
+                                <div class="text-center">
+                                    <img src="img" class="img-thumbnail" alt="...">
+                                    <hr>
+                                    <p>BIO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card shadow-lg">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img" alt="Avatar" style="width:300px;height:500px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>HEADER</h1>
+                                <p>NAME</p>
+                                <p>TITLE</p>
+                                <div class="text-center">
+                                    <img src="img" class="img-thumbnail" alt="...">
+                                    <hr>
+                                    <p>BIO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card shadow-lg">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img" alt="Avatar" style="width:300px;height:500px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>HEADER</h1>
+                                <p>NAME</p>
+                                <p>TITLE</p>
+                                <div class="text-center">
+                                    <img src="img" class="img-thumbnail" alt="...">
+                                    <hr>
+                                    <P>BIO</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card shadow-lg">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img" alt="Avatar" style="width:300px;height:500px;">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>HEADER</h1>
+                                <p>NAME</p>
+                                <p>TITLE</p>
+                                <div class="text-center">
+                                    <img src="img" class="img-thumbnail" alt="...">
+                                    <hr>
+                                    <P>BIO</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </container>
+
+            <footer th:replace="partials/footer :: footer"></footer>
+            <script th:replace="partials/scripts :: scriptPartials"></script>
+        </body>
+    </html>
