@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:replace="partials/title :: title"/>
-    <div th:replace="partials/links :: links"/>
-</head>
-<body>
-<nav th:replace="partials/navbar :: navbar"/>
-<h1 th:replace="partials/header :: header"/>
-<script th:replace="partials/scripts :: scripts"/>
-<div th:replace="partials/footer :: footer"/>
-</body>
-</html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Create A Post</title>
+            <link th:replace="partials/links :: links"/>
+
+            <link rel="stylesheet" href="/static/css/the-plan.css">
+
+        </head>
+        <body>
+            <header th:replace="partials/header :: header"></header>
+            <nav th:replace="partials/navbar :: navbar"></nav>
+
+<!--    THE-PLAN PAGE-->
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Fluid jumbotron</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </div>
+            </div>
+
+<!--    TO DO LIST -->
+            <div id="myDIV" class="header">
+                <h2 style="margin:5px">My To Do List</h2>
+                <input type="text" id="myInput" placeholder="Title...">
+                <span onclick="newElement()" class="addBtn">Add</span>
+            </div>
+
+            <ul id="myUL">
+                <li>Hit the gym</li>
+                <li class="checked">Pay bills</li>
+                <li>Meet George</li>
+                <li>Buy eggs</li>
+                <li>Read a book</li>
+                <li>Organize office</li>
+            </ul>
+
+            <footer th:replace="partials/footer :: footer"></footer>
+            <script th:replace="partials/scripts :: scriptPartials"></script>
+        </body>
+            <script src="/static/js/the-plan.js"></script>
+    </html>

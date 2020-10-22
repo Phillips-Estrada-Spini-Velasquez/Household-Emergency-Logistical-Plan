@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <title>Create A Post</title>
+            <link th:replace="partials/links :: links"/>
+
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+            <link rel="stylesheet" href="/static/css/messages.css">
+
+        </head>
+        <body>
+            <header th:replace="partials/header :: header"></header>
+            <nav th:replace="partials/navbar :: navbar"></nav>
+
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Map</a></li>
+                            <li><a href="#">Deviders</a></li>
+                            <li><a href="#">Riders</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav" style="margin-left: 100px;">
+                            <li><a href="#">Income</a></li>
+                            <li><a href="#">Queue</a></li>
+                        </ul>
+                        <ul class="collapse nav navbar-nav nav-collapse" id="nav-collapse1">
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Graphic design</a></li>
+                            <li><a href="#">Print</a></li>
+                            <li><a href="#">Motion</a></li>
+                            <li><a href="#">Mobile apps</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+
+            <div class="row">
+                <div class="col-md-offset-7 col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="accordion">
+                            <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm">
+                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." vk_18c1e="subscribed" style="direction: rtl;" />
+                                <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm" id="btn-chat">
+                            <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                         </button>
+                    </span>
+                            </div>
+                        </div>
+                        <div class="panel-collapse collapse in" id="collapseOne">
+                            <div class="panel-body">
+                                <ul class="chat">
+                                    <li class="right clearfix">
+                            <span class="chat-img pull-right">
+                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
+                            </span>
+                                        <div class="chat-body clearfix">
+                                            <div class="header">
+                                                <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
+                        </span>
+                                        <div class="chat-body clearfix">
+                                            <div class="header">
+                                                <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="right clearfix"><span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
+                        </span>
+                                        <div class="chat-body clearfix">
+                                            <div class="header">
+                                                <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer th:replace="partials/footer :: footer"></footer>
+            <script th:replace="partials/scripts :: scriptPartials"></script>
+        </body>
+    </html>
