@@ -11,12 +11,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String firstName;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String lastName;
 
     @Column(nullable = false, length = 255, unique = true)
@@ -25,31 +23,30 @@ public class User {
     @Column(nullable = false, length = 255, unique = true)
     private String email;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String password;
 
     // can be null specifically for new user using invite form
-    @Column(nullable = false, columnDefinition = "integer default 10")
+    @Column(columnDefinition = "integer default 10")
     private long phone;
 
     // can be null specifically for new user using invite form
     // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String streetAddress;
 
     // can be null specifically for new user using invite form
     // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String city;
 
     // can be null specifically for new user using invite form
     // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String state;
 
     // can be null specifically for new user using invite form
-    @Column(nullable = false, columnDefinition = "integer default 9")
+    @Column(columnDefinition = "integer default 9")
     private long zip;
 
     //Many to Many because many users x one group - casey suggested many to many but it makes me want to cry - lets discuss
@@ -62,6 +59,13 @@ public class User {
     private List<Group> groups;
 
     // link to messages
+
+    public User(User copy) {
+        id = copy.id; //
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
 
 
     //Empty constructor - do not delete/edit
