@@ -7,6 +7,7 @@
         </head>
         <body>
             <header th:replace="partials/header :: header"></header>
+            <nav th:replace="partials/navbar :: navbar"></nav>
 
             <h1>Log In</h1>
                 <div th:if="${param.error}">
@@ -24,6 +25,6 @@
                     <input type="submit" value="Log In" />
                 </form>
             <footer th:replace="partials/footer :: footer"></footer>
-            <script th:replace="partials/scripts :: scriptPartials"></script>
+            <script th:replace="partials/scripts :: scripts"></script>
         </body>
     </html>

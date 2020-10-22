@@ -11,12 +11,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String firstName;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String lastName;
 
     @Column(nullable = false, length = 255, unique = true)
@@ -25,34 +23,25 @@ public class User {
     @Column(nullable = false, length = 255, unique = true)
     private String email;
 
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255)
     private String password;
 
-    // can be null specifically for new user using invite form
-    @Column(nullable = false, columnDefinition = "integer default 10")
+    @Column(columnDefinition = "integer default 10")
     private long phone;
 
-    // can be null specifically for new user using invite form
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String streetAddress;
 
-    // can be null specifically for new user using invite form
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String city;
 
-    // can be null specifically for new user using invite form
-    // does not need to be unique
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(length = 255)
     private String state;
 
-    // can be null specifically for new user using invite form
-    @Column(nullable = false, columnDefinition = "integer default 9")
+    @Column(columnDefinition = "integer default 9")
     private long zip;
 
-    //Many to Many because many users x one group - casey suggested many to many but it makes me want to cry - lets discuss
+    //Many to Many because many users x many group - casey suggested many to many but it makes me want to cry - lets discuss
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable (
             name = "users_groups",
@@ -61,12 +50,16 @@ public class User {
     )
     private List<Group> groups;
 
-    // link to messages
+
+    // method - link user to messages
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Message> messages;
 
 
     //Empty constructor - do not delete/edit
     public User() {
     }
+
 
     public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Group> groups) {
         this.id = id;
@@ -82,6 +75,13 @@ public class User {
         this.zip = zip;
         this.groups = groups;
     }
+
+
+
+    // Add copy for security
+
+
+
 
     public long getId() {
         return id;
@@ -178,4 +178,8 @@ public class User {
     public void setGroups(List<Group> groups) {
         this.groups = groups;
     }
+
+
+
+
 }
