@@ -20,16 +20,23 @@
 
 
 <div th:replace="partials/scripts :: scripts"></div>
+<form th:action="@{/messages/submit}" th:method="post" th:object="${message}">
+    <textarea class="form-control" th:field="*{body}" cols="72" rows="5"></textarea>
+    <br/>
+    <input type="submit"/>
+</form>
 <!-- include the JS file with the AJAX request -->
 <script type="text/javascript">
-    (function($) {
+    (function ($) {
         var request = $.ajax({'url': '/messages.json'});
         request.done(function (messages) {
             var html = '';
-            messages.forEach(function(message) {
+            messages.forEach(function (message) {
                 html += '<tr>';
-                html += '<td>' + message.id + '</td>';
+                html += '<td>' + message.createDateTime + '</td>';
                 html += '<td>' + message.body + '</td>';
+                html += '<td>' + message.owner.firstName + '</td>';
+                html += '<td>' + message.owner.lastName + '</td>';
                 html += '</tr>';
             });
             $('#messages tbody').html(html);

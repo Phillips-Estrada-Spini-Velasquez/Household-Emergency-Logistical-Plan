@@ -40,12 +40,12 @@ public class Message {
     //Empty constructor - do not delete/edit
     public Message(){}
 
-    public Message(long id, LocalDateTime createDateTime, LocalDateTime updateDateTime, String body, User user) {
+    public Message(long id, LocalDateTime createDateTime, LocalDateTime updateDateTime, String body, User owner) {
         this.id = id;
         this.createDateTime = createDateTime;
         this.updateDateTime = updateDateTime;
         this.body = body;
-        this.owner = user;
+        this.owner = owner;
     }
 
     public long getId() {
@@ -84,7 +84,7 @@ public class Message {
         return owner;
     }
 
-    public void setOwner(User user) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 }
