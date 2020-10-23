@@ -45,9 +45,23 @@
         </div>
     </div>
 
+        <label for="address">Address</label>
+        <input id="address" th:field="*{streetAddress}"/>
+
+        <label for="city">City</label>
+        <input id="city" th:field="*{city}"/>
+
+        <label for="state">State</label>
+        <input id="state" th:field="*{state}"/>
+
+        <label for="zip">Zip Code</label>
+        <input id="zip" th:field="*{zip}"/>
+
     <div class="d-flex justify-content-end">
     <input value="Sign me up -->" type="submit"/>
     </div>
+
+
     </div>
 
 </form>
