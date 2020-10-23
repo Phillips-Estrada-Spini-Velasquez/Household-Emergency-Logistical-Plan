@@ -1,8 +1,11 @@
 /*404 CSS*/
 
 body {
-    background-image: url("static/img/404_background.jpg");
-    opacity: 50%;
+    background-image: url("static/img/4-Clouds-Blue-Sky.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .error-template {
@@ -18,4 +21,5 @@ body {
 .error-actions .btn {
     margin-right: 10px;
 }
+
 
