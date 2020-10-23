@@ -45,6 +45,13 @@ public class User {
     @Column(columnDefinition = "integer default 9")
     private long zip;
 
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
     //Many to Many because many users x many group - casey suggested many to many but it makes me want to cry - lets discuss
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable (
