@@ -36,15 +36,6 @@ public class MessageController {
         return "messages/ajax";
     }
 
-//    @PostMapping("/messages/submit")
-//    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
-//        long userId = user.getId();
-//        message.setOwner(userDao.getOne(userId));
-//        messageDao.save(message);
-////        emailService.prepareAndSendPost(message, "New Post Created: " + message.getTitle(), message.getBody());
-//        return "redirect:/messages";
-//    }
-//
     @PostMapping("/messages/submit")
     public String createAd(@ModelAttribute Message message) {
 
@@ -60,6 +51,16 @@ public class MessageController {
         messageDao.save(message);
         return "redirect:/messages";
     }
+
+//    @PostMapping("/messages/submit")
+//    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
+//        long userId = user.getId();
+//        message.setOwner(userDao.getOne(userId));
+//        messageDao.save(message);
+////        emailService.prepareAndSendPost(message, "New Post Created: " + message.getTitle(), message.getBody());
+//        return "redirect:/messages";
+//    }
+//
 
 
 //    @PostMapping("/posts/create")
