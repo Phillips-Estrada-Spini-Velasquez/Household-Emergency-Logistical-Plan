@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
         <head>
             <meta charset="UTF-8">
             <title>Show Posts</title>
@@ -11,15 +11,16 @@
 
             <h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
 
-            <main class="container">
+            <main class="container-fluid">
                 <h2>Posts by this user:</h2>
                 <show_message th:if="${user.messages}">
                     <div th:each="post : ${user.messages}">
-                        <h2 th:text="${message.title}"></h2>
+                        <h2 th:text="${messages.title}"></h2>
                         <p th:text="${message.description}"></p>
                         <br>
                     </div>
                 </show_message>
+                </span>
             </main>
 
         <footer th:replace="partials/footer :: footer"></footer>

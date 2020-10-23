@@ -1,51 +1,39 @@
 package help.models;
-
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "messages")
 public class Message {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @CreationTimestamp
     private LocalDateTime createDateTime;
-
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
-
     @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String body;
-
     //Messages to User will be many-to-one because many messages can be posted by one group
     @ManyToOne
     @JsonManagedReference
-    @JoinColumn (name = "owner_id")
+    @JoinColumn(name = "owner_id")
     private User owner;
 
     //Do we need to add a group id (think we can pull group_id from user )
-
     // extract group id method
-
-
-
     //Empty constructor - do not delete/edit
-    public Message(){}
+    public Message() {
+    }
 
-    public Message(long id, LocalDateTime createDateTime, LocalDateTime updateDateTime, String body, User user) {
+    public Message(long id, LocalDateTime createDateTime, LocalDateTime updateDateTime, String body, User owner) {
         this.id = id;
         this.createDateTime = createDateTime;
         this.updateDateTime = updateDateTime;
         this.body = body;
-        this.owner = user;
+        this.owner = owner;
     }
 
     public long getId() {
@@ -82,9 +70,5 @@ public class Message {
 
     public User getOwner() {
         return owner;
-    }
-
-    public void setOwner(User user) {
-        this.owner = owner;
     }
 }
