@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View all Messages using AJAX</title>
+    <div th:replace="partials/links :: links"></div>
+
+</head>
+<body>
+<table id="messages">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Body</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+<div th:replace="partials/scripts :: scripts"></div>
+<!-- include the JS file with the AJAX request -->
+<script type="text/javascript">
+    (function($) {
+        var request = $.ajax({'url': '/messages.json'});
+        request.done(function (messages) {
+            var html = '';
+            messages.forEach(function(message) {
+                html += '<tr>';
+                html += '<td>' + message.id + '</td>';
+                html += '<td>' + message.body + '</td>';
+                html += '</tr>';
+            });
+            $('#messages tbody').html(html);
+        });
+
+
+        $('#messages').DataTable({
+            ajax: {
+                url: '/messages.json'
+            },
+            serverSide: true
+        });
+    })(jQuery);
+</script>
+</body>
+</html>

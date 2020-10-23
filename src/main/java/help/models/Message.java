@@ -1,6 +1,7 @@
 package help.models;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,6 +27,7 @@ public class Message {
 
     //Messages to User will be many-to-one because many messages can be posted by one group
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn (name = "owner_id")
     private User owner;
 
