@@ -46,6 +46,18 @@
             flex-direction: column-reverse;
         }
 
+        .name {
+            font-weight: bold;
+        }
+
+        .message-container {
+            margin: 5px 0;
+        }
+
+        .time {
+            font-weight: normal;
+        }
+
 
     </style>
 
@@ -54,6 +66,9 @@
 
 <div id="messages">
     <div class="container" id="container" style="overflow-y:scroll;">
+        <div id="reverse-messages">
+
+        </div>
 
     </div>
     <form th:action="@{/messages/submit}" th:method="post" th:object="${message}">
@@ -83,13 +98,13 @@
             var html = '';
             messages.forEach(function (message) {
                 html += '<div class="message-container">';
-                html += '<span className="time-right">' + message.createDateTime + '</span>';
                 // html += '<img src="/w3images/bandmember.jpg" alt="Avatar">';
-                html += '<p>' + message.owner.firstName + message.owner.lastName + '</p>';
+                html += '<p class="name">' + message.owner.firstName + message.owner.lastName + '  <span class="time">' + message.createTime + '</span></p>';
+                // html += '<span className="time-right">' + message.createDateTime + '</span>';
                 html += '<p>' + message.body + '</p>';
                 html += '</div>';
             });
-            $('#messages div').html(html);
+            $('#container div').html(html);
         });
     })(jQuery);
 
