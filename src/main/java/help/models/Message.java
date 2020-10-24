@@ -6,7 +6,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "messages")
@@ -17,10 +19,16 @@ public class Message {
     private long id;
 
     @CreationTimestamp
-    private LocalDateTime createDateTime;
+    private LocalDate createDate;
+
+    @CreationTimestamp
+    private LocalTime createTime;
 
     @UpdateTimestamp
-    private LocalDateTime updateDateTime;
+    private LocalDate updateDate;
+
+    @UpdateTimestamp
+    private LocalTime updateTime;
 
     @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String body;
@@ -40,10 +48,12 @@ public class Message {
     //Empty constructor - do not delete/edit
     public Message(){}
 
-    public Message(long id, LocalDateTime createDateTime, LocalDateTime updateDateTime, String body, User owner) {
+    public Message(long id, LocalDate createDate, LocalTime createTime, LocalDate updateDate, LocalTime updateTime, String body, User owner) {
         this.id = id;
-        this.createDateTime = createDateTime;
-        this.updateDateTime = updateDateTime;
+        this.createDate = createDate;
+        this.createTime = createTime;
+        this.updateDate = updateDate;
+        this.updateTime = updateTime;
         this.body = body;
         this.owner = owner;
     }
@@ -56,20 +66,36 @@ public class Message {
         this.id = id;
     }
 
-    public LocalDateTime getCreateDateTime() {
-        return createDateTime;
+    public LocalDate getCreateDate() {
+        return createDate;
     }
 
-    public void setCreateDateTime(LocalDateTime createDateTime) {
-        this.createDateTime = createDateTime;
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
     }
 
-    public LocalDateTime getUpdateDateTime() {
-        return updateDateTime;
+    public LocalTime getCreateTime() {
+        return createTime;
     }
 
-    public void setUpdateDateTime(LocalDateTime updateDateTime) {
-        this.updateDateTime = updateDateTime;
+    public void setCreateTime(LocalTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDate getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public LocalTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalTime updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getBody() {
