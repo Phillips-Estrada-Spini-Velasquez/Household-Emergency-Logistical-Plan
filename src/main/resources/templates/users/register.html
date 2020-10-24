@@ -6,60 +6,62 @@
     <link th:replace="partials/links :: links"/>
 </head>
 <body>
-<header th:replace="partials/header :: header"></header>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="d-flex justify-content-center">
-<div class="card mt-5" style="width: 55rem;">
-    <div class="card-header">
-        <h1>Create an account</h1>
-    </div>
-
-<form th:action="@{/register}" method="POST" th:object="${user}">
-
-    <div class="d-flex flex-column">
-    <div class="d-flex flex-row justify-content-between">
-    <label for="username">Last name</label>
-    <input id="username" th:field="*{lastName}"/>
-
-    <label for="firstName">First name</label>
-    <input id="firstName" th:field="*{firstName}"/>
-
-    <label for="lastName">Username</label>
-    <input id="lastName" th:field="*{username}"/>
-    </div>
-
-
-    <br>
-
-    <div class="d-flex flex-row justify-content-center">
-        <div class="pr-3">
-    <label for="email"> Email</label>
-    <input id="email" th:field="*{email}"/>
+    <div class="card mt-5" style="width: 55rem;">
+        <div class="card-header">
+            <h1>Create an account</h1>
         </div>
 
+        <form th:action="@{/register}" method="POST" th:object="${user}">
 
-        <div class="pl-3">
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}"/>
-        </div>
-    </div>
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between">
+                    <label for="username">Last name</label>
+                    <input id="username" th:field="*{lastName}"/>
 
-        <label for="address">Address</label>
-        <input id="address" th:field="*{streetAddress}"/>
+                    <label for="firstName">First name</label>
+                    <input id="firstName" th:field="*{firstName}"/>
 
-        <label for="city">City</label>
-        <input id="city" th:field="*{city}"/>
+                    <label for="lastName">Username</label>
+                    <input id="lastName" th:field="*{username}"/>
+                </div>
 
-        <label for="state">State</label>
-        <input id="state" th:field="*{state}"/>
 
-        <label for="zip">Zip Code</label>
-        <input id="zip" th:field="*{zip}"/>
+                <br>
 
-    <div class="d-flex justify-content-end">
-    <input value="Sign me up -->" type="submit"/>
-    </div>
+                <div class="d-flex flex-row justify-content-between">
+                        <label for="email"> Email</label>
+                        <input id="email" th:field="*{email}"/>
+
+
+                        <label for="password">Password</label>
+                        <input id="password" type="password" th:field="*{password}"/>
+
+
+                    <label for="address">Address</label>
+                    <input id="address" th:field="*{streetAddress}"/>
+                </div>
+
+                <br>
+
+                <div class="d-flex flex-row justify-content-between">
+                    <label for="city">City</label>
+                    <input id="city" th:field="*{city}"/>
+
+                    <label for="state">State</label>
+                    <input id="state" th:field="*{state}"/>
+
+                    <label for="zip">Zip Code</label>
+                    <input id="zip" th:field="*{zip}"/>
+                </div>
+
+                <br>
+
+                <div class="d-flex justify-content-end">
+                    <input value="Sign me up -->" type="submit"/>
+                </div>
 
 
     </div>
@@ -67,6 +69,10 @@
 </form>
 </div>
 </div>
+
+<br>
+<br>
+<br>
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script th:replace="partials/scripts :: scripts"></script>

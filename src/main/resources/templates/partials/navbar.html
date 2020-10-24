@@ -16,11 +16,18 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
-                <a class="nav-item nav-link" href="/messages/create">New Post</a>
+                <a class="nav-item nav-link" href="/messages/submit">New Post</a>
                 <a class="nav-item nav-link" href="/messages">Messages</a>
-                <a class="nav-item nav-link" href="#">Emergency Groups</a>
+                <a class="nav-item nav-link" href="/messages/submit">General Info</a>
+                <a class="nav-item nav-link" href="#">Group Info</a>
+                <a class="nav-item nav-link" href="#">Our Team</a>
             </div>
         </div>
+
+        <form th:method="post"> <!--th:action="@{/The Plan}"-->
+            <button class="btn-link btn" style="margin-top: 8px">"The Plan"</button>
+        </form>
+
         <form th:action="@{/logout}" th:method="post">
             <button class="btn-link btn" style="margin-top: 8px">Logout</button>
         </form>
