@@ -1,4 +1,6 @@
 package help.controllers;
 
-public class ErrorController {
+
+public interface ErrorController {
+    String getErrorPath();
 }
