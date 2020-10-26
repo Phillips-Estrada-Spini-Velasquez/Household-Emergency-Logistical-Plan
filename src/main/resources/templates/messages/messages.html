@@ -5,10 +5,6 @@
     <title>Create A Post</title>
     <link th:replace="partials/links :: links"/>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
     <link rel="stylesheet" href="/static/css/messages.css">
 
 </head>
@@ -58,7 +54,7 @@
         <div class="panel panel-default">
             <div class="panel-collapse collapse in" id="collapseOne">
                 <div class="panel-body">
-                    <ul class="chat">
+                    <ul class="chat" style="list-style-type: none">
                         <li class="right clearfix">
                             <span class="chat-img pull-right">
                                 <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar"
@@ -75,34 +71,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Donnie Spini</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Tracy Velasquez</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -128,5 +97,5 @@
 </div>
             <footer th:replace="partials/footer :: footer"></footer>
             <div th:replace="partials/scripts :: scripts"></div>
-        </body>
-    </html>
+</body>
+</html>

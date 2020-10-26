@@ -10,16 +10,16 @@
 
             <h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
 
-            <main class="container">
-                <h2>Posts by this user:</h2>
-                <show_message th:if="${user.messages}">
-                    <div th:each="post : ${user.messages}">
-                        <h2 th:text="${message.title}"></h2>
-                        <p th:text="${message.description}"></p>
-                        <br>
-                    </div>
-                </show_message>
-            </main>
+<!--            <main class="container">-->
+<!--                <h2>Posts by this user:</h2>-->
+<!--                <show_message th:if="${user.messages}">-->
+<!--                    <div th:each="post : ${user.messages}">-->
+<!--                        <h2 th:text="${message.title}"></h2>-->
+<!--                        <p th:text="${message.description}"></p>-->
+<!--                        <br>-->
+<!--                    </div>-->
+<!--                </show_message>-->
+<!--            </main>-->
 
         <footer th:replace="partials/footer :: footer"></footer>
         <script th:replace="partials/scripts :: scripts"></script>
