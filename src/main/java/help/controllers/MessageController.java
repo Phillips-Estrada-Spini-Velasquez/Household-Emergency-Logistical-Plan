@@ -37,7 +37,7 @@ public class MessageController {
     }
 
     @PostMapping("/messages/submit")
-    public String createAd(@ModelAttribute Message message) {
+    public String createMessage(@ModelAttribute Message message) {
 
         // set flag values for a create email
         if (message.getId() == 0) {

@@ -3,6 +3,7 @@ package help.controllers;
 import help.models.Group;
 import help.models.User;
 import help.repositories.GroupRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +24,16 @@ public class GroupController {
         return "groups/create";
     }
     @PostMapping("/create")
-    public String saveUser(@ModelAttribute Group group){
-
+    public String createGroup(@ModelAttribute Group group){
+        // set flag values for a create email
+        if (group.getId() == 0) {
+            User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            group.setOwner(thisAuthor);
+        }
+        // set flag values for an edit email
+        else {
+            group.setOwner(groupDao.getOne(group.getId()).getOwner());
+        }
         groupDao.save(group);
         return "redirect:/profile";
     }

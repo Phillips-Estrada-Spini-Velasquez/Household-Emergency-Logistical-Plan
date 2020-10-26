@@ -52,6 +52,7 @@ public class User {
         password = copy.password;
     }
 
+//Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
     private List<Message> messages;
