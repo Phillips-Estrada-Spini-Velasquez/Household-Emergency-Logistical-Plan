@@ -52,28 +52,22 @@ public class User {
         password = copy.password;
     }
 
-    //Many to Many because many users x many group - casey suggested many to many but it makes me want to cry - lets discuss
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable (
-            name = "users_groups",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "group_id")}
-    )
-    private List<Group> groups;
-
 
     // method - link user to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
     private List<Message> messages;
 
+    @ManyToOne
+    @JoinColumn (name = "group_id")
+    private Group group;
+
 
     //Empty constructor - do not delete/edit
     public User() {
     }
 
-
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Group> groups) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Message> messages, Group group) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -85,15 +79,26 @@ public class User {
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.groups = groups;
+        this.messages = messages;
+        this.group = group;
     }
 
 
+    public List<Message> getMessages() {
+        return messages;
+    }
 
-    // Add copy for security
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 
+    public Group getGroup() {
+        return group;
+    }
 
-
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public long getId() {
         return id;
@@ -182,16 +187,4 @@ public class User {
     public void setZip(long zip) {
         this.zip = zip;
     }
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
-
-
-
-
 }

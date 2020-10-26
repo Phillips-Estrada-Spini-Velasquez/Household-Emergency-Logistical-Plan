@@ -20,8 +20,12 @@ public class Group {
     private String rallyPointCoordinates;
 
     //One to Many because one group x many users
-    @ManyToMany(mappedBy = "groups")
+    @OneToMany(mappedBy = "group")
     private List<User> users;
+
+    // One to Many because one group x many messages
+    @OneToMany(mappedBy = "group")
+    private List<Message> messages;
 
     //Empty constructor - do not delete/edit
     public Group(){}
