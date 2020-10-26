@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error 403</title>
+    <link th:replace="partials/links :: links"/>
+    <link rel="stylesheet" th:href="@{/css/404.css}">
+</head>
+<body>
+
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<h1>Something went wrong! </h1>
+<h2>Our Engineers are on it</h2>
+<a href="/login">Go Home</a>
+</body>
+</html>
