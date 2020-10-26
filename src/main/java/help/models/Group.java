@@ -20,15 +20,23 @@ public class Group {
     private String rallyPointCoordinates;
 
     //One to Many because one group x many users
-    @OneToMany(mappedBy = "group")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     private List<User> users;
 
     // One to Many because one group x many messages
-    @OneToMany(mappedBy = "group")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     private List<Message> messages;
 
     //Empty constructor - do not delete/edit
     public Group(){}
+
+    public Group(long id, String name, String rallyPointCoordinates, List<User> users, List<Message> messages) {
+        this.id = id;
+        this.name = name;
+        this.rallyPointCoordinates = rallyPointCoordinates;
+        this.users = users;
+        this.messages = messages;
+    }
 
     public Group(long id, String name, String rallyPointCoordinates, List<User> users) {
         this.id = id;
@@ -67,5 +75,13 @@ public class Group {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

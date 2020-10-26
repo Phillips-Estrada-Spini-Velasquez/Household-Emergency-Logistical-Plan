@@ -52,16 +52,14 @@ public class User {
         password = copy.password;
     }
 
-
-    // method - link user to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
     private List<Message> messages;
 
+//   Many users to one group
     @ManyToOne
     @JoinColumn (name = "group_id")
     private Group group;
-
 
     //Empty constructor - do not delete/edit
     public User() {
@@ -80,23 +78,6 @@ public class User {
         this.state = state;
         this.zip = zip;
         this.messages = messages;
-        this.group = group;
-    }
-
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
         this.group = group;
     }
 
@@ -186,5 +167,21 @@ public class User {
 
     public void setZip(long zip) {
         this.zip = zip;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

@@ -23,7 +23,8 @@ public class GroupController {
         return "groups/create";
     }
     @PostMapping("/create")
-    public String saveUser(@ModelAttribute Group group, User user){
+    public String saveUser(@ModelAttribute Group group){
+
         groupDao.save(group);
         return "redirect:/profile";
     }

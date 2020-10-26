@@ -39,7 +39,7 @@ public class Message {
     @JoinColumn (name = "owner_id")
     private User owner;
 
-    //Messages to User will be many-to-one because many messages can be posted by one group
+    //Groups to User will be many-to-one because many messages can be posted by one group
     @ManyToOne
     @JoinColumn (name = "group_id")
     private Group group;
