@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create Your Group</title>
+    <link th:replace="partials/links :: links"/>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="d-flex justify-content-center">
+    <div class="card mt-5" style="width: 55rem;">
+        <div class="card-header">
+            <h1>Create Your Group</h1>
+        </div>
+
+        <form th:action="@{/create}" method="POST" th:object="${group}">
+
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between">
+                    <label for="username">Last name</label>
+                    <input id="username" th:field="*{name}"/>
+
+                    <label for="firstName">First name</label>
+                    <input id="firstName" th:field="*{rallyPointCoordinates}"/>
+
+                    <div class="d-flex justify-content-end">
+                        <input value="Sign me up -->" type="submit"/>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/scripts :: scripts"></script>
+
+</body>
+</html>
