@@ -24,7 +24,6 @@ public class GroupController {
     }
     @PostMapping("/create")
     public String saveUser(@ModelAttribute Group group, User user){
-        group.setId(usereDao.getOne(message.getId()).getOwner());
         groupDao.save(group);
         return "redirect:/profile";
     }
