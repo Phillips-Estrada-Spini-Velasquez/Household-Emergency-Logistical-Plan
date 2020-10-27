@@ -17,18 +17,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav flex align-center">
-                <a class="nav-item nav-link" href="/messages/submit">New Post</a>
                 <a class="nav-item nav-link" href="/messages">Messages</a>
-                <a class="nav-item nav-link" href="/messages/submit">General Info</a>
-                <a class="nav-item nav-link" href="#">Our Team</a>
-                <button type="button" class="btn-link btn">Register
-                </button>
-                <button type="button" class="btn-link btn"><a class="nav-item nav-link" href="/register">Register</a>
-                </button>
-                <button type="button" class="btn-link btn">The Plan
-                    <form th:method="post"> <!--th:action="@{/The Plan}"-->
-                    </form>
-                </button>
+                <a class="nav-item nav-link" href="/general-info">General Info</a>
+                <a class="nav-item nav-link" href="-our-team">Our Team</a>
+                <button type="button" class="btn-link btn"><a class="nav-item nav-link" href="/register">Register</a></button>
+                <button type="button" class="btn-link btn"><a class="nav-item nav-link" href="/login">Login</a></button>
+                <button type="button" class="btn-link btn"><a class="nav-item nav-link" href="/the-plan">The Plan</a></button>
                 <button type="button" class="btn-link btn" style="">Logout
                     <form th:action="@{/logout}" th:method="post">
                     </form>
