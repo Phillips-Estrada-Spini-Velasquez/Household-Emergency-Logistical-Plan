@@ -45,19 +45,12 @@ public class User {
     @Column(columnDefinition = "integer default 9")
     private long zip;
 
-    public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-    }
-
-//Owner to messages
+    //Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
     private List<Message> messages;
 
-//   Many users to one group
+    //Many users to one group
     @ManyToOne
     @JoinColumn (name = "group_id")
     private Group group;
@@ -80,6 +73,13 @@ public class User {
         this.zip = zip;
         this.messages = messages;
         this.group = group;
+    }
+
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
     }
 
     public long getId() {
