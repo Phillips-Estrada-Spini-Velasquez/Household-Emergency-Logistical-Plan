@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:fragment="head">
     <meta charset="UTF-8" />
     <title>Home</title>
@@ -8,12 +8,16 @@
 </head>
 <body>
 <nav th:fragment="navbar">
+
+    <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+    <span th:case="${true}">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Household Emergency Logistic Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavMarkup">
             <div class="navbar-nav">
                 <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
                 <a class="nav-item nav-link" href="/messages/submit">New Post</a>
@@ -32,8 +36,37 @@
             <button class="btn-link btn" style="margin-top: 8px">Logout</button>
         </form>
     </nav>
+    </span>
+
+    <span th:case="${false}">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Household Emergency Logistic Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
+                <a class="nav-item nav-link" href="/messages/submit">New Post</a>
+                <a class="nav-item nav-link" href="/messages">Messages</a>
+                <a class="nav-item nav-link" href="/messages/submit">General Info</a>
+                <a class="nav-item nav-link" href="#">Group Info</a>
+                <a class="nav-item nav-link" href="#">Our Team</a>
+            </div>
+        </div>
+
+        <form th:action="@{/register}" th:method="get">
+            <button class="btn-link btn" style="margin-top: 8px">Register</button>
+        </form>
+
+        <form th:action="@{/login}" th:method="post">
+            <button class="btn-link btn" style="margin-top: 8px">Login</button>
+        </form>
+    </nav>
+    </span>
+
+</div>
 </nav>
-
-
 </body>
 </html>
