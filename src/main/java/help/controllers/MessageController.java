@@ -30,8 +30,7 @@ public class MessageController {
 
 
     @GetMapping("/messages.json")
-    public @ResponseBody
-    List<Message> viewAllMessagesInJSONFormat() {
+    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
         return messageDao.findAll();
     }
 
@@ -44,17 +43,32 @@ public class MessageController {
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
 
-        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        message.setOwner(thisAuthor);
-
-        Group thisGroup = groupDao.getOne(message.getOwner().getId());
-        List<Message> messages = thisGroup.getMessages();
-        messages.add(message);
-        thisGroup.setMessages(messages);
-        groupDao.save(thisGroup);
+        // set flag values for a create email
+        if (message.getId() == 0) {
+            User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            message.setOwner(thisAuthor);
+            Group thisGroup = groupDao.getOne(message.getOwner().getId());
+            List<Message> messages = thisGroup.getMessages();
+            messages.add(message);
+            thisGroup.setMessages(messages);
+            groupDao.save(thisGroup);
+        }
+        // set flag values for an edit email
+        else {
+            message.setOwner(messageDao.getOne(message.getId()).getOwner());
+        }
         messageDao.save(message);
         return "redirect:/messages";
     }
+
+
+
+
+
+
+
+
+
 
 
 //    @PostMapping("/messages/submit")
@@ -89,6 +103,8 @@ public class MessageController {
 //        postRepo.save(post);
 //        return "redirect:/posts/" + post.getId();
 //    }
+
+
 
 
     //    @GetMapping(path = "/messages")
