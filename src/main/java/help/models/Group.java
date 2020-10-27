@@ -1,6 +1,8 @@
 package help.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -32,6 +34,7 @@ public class Group {
 
     // One to Many because one group x many messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+//    @JsonBackReference
     private List<Message> messages;
 
     //Empty constructor - do not delete/edit
