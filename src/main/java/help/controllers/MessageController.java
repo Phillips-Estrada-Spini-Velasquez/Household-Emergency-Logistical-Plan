@@ -1,7 +1,9 @@
 package help.controllers;
 
+import help.models.Group;
 import help.models.Message;
 import help.models.User;
+import help.repositories.GroupRepository;
 import help.repositories.MessageRepository;
 import help.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,17 +18,20 @@ public class MessageController {
 
     private final MessageRepository messageDao;
     private final UserRepository userDao;
+    private final GroupRepository groupDao;
 //    private final EmailService emailService;
 
-    public MessageController(MessageRepository messageDao, UserRepository userDao) {
+    public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;
 //email service
+        this.groupDao = groupDao;
     }
 
 
     @GetMapping("/messages.json")
-    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
+    public @ResponseBody
+    List<Message> viewAllMessagesInJSONFormat() {
         return messageDao.findAll();
     }
 
@@ -39,18 +44,18 @@ public class MessageController {
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
 
-        // set flag values for a create email
-        if (message.getId() == 0) {
-            User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            message.setOwner(thisAuthor);
-        }
-        // set flag values for an edit email
-        else {
-            message.setOwner(messageDao.getOne(message.getId()).getOwner());
-        }
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        message.setOwner(thisAuthor);
+
+        Group thisGroup = groupDao.getOne(message.getOwner().getId());
+        List<Message> messages = thisGroup.getMessages();
+        messages.add(message);
+        thisGroup.setMessages(messages);
+        groupDao.save(thisGroup);
         messageDao.save(message);
         return "redirect:/messages";
     }
+
 
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
@@ -84,8 +89,6 @@ public class MessageController {
 //        postRepo.save(post);
 //        return "redirect:/posts/" + post.getId();
 //    }
-
-
 
 
     //    @GetMapping(path = "/messages")
