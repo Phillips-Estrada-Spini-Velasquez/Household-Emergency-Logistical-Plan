@@ -90,7 +90,6 @@ public class Group {
         this.users = users;
     }
 
-
     public List<Message> getMessages() {
         return messages;
     }
