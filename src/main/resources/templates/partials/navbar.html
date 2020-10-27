@@ -1,36 +1,40 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Home</title>
-    <link th:fragment="bootstrap-css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:fragment="bootstrap-css" rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 <nav th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Household Emergency Logistic Planner</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="/">HELP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
+            <div class="navbar-nav flex align-center">
                 <a class="nav-item nav-link" href="/messages/submit">New Post</a>
                 <a class="nav-item nav-link" href="/messages">Messages</a>
                 <a class="nav-item nav-link" href="/messages/submit">General Info</a>
-                <a class="nav-item nav-link" href="#">Group Info</a>
                 <a class="nav-item nav-link" href="#">Our Team</a>
+                <button type="button" class="btn-link btn">Register
+                </button>
+                <button type="button" class="btn-link btn"><a class="nav-item nav-link" href="/register">Register</a>
+                </button>
+                <button type="button" class="btn-link btn">The Plan
+                    <form th:method="post"> <!--th:action="@{/The Plan}"-->
+                    </form>
+                </button>
+                <button type="button" class="btn-link btn" style="">Logout
+                    <form th:action="@{/logout}" th:method="post">
+                    </form>
+                </button>
             </div>
         </div>
-
-        <form th:method="post"> <!--th:action="@{/The Plan}"-->
-            <button class="btn-link btn" style="margin-top: 8px">"The Plan"</button>
-        </form>
-
-        <form th:action="@{/logout}" th:method="post">
-            <button class="btn-link btn" style="margin-top: 8px">Logout</button>
-        </form>
     </nav>
 </nav>
 

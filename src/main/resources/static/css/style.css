@@ -7,3 +7,15 @@
     background-size: cover;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+body, p {
+    font-family: 'Raleway', sans-serif;
+}
