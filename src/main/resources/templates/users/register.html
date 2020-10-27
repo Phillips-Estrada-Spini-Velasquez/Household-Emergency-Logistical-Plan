@@ -11,63 +11,120 @@
 <div class="d-flex justify-content-center">
     <div class="card mt-5" style="width: 55rem;">
         <div class="card-header">
-            <h1>Create an account</h1>
+            <h1>Create An Account</h1>
         </div>
 
         <form th:action="@{/register}" method="POST" th:object="${user}">
-
-            <div class="d-flex flex-column">
-                <div class="d-flex flex-row justify-content-between">
-                    <label for="username">Last name</label>
-                    <input id="username" th:field="*{lastName}"/>
-
-                    <label for="firstName">First name</label>
-                    <input id="firstName" th:field="*{firstName}"/>
-
-                    <label for="lastName">Username</label>
-                    <input id="lastName" th:field="*{username}"/>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName4" placeholder="Email" th:field="*{firstName}">
                 </div>
-
-
-                <br>
-
-                <div class="d-flex flex-row justify-content-between">
-                        <label for="email"> Email</label>
-                        <input id="email" th:field="*{email}"/>
-
-
-                        <label for="password">Password</label>
-                        <input id="password" type="password" th:field="*{password}"/>
-
-
-                    <label for="address">Address</label>
-                    <input id="address" th:field="*{streetAddress}"/>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Last Name</label>
+                    <input type="text" class="form-control" id="InputLastName4" placeholder="Password"
+                           th:field="*{lastName}">
                 </div>
-
-                <br>
-
-                <div class="d-flex flex-row justify-content-between">
-                    <label for="city">City</label>
-                    <input id="city" th:field="*{city}"/>
-
-                    <label for="state">State</label>
-                    <input id="state" th:field="*{state}"/>
-
-                    <label for="zip">Zip Code</label>
-                    <input id="zip" th:field="*{zip}"/>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Username</label>
+                    <input type="text" class="form-control" id="Username4" placeholder="Password"
+                           th:field="*{username}">
                 </div>
-
-                <br>
-
-                <div class="d-flex justify-content-end">
-                    <input value="Sign me up -->" type="submit"/>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" th:field="*{email}">
                 </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password"
+                           th:field="*{password}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                       th:field="*{streetAddress}">
+            </div>
+            <!--                <div class="form-group">-->
+            <!--                    <label for="inputAddress2">Address 2</label>-->
+            <!--                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">-->
+            <!--                </div>-->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <input type="text" class="form-control" id="inputState" th:field="*{state}"/>
+
+                    <!--                    <select id="inputState" class="form-control" th:field="*{state}">-->
+<!--                        <option selected>Choose...</option>-->
+<!--                        <option>Alabama</option>-->
+<!--                        <option>Alaska</option>-->
+<!--                        &lt;!&ndash;    fill in later&ndash;&gt;-->
+<!--                    </select>-->
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" th:field="*{zip}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+        <!--            <div class="d-flex flex-column">-->
+        <!--                <div class="d-flex flex-row justify-content-between">-->
+        <!--                    <label for="firstName">First name</label>-->
+        <!--                    <input id="firstName" th:field="*{firstName}"/>-->
+        <!--                    <label for="username">Last name</label>-->
+        <!--                    <input id="username" th:field="*{lastName}"/>-->
+        <!--                    <label for="lastName">Username</label>-->
+        <!--                    <input id="lastName" th:field="*{username}"/>-->
+        <!--                </div>-->
 
 
+        <!--                <br>-->
+
+        <!--                <div class="d-flex flex-row justify-content-between">-->
+        <!--                        <label for="email"> Email</label>-->
+        <!--                        <input id="email" th:field="*{email}"/>-->
+
+
+        <!--                        <label for="password">Password</label>-->
+        <!--                        <input id="password" type="password" th:field="*{password}"/>-->
+
+
+        <!--                    <label for="address">Address</label>-->
+        <!--                    <input id="address" th:field="*{streetAddress}"/>-->
+        <!--                </div>-->
+
+        <!--                <br>-->
+
+        <!--                <div class="d-flex flex-row justify-content-between">-->
+        <!--                    <label for="city">City</label>-->
+        <!--                    <input id="city" th:field="*{city}"/>-->
+
+        <!--                    <label for="state">State</label>-->
+        <!--                    <input id="state" th:field="*{state}"/>-->
+
+        <!--                    <label for="zip">Zip Code</label>-->
+        <!--                    <input id="zip" th:field="*{zip}"/>-->
+        <!--                </div>-->
+
+        <!--                <br>-->
+
+        <!--                <div class="d-flex justify-content-end">-->
+        <!--                    <input value="Sign me up &ndash;&gt;" type="submit"/>-->
+        <!--                </div>-->
+
+
+        <!--    </div>-->
+
+        <!--</form>-->
     </div>
-
-</form>
-</div>
 </div>
 
 <br>

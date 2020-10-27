@@ -6,8 +6,7 @@
     <div th:replace="partials/links :: links"></div>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <link th:replace="partials/links :: links"/>
-
-    <!--    <link rel="stylesheet" href="/static/css/messages.css">-->
+    <link rel="stylesheet" href="/static/css/messages.css">
     <style>
         /* Chat containers */
         .container {
@@ -65,7 +64,7 @@
 
 </head>
 <body>
-
+<h1>Send a Message to Your Group</h1>
 <div id="messages">
     <div class="container" id="container" style="overflow-y:scroll;">
         <div id="reverse-messages">
@@ -85,14 +84,6 @@
 
 <!-- include the JS file with the AJAX request -->
 <script type="text/javascript">
-
-    // $(document).ready(function() {
-    //     $(".message-container").hover(function () {
-    //         $(this).css("background-color", "yellow");
-    //     }, function () {
-    //         $(this).css("background-color", "pink");
-    //     });
-    // });
 
     (function ($) {
         var request = $.ajax({'url': '/messages.json'});

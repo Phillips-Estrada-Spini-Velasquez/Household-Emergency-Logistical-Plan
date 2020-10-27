@@ -45,35 +45,21 @@ public class User {
     @Column(columnDefinition = "integer default 9")
     private long zip;
 
-    public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
-    }
-
-    //Many to Many because many users x many group - casey suggested many to many but it makes me want to cry - lets discuss
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable (
-            name = "users_groups",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "group_id")}
-    )
-    private List<Group> groups;
-
-
-    // method - link user to messages
+    //Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
     private List<Message> messages;
 
+    //Many users to one group
+    @ManyToOne
+    @JoinColumn (name = "group_id")
+    private Group group;
 
     //Empty constructor - do not delete/edit
     public User() {
     }
 
-
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Group> groups) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Message> messages, Group group) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -85,15 +71,16 @@ public class User {
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.groups = groups;
+        this.messages = messages;
+        this.group = group;
     }
 
-
-
-    // Add copy for security
-
-
-
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
 
     public long getId() {
         return id;
@@ -183,15 +170,19 @@ public class User {
         this.zip = zip;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
+    public Group getGroup() {
+        return group;
+    }
 
-
-
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }

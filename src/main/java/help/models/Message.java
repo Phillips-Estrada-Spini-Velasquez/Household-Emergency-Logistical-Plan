@@ -39,16 +39,20 @@ public class Message {
     @JoinColumn (name = "owner_id")
     private User owner;
 
+    //Groups to User will be many-to-one because many messages can be posted by one group
+    @ManyToOne
+    @JoinColumn (name = "group_id")
+    private Group group;
+
     //Do we need to add a group id (think we can pull group_id from user )
 
     // extract group id method
 
 
-
     //Empty constructor - do not delete/edit
     public Message(){}
 
-    public Message(long id, LocalDate createDate, LocalTime createTime, LocalDate updateDate, LocalTime updateTime, String body, User owner) {
+    public Message(long id, LocalDate createDate, LocalTime createTime, LocalDate updateDate, LocalTime updateTime, String body, User owner, Group group) {
         this.id = id;
         this.createDate = createDate;
         this.createTime = createTime;
@@ -56,6 +60,7 @@ public class Message {
         this.updateTime = updateTime;
         this.body = body;
         this.owner = owner;
+        this.group = group;
     }
 
     public long getId() {
@@ -112,5 +117,13 @@ public class Message {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
