@@ -1,7 +1,9 @@
 package help.controllers;
 
+import help.models.Group;
 import help.models.Message;
 import help.models.User;
+import help.repositories.GroupRepository;
 import help.repositories.MessageRepository;
 import help.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,12 +18,14 @@ public class MessageController {
 
     private final MessageRepository messageDao;
     private final UserRepository userDao;
+    private final GroupRepository groupDao;
 //    private final EmailService emailService;
 
-    public MessageController(MessageRepository messageDao, UserRepository userDao) {
+    public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;
 //email service
+        this.groupDao = groupDao;
     }
 
 
@@ -39,15 +43,14 @@ public class MessageController {
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
 
-        // set flag values for a create email
-        if (message.getId() == 0) {
-            User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            message.setOwner(thisAuthor);
-        }
-        // set flag values for an edit email
-        else {
-            message.setOwner(messageDao.getOne(message.getId()).getOwner());
-        }
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        message.setOwner(thisAuthor);
+        User thisUser = userDao.getOne(thisAuthor.getId());
+
+        Group authorGroup = thisUser.getGroup();
+        long groupId = authorGroup.getId();
+        Group currentGroup = groupDao.getOne(groupId);
+        message.setGroup(currentGroup);
         messageDao.save(message);
         return "redirect:/messages";
     }
