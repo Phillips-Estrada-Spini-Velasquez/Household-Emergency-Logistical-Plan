@@ -22,15 +22,18 @@ public class MessageController {
 //email service
         this.groupDao = groupDao;
     }
+
     @GetMapping("/messages.json")
     public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
         return messageDao.findAll();
     }
+
     @GetMapping("/messages")
     public String viewAllMessagesWithAjax(Model model) {
         model.addAttribute("message", new Message());
         return "messages/ajax";
     }
+
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
