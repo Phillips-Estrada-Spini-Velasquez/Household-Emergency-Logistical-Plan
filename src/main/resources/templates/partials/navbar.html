@@ -21,13 +21,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavMarkup">
             <div class="navbar-nav">
-                <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
+
+                <a class="nav-item nav-link" href="/profile">Profile</a>
                 <a class="nav-item nav-link" href="/messages">Messages</a>
                 <a class="nav-item nav-link" href="/">General Info</a>
                 <a class="nav-item nav-link" href="/groups/create">Group Info</a>
-                <a class="nav-item nav-link" href="/profile">Profile</a>
+                <a class="nav-item nav-link" href="#">Our Team</a>
+
             </div>
         </div>
+
+        <form th:action="@{/#}" th:method="post">
+            <button class="btn-link btn" style="margin-top: 8px">"THE PLAN"</button>
+        </form>
 
         <form th:action="@{/logout}" th:method="post">
             <button class="btn-link btn" style="margin-top: 8px">Logout</button>
@@ -45,10 +51,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!--                <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>-->
-                <a class="nav-item nav-link" href="/messages">Messages</a>
                 <a class="nav-item nav-link" href="/">General Info</a>
-                <a class="nav-item nav-link" href="/groups/create">Group Info</a>
-                <a class="nav-item nav-link" href="/profile">Profile</a>
+                <a class="nav-item nav-link" href="/#">Our Team</a>
+
             </div>
         </div>
 
