@@ -11,5 +11,14 @@ public class HomeController {
         return "/home";
     }
 
+    @GetMapping("/the-plan")
+    public String showThePlan() {
+        return "/the-plan/the-plan";
+    }
+
+    @GetMapping("/the-checklist")
+    public String showTheChecklist() {
+        return "the-plan/the-checklist";
+    }
 
 }
