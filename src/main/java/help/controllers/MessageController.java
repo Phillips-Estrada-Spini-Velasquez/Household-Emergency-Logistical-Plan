@@ -1,5 +1,4 @@
 package help.controllers;
-
 import help.models.Group;
 import help.models.Message;
 import help.models.User;
@@ -10,54 +9,41 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
 public class MessageController {
-
     private final MessageRepository messageDao;
     private final UserRepository userDao;
     private final GroupRepository groupDao;
-//    private final EmailService emailService;
-
+    //    private final EmailService emailService;
     public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;
 //email service
         this.groupDao = groupDao;
     }
-
-
     @GetMapping("/messages.json")
-    public @ResponseBody
-    List<Message> viewAllMessagesInJSONFormat() {
+    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
         return messageDao.findAll();
     }
-
     @GetMapping("/messages")
     public String viewAllMessagesWithAjax(Model model) {
         model.addAttribute("message", new Message());
         return "messages/ajax";
     }
-
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
-
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        Group thisGroup = (Group) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         message.setOwner(thisAuthor);
-        Group currentGroup = groupDao.getOne(message.getGroup().getId());
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        Group authorGroup = thisUser.getGroup();
+        long groupId = authorGroup.getId();
+        Group currentGroup = groupDao.getOne(groupId);
         message.setGroup(currentGroup);
-        List<Message> messages = currentGroup.getMessages();
-        messages.add(message);
-        currentGroup.setMessages(messages);
         messageDao.save(message);
-        groupDao.save(currentGroup);
         return "redirect:/messages";
     }
-
-
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
 //        long userId = user.getId();
@@ -67,8 +53,6 @@ public class MessageController {
 //        return "redirect:/messages";
 //    }
 //
-
-
 //    @PostMapping("/posts/create")
 //    public String postPost(@ModelAttribute Post post) {
 //        String update;
@@ -90,16 +74,12 @@ public class MessageController {
 //        postRepo.save(post);
 //        return "redirect:/posts/" + post.getId();
 //    }
-
-
     //    @GetMapping(path = "/messages")
 //    public String createMessageForm(Model model) {
 //        model.addAttribute("message", new Message());
 //        model.addAttribute("user", userDao.getOne(1L));
 //        return "/messages/ajax";
 //    }
-
-
 //    @GetMapping("/messages/show/{id}")
 //    public String getMessageById(@PathVariable long id, Model model) {
 //        model.addAttribute("message", messageDao.getOne(id));
@@ -107,7 +87,6 @@ public class MessageController {
 ////        model.addAttribute("email", userDao.getOne(1L).getEmail());
 //        return "/messages/show";
 //    }
-
 //    @GetMapping(path = "/messages/{id}/edit")
 //    public String editMessageForm(@PathVariable long id, Model model) {
 //        Message message = messageDao.getOne(id);
@@ -134,5 +113,4 @@ public class MessageController {
 ////        emailService.prepareAndSendPost(message, ("Post Deleted: " + message.getTitle()), message.getBody());
 //        return "/messages/delete-message";
 //    }
-
 }
