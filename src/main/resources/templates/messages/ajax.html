@@ -6,7 +6,7 @@
     <div th:replace="partials/links :: links"></div>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <link th:replace="partials/links :: links"/>
-    <link rel="stylesheet" href="/static/css/messages.css">
+<!--    <link rel="stylesheet" href="/static/css/messages.css">-->
     <style>
         /* Chat containers */
         .container {
@@ -17,30 +17,6 @@
             height: 400px;
             margin: 0;
         }
-
-        /* Clear floats */
-        /*.container::after {*/
-        /*    content: "";*/
-        /*    clear: both;*/
-        /*    display: table;*/
-        /*}*/
-
-        /*!* Style images *!*/
-        /*.container img {*/
-        /*    float: left;*/
-        /*    max-width: 60px;*/
-        /*    width: 100%;*/
-        /*    margin-right: 20px;*/
-        /*    border-radius: 50%;*/
-        /*}*/
-
-        /* Style the right image */
-        /*.container img.right {*/
-        /*    float: right;*/
-        /*    margin-left: 20px;*/
-        /*    margin-right: 0;*/
-        /*}*/
-
 
         #container {
             display: flex;
@@ -93,7 +69,6 @@
                 html += '<div class="message-container">';
                 // html += '<img src="/w3images/bandmember.jpg" alt="Avatar">';
                 html += '<p class="name">' + message.owner.firstName + ' ' + message.owner.lastName + '  <span class="time">' + message.createTime + '</span></p>';
-                // html += '<span className="time-right">' + message.createDateTime + '</span>';
                 html += '<p>' + message.body + '</p>';
                 html += '</div>';
             });

@@ -10,13 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
 @Controller
 public class MessageController {
     private final MessageRepository messageDao;
     private final UserRepository userDao;
     private final GroupRepository groupDao;
-    //    private final EmailService emailService;
+//    private final EmailService emailService;
     public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;

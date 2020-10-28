@@ -29,13 +29,15 @@ public class GroupController {
 
     @PostMapping("/create")
     public String createGroup(@ModelAttribute Group group) {
-        // set flag values for a create email
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
         group.setOwner(thisAuthor);
-        User thisUser = userDao.getOne(group.getOwner().getId());
-        thisUser.setGroup(group);
         groupDao.save(group);
+        thisUser.setGroup(group);
         userDao.save(thisUser);
+
+//        groupDao.save(group);
         return "redirect:/profile";
+
     }
 }
