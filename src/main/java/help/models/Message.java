@@ -50,7 +50,6 @@ public class Message {
     // extract group id method
 
 
-
     //Empty constructor - do not delete/edit
     public Message(){}
 

@@ -30,7 +30,8 @@ public class MessageController {
 
 
     @GetMapping("/messages.json")
-    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
+    public @ResponseBody
+    List<Message> viewAllMessagesInJSONFormat() {
         return messageDao.findAll();
     }
 
@@ -52,8 +53,10 @@ public class MessageController {
         Group currentGroup = groupDao.getOne(groupId);
         message.setGroup(currentGroup);
         messageDao.save(message);
+        groupDao.save(currentGroup);
         return "redirect:/messages";
     }
+
 
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
@@ -87,8 +90,6 @@ public class MessageController {
 //        postRepo.save(post);
 //        return "redirect:/posts/" + post.getId();
 //    }
-
-
 
 
     //    @GetMapping(path = "/messages")
