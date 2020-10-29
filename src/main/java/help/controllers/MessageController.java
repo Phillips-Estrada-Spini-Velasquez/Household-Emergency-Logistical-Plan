@@ -25,14 +25,33 @@ public class MessageController {
 
     @GetMapping("/messages.json")
     public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
-        return messageDao.findAll();
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return messageDao.findByGroupId(thisUser.getGroupID());
     }
 
     @GetMapping("/messages")
-    public String viewAllMessagesWithAjax(Model model) {
+    public String redirectToId() {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/messages/" + thisUser.getGroup().getId();
+    }
+
+
+    @GetMapping("/messages/{id}")
+    public String viewAllMessagesWithAjax(@PathVariable long id, Model model) {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        model.addAttribute("id", thisUser.getGroup().getId());
+        if (thisUser.getGroup().getId() == id) {
         model.addAttribute("message", new Message());
         return "messages/ajax";
+        }
+        return "/home";
     }
+
+    // if group_id == current group display messages
+    // grab group_id from messages --> if group_id in messages == group_id in users --> display messages
 
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
