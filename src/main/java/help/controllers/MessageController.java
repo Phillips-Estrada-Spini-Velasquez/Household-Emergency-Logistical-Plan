@@ -25,7 +25,16 @@ public class MessageController {
 
     @GetMapping("/messages.json")
     public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
-        return messageDao.findAll();
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return messageDao.findByGroupId(thisUser.getGroupID());
+    }
+
+    @GetMapping("/messages")
+    public String redirectToId() {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/messages/" + thisUser.getGroup().getId();
     }
 
 
@@ -35,8 +44,8 @@ public class MessageController {
         User thisUser = userDao.getOne(thisAuthor.getId());
         model.addAttribute("id", thisUser.getGroup().getId());
         if (thisUser.getGroup().getId() == id) {
-            model.addAttribute("message", new Message());
-            return "messages/ajax";
+        model.addAttribute("message", new Message());
+        return "messages/ajax";
         }
         return "/home";
     }
@@ -54,7 +63,7 @@ public class MessageController {
         Group currentGroup = groupDao.getOne(groupId);
         message.setGroup(currentGroup);
         messageDao.save(message);
-        return "redirect:/messages/{id}";
+        return "redirect:/messages";
     }
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
