@@ -18,16 +18,16 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName4" placeholder="Email" th:field="*{firstName}">
+                    <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name" th:field="*{firstName}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">Last Name</label>
-                    <input type="text" class="form-control" id="InputLastName4" placeholder="Password"
+                    <input type="text" class="form-control" id="InputLastName4" placeholder="Last Name"
                            th:field="*{lastName}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">Username</label>
-                    <input type="text" class="form-control" id="Username4" placeholder="Password"
+                    <input type="text" class="form-control" id="Username4" placeholder="Username"
                            th:field="*{username}">
                 </div>
             </div>
@@ -54,11 +54,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                    <input type="text" class="form-control" id="inputCity" th:field="*{city}" placeholder="City">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState" th:field="*{state}"/>
+                    <input type="text" class="form-control" id="inputState" th:field="*{state}" placeholder="State"/>
 
                     <!--                    <select id="inputState" class="form-control" th:field="*{state}">-->
 <!--                        <option selected>Choose...</option>-->
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip" th:field="*{zip}">
+                    <input type="text" class="form-control" id="inputZip" th:field="*{zip}" placeholder="55555">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
