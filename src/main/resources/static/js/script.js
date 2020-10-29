@@ -67,6 +67,7 @@ var map = new mapboxgl.Map({
     preserveDrawingBuffer: true
 });
 
+map.scrollZoom.disable();
 
 map.addControl(
     new MapboxDirections({

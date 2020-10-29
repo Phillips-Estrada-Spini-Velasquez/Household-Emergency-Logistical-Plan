@@ -1,395 +1,414 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>The-Checklist Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The-Checklist Page</title>
 
-        <link th:replace="partials/checklist-links :: links"/>
+    <link th:replace="partials/checklist-links :: links"/>
 
-    </head>
-    <body>
-        <!--<header th:replace="partials/header :: header"></header>-->
-        <nav th:replace="partials/navbar :: navbar"></nav>
-        <hr>
+</head>
+<body>
+<!--<header th:replace="partials/header :: header"></header>-->
+<nav th:replace="partials/navbar :: navbar"></nav>
+<hr>
 
-        <!--JUMBOTRON -->
-        <section class="container-fluid">
-            <div class="jumbotron"></div>
-        </section>
+<!--JUMBOTRON -->
+<section class="container-fluid">
+    <div class="jumbotron"></div>
+</section>
 
-        <!--CHECKLIST MAIN HEADER-->
-        <section class="container-fluid" id="container">
-            <h1 class="d-flex justify-content-center font-weight-bold">Checklist & Links for 72 Hour Emergency Preparedness
-                <!--TOOLTIPS #2-->
-                <div class="arrowpopup font-weight-bold ml-4 blinking" role="alert" onclick="toolTipClickMe()">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                        <circle cx="8" cy="4.5" r="1"/>
-                    </svg>
-                    <span class="tooltiptext" id="tooltipClickMe">Go-bags and essential supplies can be prepared with some creative thinking and a low budget.<br><br>
+<!--CHECKLIST MAIN HEADER-->
+<section class="container-fluid" id="container">
+    <h1 class="d-flex justify-content-center font-weight-bold">Checklist & Links for 72 Hour Emergency Preparedness
+        <!--TOOLTIPS #2-->
+        <div class="arrowpopup font-weight-bold ml-4 blinking" role="alert" onclick="toolTipClickMe()">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                <circle cx="8" cy="4.5" r="1"/>
+            </svg>
+            <span class="tooltiptext" id="tooltipClickMe">Go-bags and essential supplies can be prepared with some creative thinking and a low budget.<br><br>
                         Dollar Stores, Walmart and hardware stores are great resources.<br><br>
                         <a class="href" target="_blank" href="https://www.redcross.org/store/preparedness">Learn More About Go-Bags</a>
                     </span>
-                </div>
-            </h1>
-            <!--CHECKLIST RADIO BUTTONS 1-10-->
-            <div class="outer-form mx-5 my-5">
-                <form id="checklist-form" method="GET">
-                    <div class="form-row">
-                        <div class="form-group mx-5 my-5">
-                            <!--CHECKLIST HEADER #1-->
-                            <h2 class="font-weight-bold" style="text-decoration: underline">Recommended Items to Include in a Basic Emergency Supply Kit:</h2>
-                            <br>
-                            <label class="custom-container mb-4" for="radio1"> Water, one gallon of water per person per day for at least three days, for drinking and sanitation
-                                <div class="arrowpopup font-weight-bold" onclick="toolTipOne()">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                                        <circle cx="8" cy="4.5" r="1"/>
-                                    </svg>
-                                    <span class="tooltiptext" id="tooltip1">Minimum standards for daily water intake are universally recognized and set at 2.5 - 3 liters per day<br>(or approximately 85 - 101 fluid ounces).
-                                                <br><br><a class="href" target="_blank" href="https://www.watercures.org/survival-hydration.html">Learn More About Survival Hydration</a></span>
-                                </div>
-                                <input type="checkbox" name="video" id="radio1" value="video">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio2"> Food, at least a three-day supply of non-perishable food
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwo()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip2">TEXT MESSAGE 2 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="wiki" id="radio2" value="wiki">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio3"> Battery-powered or hand crank radio and a NOAA Weather Radio with tone alert and extra batteries
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipThree()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip3">TEXT MESSAGE 3 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="forum" id="radio3" value="forum">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio4"> Flashlight and extra batteries
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFour()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip4">TEXT MESSAGE 4 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio4" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio5"> Whistle to signal for help
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFive()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip5">TEXT MESSAGE 5 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio5" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio6"> Dust mask, to help filter contaminated air and plastic sheeting and duct tape to shelter-in-place
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSix()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip6">TEXT MESSAGE 6 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio6" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio7"> Moist towelettes, garbage bags and plastic ties for personal sanitation
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSeven()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip7">TEXT MESSAGE 7 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio7" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio8"> Wrench or pliers to turn off utilities
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEight()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip8">TEXT MESSAGE 8 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio8" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio9"> Can opener for food (if kit contains canned food)
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipNine()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip9">TEXT MESSAGE 9 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio9" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-5" for="radio10"> Local maps
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip10">TEXT MESSAGE 10 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio10" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <!--CHECKLIST HEADER #2-->
-                            <h2 class="font-weight-bold" style="text-decoration: underline">Additional Items to Consider Adding to an Emergency Supply Kit:</h2>
-                            <br>
-                            <!--CHECKLIST RADIO BUTTONS 11-25-->
-                            <label class="custom-container mb-4" for="radio11"> Prescription medications and glasses
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEleven()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip11">TEXT MESSAGE 11 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="front" id="radio11" value="front">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio12"> Infant formula and diapers
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwelve()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip12">TEXT MESSAGE 12 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox"  name="back" id="radio12" value="back">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio13"> Pet food and extra water for your pet
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipThirteen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip13">TEXT MESSAGE 13 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="data" id="radio13" value="data">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio14"> Important family documents such as copies of insurance policies, identification and bank account records in a waterproof, portable container
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFourteen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip14">TEXT MESSAGE 14 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="challanges" id="radio14" value="challanges">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio15"> Cash or traveler’s checks and change
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFifteen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip15">TEXT MESSAGE 15 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="git" id="radio15" value="git">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio16"> Emergency reference material such as a first aid book or information
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSixteen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip16">TEXT MESSAGE 16 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="video" id="radio16" value="video">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio17"> Sleeping bag or arrm blanket for each person.
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSeventeen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip17">TEXT MESSAGE 17 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="wiki" id="radio17" value="wiki">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio18"> Complete change or clothing including a long sleeve shirt, long pants and sturdy shoes.
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEighteen()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip18">TEXT MESSAGE 18 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="forum" id="radio18" value="forum">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio19"> Household chlorine bleach and medicine dropper
-                                <!--TOOLTIPS #4-->
-                                <div class="arrowpopup font-weight-bold" onclick="toolTipNineteen()">
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                                        <circle cx="8" cy="4.5" r="1"/>
-                                    </svg>
-                                    <span class="tooltiptext" id="tooltip19">When diluted nine parts water  to one part bleach,
+        </div>
+    </h1>
+    <!--CHECKLIST RADIO BUTTONS 1-10-->
+    <div class="outer-form mx-5 my-5">
+        <form id="checklist-form" method="GET">
+            <div class="form-row">
+                <div class="form-group mx-5 my-5">
+                    <!--CHECKLIST HEADER #1-->
+                    <h2 class="font-weight-bold" style="text-decoration: underline">Recommended Items to Include in a
+                        Basic Emergency Supply Kit:</h2>
+                    <br>
+                    <label class="custom-container mb-4" for="radio1"> Water, one gallon of water per person per day for
+                        at least three days, for drinking and sanitation
+                        <div class="arrowpopup font-weight-bold" onclick="toolTipOne()">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                <circle cx="8" cy="4.5" r="1"/>
+                            </svg>
+                            <span class="tooltiptext" id="tooltip1">Minimum standards for daily water intake are universally recognized and set at 2.5 - 3 liters per day<br>(or approximately 85 - 101 fluid ounces).
+                                                <br><br><a class="href" target="_blank"
+                                                           href="https://www.watercures.org/survival-hydration.html">Learn More About Survival Hydration</a></span>
+                        </div>
+                        <input type="checkbox" name="video" id="radio1" value="video">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio2"> Food, at least a three-day supply of
+                        non-perishable food
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwo()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip2">TEXT MESSAGE 2 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="wiki" id="radio2" value="wiki">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio3"> Battery-powered or hand crank radio and a NOAA
+                        Weather Radio with tone alert and extra batteries
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipThree()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip3">TEXT MESSAGE 3 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="forum" id="radio3" value="forum">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio4"> Flashlight and extra batteries
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFour()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip4">TEXT MESSAGE 4 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio4" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio5"> Whistle to signal for help
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFive()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip5">TEXT MESSAGE 5 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio5" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio6"> Dust mask, to help filter contaminated air and
+                        plastic sheeting and duct tape to shelter-in-place
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSix()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip6">TEXT MESSAGE 6 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio6" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio7"> Moist towelettes, garbage bags and plastic ties
+                        for personal sanitation
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSeven()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip7">TEXT MESSAGE 7 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio7" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio8"> Wrench or pliers to turn off utilities
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEight()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip8">TEXT MESSAGE 8 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio8" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio9"> Can opener for food (if kit contains canned food)
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipNine()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip9">TEXT MESSAGE 9 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio9" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-5" for="radio10"> Local maps
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip10">TEXT MESSAGE 10 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio10" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <!--CHECKLIST HEADER #2-->
+                    <h2 class="font-weight-bold" style="text-decoration: underline">Additional Items to Consider Adding
+                        to an Emergency Supply Kit:</h2>
+                    <br>
+                    <!--CHECKLIST RADIO BUTTONS 11-25-->
+                    <label class="custom-container mb-4" for="radio11"> Prescription medications and glasses
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEleven()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip11">TEXT MESSAGE 11 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="front" id="radio11" value="front">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio12"> Infant formula and diapers
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwelve()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip12">TEXT MESSAGE 12 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="back" id="radio12" value="back">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio13"> Pet food and extra water for your pet
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipThirteen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip13">TEXT MESSAGE 13 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="data" id="radio13" value="data">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio14"> Important family documents such as copies of
+                        insurance policies, identification and bank account records in a waterproof, portable container
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFourteen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip14">TEXT MESSAGE 14 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="challanges" id="radio14" value="challanges">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio15"> Cash or traveler’s checks and change
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipFifteen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip15">TEXT MESSAGE 15 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="git" id="radio15" value="git">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio16"> Emergency reference material such as a first aid
+                        book or information
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSixteen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip16">TEXT MESSAGE 16 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="video" id="radio16" value="video">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio17"> Sleeping bag or arrm blanket for each person.
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipSeventeen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip17">TEXT MESSAGE 17 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="wiki" id="radio17" value="wiki">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio18"> Complete change or clothing including a long
+                        sleeve shirt, long pants and sturdy shoes.
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipEighteen()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip18">TEXT MESSAGE 18 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="forum" id="radio18" value="forum">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio19"> Household chlorine bleach and medicine dropper
+                        <!--TOOLTIPS #4-->
+                        <div class="arrowpopup font-weight-bold" onclick="toolTipNineteen()">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                <circle cx="8" cy="4.5" r="1"/>
+                            </svg>
+                            <span class="tooltiptext" id="tooltip19">When diluted nine parts water  to one part bleach,
                                         bleach can be used as a disinfectant. Or in an emergency,
                                         you can use it to  treat water by using 16 drops of regular household liquid bleach
                                         per gallon of water. Do not  use scented, color safe or bleaches with added cleaners.
-                                        <br><br><a class="href" target="_blank" href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/water-safety/water-treatment.html">Learn More About Water Purification</a>
+                                        <br><br><a class="href" target="_blank"
+                                                   href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/water-safety/water-treatment.html">Learn More About Water Purification</a>
                                     </span>
-                                </div>
-                                <input type="checkbox" name="course" id="radio19" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio20"> Fire Extinguisher
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwenty()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip20">TEXT MESSAGE 20 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="course" id="radio20" value="course">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio21"> Matches in a waterproof container
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyone()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip21">TEXT MESSAGE 21 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="front" id="radio21" value="front">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio22"> Feminine supplies and personal hygiene items
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentytwo()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip22">TEXT MESSAGE 22 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox"  name="back" id="radio22" value="back">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio23"> Mess kits, paper cups, plates and plastic utensils, paper towels
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentythree()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip23">TEXT MESSAGE 23 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="data" id="radio23" value="data">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio24"> Paper and pencil
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyfour()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip24">TEXT MESSAGE 24 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="challanges" id="radio24" value="challanges">
-                                <span class="checkmark"></span><br>
-                            </label>
-                            <label class="custom-container mb-4" for="radio25"> Books, games, puzzles or other activities for children
-                                <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyfive()">-->
-                                <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
-                                <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
-                                <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
-                                <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
-                                <!--                                    </svg>-->
-                                <!--                                    <span class="tooltiptext" id="tooltip25">TEXT MESSAGE 25 HERE.-->
-                                <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
-                                <!--                                </div>-->
-                                <input type="checkbox" name="git" id="radio25" value="git">
-                                <span class="checkmark"></span><br>
-                            </label>
                         </div>
-                    </div>
-                </form>
+                        <input type="checkbox" name="course" id="radio19" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio20"> Fire Extinguisher
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwenty()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip20">TEXT MESSAGE 20 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="course" id="radio20" value="course">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio21"> Matches in a waterproof container
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyone()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip21">TEXT MESSAGE 21 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="front" id="radio21" value="front">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio22"> Feminine supplies and personal hygiene items
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentytwo()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip22">TEXT MESSAGE 22 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="back" id="radio22" value="back">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio23"> Mess kits, paper cups, plates and plastic
+                        utensils, paper towels
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentythree()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip23">TEXT MESSAGE 23 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="data" id="radio23" value="data">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio24"> Paper and pencil
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyfour()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip24">TEXT MESSAGE 24 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="challanges" id="radio24" value="challanges">
+                        <span class="checkmark"></span><br>
+                    </label>
+                    <label class="custom-container mb-4" for="radio25"> Books, games, puzzles or other activities for
+                        children
+                        <!--                                <div class="arrowpopup font-weight-bold" onclick="toolTipTwentyfive()">-->
+                        <!--                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>-->
+                        <!--                                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>-->
+                        <!--                                        <circle cx="8" cy="4.5" r="1"/>-->
+                        <!--                                    </svg>-->
+                        <!--                                    <span class="tooltiptext" id="tooltip25">TEXT MESSAGE 25 HERE.-->
+                        <!--                                        <br><br><a class="href" target="_blank" href="https://www.">Learn More About</a></span>-->
+                        <!--                                </div>-->
+                        <input type="checkbox" name="git" id="radio25" value="git">
+                        <span class="checkmark"></span><br>
+                    </label>
+                </div>
             </div>
-        </section>
+        </form>
+    </div>
+</section>
 
-        <!--PRINT FORM BUTTON-->
-        <div class="container-fluid" id="containerBlueButton4">
-            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Checklist</button>
-        </div>
-        <br>
+<!--PRINT FORM BUTTON-->
+<div class="container-fluid" id="containerBlueButton4">
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Checklist</button>
+</div>
+<br>
 
-        <footer th:replace="partials/footer :: footer"></footer>
-        <div th:replace="partials/scripts :: scripts"></div>
+<footer th:replace="partials/footer :: footer"></footer>
+<div th:replace="partials/scripts :: scripts"></div>
 
-    </body>
+</body>
 </html>
