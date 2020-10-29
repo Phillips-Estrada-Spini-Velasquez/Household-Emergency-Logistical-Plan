@@ -41,7 +41,7 @@ public class Message {
     private User owner;
 
     //Groups to User will be many-to-one because many messages can be posted by one group
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "group_id")
     private Group group;
 

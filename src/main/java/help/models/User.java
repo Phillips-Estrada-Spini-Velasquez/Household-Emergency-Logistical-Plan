@@ -185,4 +185,8 @@ public class User {
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    public long getGroupID () {
+        return group.getId();
+    }
 }
