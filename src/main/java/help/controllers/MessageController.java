@@ -9,13 +9,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 @Controller
 public class MessageController {
     private final MessageRepository messageDao;
     private final UserRepository userDao;
     private final GroupRepository groupDao;
-//    private final EmailService emailService;
+    //    private final EmailService emailService;
     public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;
@@ -27,7 +29,13 @@ public class MessageController {
     public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
-        return messageDao.findByGroupId(thisUser.getGroupID());
+        Group group = groupDao.findById(thisUser.getGroupID()).orElse(null);
+        if (group == null){
+            //Returns empty list
+            return new ArrayList<Message>();
+        }
+        return group.getMessages();
+//          return messageDao.findAll();
     }
 
     @GetMapping("/messages")
@@ -44,8 +52,8 @@ public class MessageController {
         User thisUser = userDao.getOne(thisAuthor.getId());
         model.addAttribute("id", thisUser.getGroup().getId());
         if (thisUser.getGroup().getId() == id) {
-        model.addAttribute("message", new Message());
-        return "messages/ajax";
+            model.addAttribute("message", new Message());
+            return "messages/ajax";
         }
         return "/home";
     }
