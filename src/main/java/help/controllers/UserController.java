@@ -1,5 +1,6 @@
 package help.controllers;
 
+import help.models.Group;
 import help.models.User;
 import help.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,7 @@ public class UserController {
     public String profilePage(Model model) {
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", currentUser);
+        model.addAttribute("group", currentUser.getGroup());
         return "/users/profile";
     }
 

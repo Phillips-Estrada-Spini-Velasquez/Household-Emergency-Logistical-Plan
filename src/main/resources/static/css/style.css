@@ -1,22 +1,285 @@
+/**/
+
 /*INSIDE PAGE HTML JUMBOTRON CSS*/
-.jumbotron {
-    background-image: url("static/img/4-Clouds-Blue-Sky.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+body{
+    font-family: 'Raleway', sans-serif;
+    background-color: lightgrey;
+    margin: 0; padding: 0;
+    min-width: 250px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
+p {
+    font-family: 'Raleway', sans-serif;
+    margin: 0; padding: 0;
+    min-width: 250px;
 }
 
-h1 {
-    font-weight: bold;
+/*THE-PLAN HTML*/
+/*MAPBOX CSS*/
+#geocoder-container > div {
+    min-width: 50%;
+    margin-left: 25%;
+}
+#map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 700px;
+}
+
+/*SENTIMENTAL ITEMS CHECKLIST CSS*/
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+/* Style the header */
+.header {
+    background-color: grey;
+    padding: 30px 40px;
+    color: darkblue;
     text-align: center;
 }
-
-body, p {
-    font-family: 'Raleway', sans-serif;
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
 }
+/* Style the input */
+#myInput {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+/*THE-CHECKLIST HTML*/
+/*CHECKLIST WITH RADIO BUTTONS CSS*/
+#container {
+    max-width: 1500px;
+}
+.outer-form {
+    background: grey;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -ms-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -o-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    color: black;
+}
+.custom-container {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+    padding-left: 50px;
+    cursor: pointer;
+    font-size: 25px; /*FONT SIZE*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Hide the browser's default checkbox and radio */
+.custom-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+/* Create a custom checkbox */
+.checkmark, .checkmark-radio {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+/* Create a custom radio button shape*/
+.checkmark-radio{
+    border-radius: 50%;
+}
+/* On mouse-over, add a grey background color */
+.custom-container:hover input ~ .checkmark, .custom-container:hover input ~ .checkmark-radio {
+    background-color: #04d9ff;
+}
+/* When the checkbox/radio button is checked, add a blue background */
+.custom-container input:checked ~ .checkmark, .custom-container input:checked ~ .checkmark-radio {
+    background-color: #B5032C;
+}
+/* Create the indicator: dot/circle/checkmark (hidden when not checked) */
+.checkmark:after, .checkmark-radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Show the indicator: dot/circle/checkmark  when checked */
+.custom-container input:checked ~ .checkmark:after, .custom-container input:checked ~ .checkmark-radio:after  {
+    display: block;
+}
+/* Style the indicator (dot/circle) */
+.custom-container .checkmark-radio:after{
+    top: 7px;
+    left: 7px;
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+    background: #08ffff;
+}
+/* Style the checkmark/indicator */
+.custom-container .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 8px;
+    height: 14px;
+    border: solid #08ffff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/*THE-PLAN_&_THE-CHECKLIST HTML*/
+/*TOOLTIPS CSS*/
+.arrowpopup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.arrowpopup .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: #3C83C1;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 9px ;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -245px;
+    -webkit-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -ms-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -o-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+}
+.arrowpopup .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #3C83C1 transparent transparent transparent;
+}
+.arrowpopup:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.hrefToolTip {
+    color: white;
+    text-decoration: underline;
+}
+/*TOOLTIPS BLINKING CSS*/
+.blinking{
+    animation:blinkingText 4.5s infinite;
+}
+@keyframes blinkingText{
+    0%{color: darkblue ;}
+    10%{color: darkblue ;}
+    20%{color: darkblue ;}
+    30%{color: darkblue ;}
+    40%{color: transparent ;}
+    50%{color: transparent ;}
+    60%{color: transparent ;}
+    70%{color: darkblue ;}
+    80%{color: darkblue ;}
+    90%{color: darkblue ;}
+    100%{color: darkblue ;}
+}
+
+
+
