@@ -28,11 +28,21 @@ public class MessageController {
         return messageDao.findAll();
     }
 
-    @GetMapping("/messages")
-    public String viewAllMessagesWithAjax(Model model) {
-        model.addAttribute("message", new Message());
-        return "messages/ajax";
+
+    @GetMapping("/messages/{id}")
+    public String viewAllMessagesWithAjax(@PathVariable long id, Model model) {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        model.addAttribute("id", thisUser.getGroup().getId());
+        if (thisUser.getGroup().getId() == id) {
+            model.addAttribute("message", new Message());
+            return "messages/ajax";
+        }
+        return "/home";
     }
+
+    // if group_id == current group display messages
+    // grab group_id from messages --> if group_id in messages == group_id in users --> display messages
 
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
@@ -44,7 +54,7 @@ public class MessageController {
         Group currentGroup = groupDao.getOne(groupId);
         message.setGroup(currentGroup);
         messageDao.save(message);
-        return "redirect:/messages";
+        return "redirect:/messages/{id}";
     }
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
