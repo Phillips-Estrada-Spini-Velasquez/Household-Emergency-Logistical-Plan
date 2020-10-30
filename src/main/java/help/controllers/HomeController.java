@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String homepage() {
-        return "git home";
+        return "home";
     }
 
     @GetMapping("/the-plan")
