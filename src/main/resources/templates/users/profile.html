@@ -9,17 +9,28 @@
             <nav th:replace="partials/navbar :: navbar"></nav>
 
             <h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
+            <br>
+            <br>
 
-<!--            <main class="container">-->
-<!--                <h2>Posts by this user:</h2>-->
-<!--                <show_message th:if="${user.messages}">-->
-<!--                    <div th:each="post : ${user.messages}">-->
-<!--                        <h2 th:text="${message.title}"></h2>-->
-<!--                        <p th:text="${message.description}"></p>-->
-<!--                        <br>-->
-<!--                    </div>-->
-<!--                </show_message>-->
-<!--            </main>-->
+            <h2 style="text-align: center">Your Profile Info</h2>
+            <br>
+            <br>
+            <br>
+            <h2 style="text-align: center">Your Group Info</h2>
+            <p style="text-align: center">(If no group has been created, this will not show)</p>
+           <div style="text-align: center;"><form style="display: inline" th:action="@{'/groups/create'}" >
+                <button>Create Group</button>
+            </form>
+           </div>
+
+            <!--                        <main class="container">-->
+<!--                            <h2>Your Group Information</h2>-->
+<!--                                    <p th:text="${group.name}"></p>-->
+<!--                                    <p th:text="${group.rallyPointCoordinates}"></p>-->
+<!--                                    <br>-->
+<!--                                </div>-->
+<!--                            </show_message>-->
+<!--                        </main>-->
 
         <footer th:replace="partials/footer :: footer"></footer>
         <script th:replace="partials/scripts :: scripts"></script>
