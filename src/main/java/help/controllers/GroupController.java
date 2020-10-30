@@ -31,12 +31,10 @@ public class GroupController {
     public String createGroup(@ModelAttribute Group group) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
-//        group.setOwner(thisAuthor);
         groupDao.save(group);
         thisUser.setGroup(group);
         userDao.save(thisUser);
 
         return "redirect:/profile";
-
     }
 }
