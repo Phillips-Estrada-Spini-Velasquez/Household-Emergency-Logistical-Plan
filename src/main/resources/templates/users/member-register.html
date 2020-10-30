@@ -14,7 +14,8 @@
             <h1>Create An Account to Join the *blank* Group</h1>
         </div>
 
-        <form th:action="@{'/register/member/' + ${group}}" method="POST" th:object="${user}">
+        <form th:action="@{'/member/register/' + ${group}}" method="POST" th:object="${user}">
+            <input type="hidden" th:field="*{id}"/>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">First Name</label>

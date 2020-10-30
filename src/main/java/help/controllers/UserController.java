@@ -45,13 +45,13 @@ public class UserController {
     //Member Registration
 
     //takes admin group number and sets it as the end url path
-    @GetMapping("/member/register")
-    public String redirectToMemberReg() {
-        //this will work because the logged in admin will click "add member" and their id will be pulled
-        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User thisUser = userDao.getOne(thisAuthor.getId());
-        return "redirect:/member/register/" + thisUser.getGroup().getId();
-    }
+//    @GetMapping("/member/register")
+//    public String redirectToMemberReg() {
+//        //this will work because the logged in admin will click "add member" and their id will be pulled
+//        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User thisUser = userDao.getOne(thisAuthor.getId());
+//        return "redirect:/member/register/" + thisUser.getGroup().getId();
+//    }
 
     //shows form
     @GetMapping("/member/register/{id}")
@@ -72,6 +72,7 @@ public class UserController {
         //sets member as non-admin
         member.setAdmin(false);
         //sets the member's group as a group with id of "id"
+        System.out.println("Group id " + id);
         member.setGroup(groupDao.getOne(id));
         //WHHHHYYYYYYY
         // saves
