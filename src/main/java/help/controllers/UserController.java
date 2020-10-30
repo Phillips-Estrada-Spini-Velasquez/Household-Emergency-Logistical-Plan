@@ -36,12 +36,4 @@ public class UserController {
         return "redirect:/profile";
     }
 
-    @GetMapping("/profile")
-    public String profilePage(Model model) {
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user", currentUser);
-        model.addAttribute("group", currentUser.getGroup());
-        return "/users/profile";
-    }
-
 }
