@@ -1,2 +1,4 @@
 BUILD_COMMAND='mvn package'
+
 JAR_FILE=target/help-0.0.1-SNAPSHOT.jar
+
