@@ -8,12 +8,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String homepage() {
-        return "/home";
+        return "git home";
     }
 
     @GetMapping("/the-plan")
     public String showThePlan() {
-        return "/the-plan/the-plan";
+        return "the-plan/the-plan";
     }
 
     @GetMapping("/the-checklist")
