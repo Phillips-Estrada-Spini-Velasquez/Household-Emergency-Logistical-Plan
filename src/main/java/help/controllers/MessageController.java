@@ -9,28 +9,58 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 @Controller
 public class MessageController {
     private final MessageRepository messageDao;
     private final UserRepository userDao;
     private final GroupRepository groupDao;
-//    private final EmailService emailService;
+    //    private final EmailService emailService;
     public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
         this.userDao = userDao;
 //email service
         this.groupDao = groupDao;
     }
+
     @GetMapping("/messages.json")
     public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
-        return messageDao.findAll();
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        Group group = groupDao.findById(thisUser.getGroupID()).orElse(null);
+        if (group == null){
+            //Returns empty list
+            return new ArrayList<Message>();
+        }
+        return group.getMessages();
+//          return messageDao.findAll();
     }
+
     @GetMapping("/messages")
-    public String viewAllMessagesWithAjax(Model model) {
-        model.addAttribute("message", new Message());
-        return "messages/ajax";
+    public String redirectToId() {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/messages/" + thisUser.getGroup().getId();
     }
+
+
+    @GetMapping("/messages/{id}")
+    public String viewAllMessagesWithAjax(@PathVariable long id, Model model) {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        model.addAttribute("id", thisUser.getGroup().getId());
+        if (thisUser.getGroup().getId() == id) {
+            model.addAttribute("message", new Message());
+            return "messages/ajax";
+        }
+        return "/home";
+    }
+
+    // if group_id == current group display messages
+    // grab group_id from messages --> if group_id in messages == group_id in users --> display messages
+
     @PostMapping("/messages/submit")
     public String createMessage(@ModelAttribute Message message) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
