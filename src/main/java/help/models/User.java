@@ -45,6 +45,9 @@ public class User {
     @Column(columnDefinition = "integer default 9")
     private long zip;
 
+    @Column(columnDefinition = "BOOLEAN")
+    private Boolean isAdmin;
+
     //Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     @JsonBackReference
@@ -64,7 +67,7 @@ public class User {
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, List<Message> messages, Group group, List<Document> documents) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, List<Message> messages, Group group, List<Document> documents) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -76,6 +79,7 @@ public class User {
         this.city = city;
         this.state = state;
         this.zip = zip;
+        this.isAdmin = isAdmin;
         this.messages = messages;
         this.group = group;
         this.documents = documents;
@@ -175,6 +179,14 @@ public class User {
     public void setZip(long zip) {
         this.zip = zip;
     }
+  
+      public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+
 
     public List<Message> getMessages() {
         return messages;
@@ -202,5 +214,6 @@ public class User {
 
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
+
     }
 }

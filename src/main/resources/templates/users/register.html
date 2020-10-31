@@ -18,16 +18,17 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName4" placeholder="Email" th:field="*{firstName}">
+                    <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name"
+                           th:field="*{firstName}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">Last Name</label>
-                    <input type="text" class="form-control" id="InputLastName4" placeholder="Password"
+                    <input type="text" class="form-control" id="InputLastName4" placeholder="Last Name"
                            th:field="*{lastName}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">Username</label>
-                    <input type="text" class="form-control" id="Username4" placeholder="Password"
+                    <input type="text" class="form-control" id="Username4" placeholder="Username"
                            th:field="*{username}">
                 </div>
             </div>
@@ -47,29 +48,18 @@
                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
                        th:field="*{streetAddress}">
             </div>
-            <!--                <div class="form-group">-->
-            <!--                    <label for="inputAddress2">Address 2</label>-->
-            <!--                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">-->
-            <!--                </div>-->
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                    <input type="text" class="form-control" id="inputCity" th:field="*{city}" placeholder="City">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState" th:field="*{state}"/>
-
-                    <!--                    <select id="inputState" class="form-control" th:field="*{state}">-->
-<!--                        <option selected>Choose...</option>-->
-<!--                        <option>Alabama</option>-->
-<!--                        <option>Alaska</option>-->
-<!--                        &lt;!&ndash;    fill in later&ndash;&gt;-->
-<!--                    </select>-->
+                    <label>State</label>
+                    <select th:replace="partials/states :: states"></select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip" th:field="*{zip}">
+                    <input type="text" class="form-control" id="inputZip" placeholder="Zip" th:field="*{zip}">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>

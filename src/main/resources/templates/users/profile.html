@@ -1,27 +1,56 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-        <head>
-            <meta charset="UTF-8">
-            <title>Show Posts</title>
-            <link th:replace="partials/links :: links"/>
-        </head>
-        <body>
-            <nav th:replace="partials/navbar :: navbar"></nav>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Posts</title>
+    <link th:replace="partials/links :: links"/>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
-            <h1>Welcome to <span th:text="${user.username}"></span>'s Profile Page</h1>
+<h1>Welcome to <span th:text="${user.firstName}"></span>'s Profile Page</h1>
 
-<!--            <main class="container">-->
-<!--                <h2>Posts by this user:</h2>-->
-<!--                <show_message th:if="${user.messages}">-->
-<!--                    <div th:each="post : ${user.messages}">-->
-<!--                        <h2 th:text="${message.title}"></h2>-->
-<!--                        <p th:text="${message.description}"></p>-->
-<!--                        <br>-->
-<!--                    </div>-->
-<!--                </show_message>-->
-<!--            </main>-->
+<div class="row">
+    <div class="col-3">
+        <h2 style="text-align: center">Your Profile Info</h2>
+        <p th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
+        <p><em>Group Admin</em></p>
+        <p><strong>Address</strong></p>
+        <p th:text="${user.streetAddress}"></p>
+        <p th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
+        <p>Message Your Group</p>
+        <p></p>
+        <p></p>
+    </div>
+    <div class="col-9">
+        <div th:if="${user.group != null}">
+            <h2 style="text-align: center">Your Group Info</h2>
+            <div class="container">
+                <p><strong>Your Group Name</strong></p>
+                <p th:text="${user.group.name}"></p>
+                <p><strong>Your Group's Emergency Meetup Spot</strong></p>
+                <p th:text="${user.group.rallyPointCoordinates}"></p>
+                <p><strong>Your Group Members</strong></p>
+                <div th:each="user : ${user.group.users}">
+                    <p th:text="${user.firstName}"></p>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-primary btn-lg text-center" href="/the-plan" role="button">Your Emergency Plan</a>
+                </div>
+            </div>
+        </div>
+        <div th:unless="${user.group != null}">
+            <div style="text-align: center;">
+                <h2 style="text-align: center">Your Group Has Not Been Created</h2>
+                <form style="display: inline" th:action="@{'/groups/create'}">
+                    <button class="btn btn-primary btn-lg text-center">Create Group</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <footer th:replace="partials/footer :: footer"></footer>
-        <script th:replace="partials/scripts :: scripts"></script>
-    </body>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/scripts :: scripts"></script>
+</body>
 </html>
