@@ -1,5 +1,6 @@
 package help.controllers;
 
+import com.sun.istack.NotNull;
 import help.models.User;
 import help.repositories.DocumentRepository;
 import help.repositories.GroupRepository;
@@ -28,28 +29,31 @@ public class HomeController {
         return "home";
     }
 
+//    @GetMapping("/the-plan")
+//    public String showThePlan() {
+//        return "the-plan/the-plan";
+//    }
+
     @GetMapping("/the-plan")
-    public String showThePlan() {
-        return "the-plan/the-plan";
+    public String redirectToGroupPlan() {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/the-plan/" + thisUser.getGroup().getId();
     }
 
-//    @GetMapping("/the-plan")
-//    public String redirectToGroupPlan() {
-//        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User thisUser = userDao.getOne(thisAuthor.getId());
-//        return "redirect:/the-plan/" + thisUser.getGroup().getId();
-//    }
-//
-//    @GetMapping("/the-plan/{id}")
-//    public String showThePlan(@PathVariable long id, Model model) {
-//        User getUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User thisUser = userDao.getOne(getUser.getId());
-//        model.addAttribute("user", thisUser);
-//        model.addAttribute("group", groupDao.getOne(id).getId());
-////        model.addAttribute("user", userDao.getOne(getUser.getId()).getDocuments());
-////        model.addAttribute("documentUrl", userDao.getOne(getUser.getId()).getDocuments());
-//        return "/the-plan/the-plan";
-//    }
+    @GetMapping("/the-plan/{id}")
+    public String showThePlan(@PathVariable long id, Model model) {
+        User getUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(getUser.getId());
+        model.addAttribute("id", thisUser.getGroupID());
+        if (thisUser.getGroupID() == id) {
+            return "the-plan/the-plan";
+        }
+        return "/home";
+    }
+
+    //        model.addAttribute("user", userDao.getOne(getUser.getId()).getDocuments());
+//        model.addAttribute("documentUrl", userDao.getOne(getUser.getId()).getDocuments())
 
 
 //    @PostMapping("/uploaded-document")
