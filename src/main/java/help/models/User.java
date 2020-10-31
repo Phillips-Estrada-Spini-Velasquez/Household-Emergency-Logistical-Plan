@@ -60,7 +60,7 @@ public class User {
 
     // One user to Many documents
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    @JoinColumn(name = "document_id")
+//    @JoinColumn(name = "document_id")
     private List<Document> documents;
 
     //Empty constructor - do not delete/edit
@@ -186,7 +186,7 @@ public class User {
 
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
-
+    }
 
     public List<Message> getMessages() {
         return messages;

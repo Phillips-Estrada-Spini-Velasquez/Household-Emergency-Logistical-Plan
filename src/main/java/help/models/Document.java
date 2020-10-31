@@ -17,7 +17,6 @@ public class Document {
 
     // Many documents to One owner
     @ManyToOne
-    @JsonManagedReference
     @JoinColumn(name = "owner_id")
     private User owner;
 
