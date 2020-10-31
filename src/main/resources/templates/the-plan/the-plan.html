@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>The-Plan Page</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>The-Plan Page</title>
+        <link th:replace="partials/checklist-links :: links"/>
+    </head>
+    <body>
+        <!--<header th:replace="partials/header :: header"></header>-->
+        <nav th:replace="partials/navbar :: navbar"></nav>
+        <hr>
 
-    <link th:replace="partials/checklist-links :: links"/>
+        <!--JUMBOTRON -->
+        <section class="container-fluid">
+            <div class="jumbotron"></div>
+        </section>
 
-</head>
-<body>
-<!--<header th:replace="partials/header :: header"></header>-->
-<nav th:replace="partials/navbar :: navbar"></nav>
-<hr>
-
-<!--JUMBOTRON -->
-<section class="container-fluid">
-    <div class="jumbotron"></div>
-</section>
-
-<!--MAPBOX HTML-->
-<section class="container-fluid">
-    <h1 class="font-weight-bold">Set Emergency Household Meet-Up Location</h1>
-    <!--MAPBOX CONTAINER-->
-    <div id="map"></div>
-    <br>
-    <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
-    <div id="image"></div>
-    <div>
-        <h3>Map Navigation</h3>
-        <button id="btn1">Zoom In</button>
-        <button id="btn2">Zoom to Default</button>
-        <button id="btn3">Zoom Out</button>
-    </div>
-</section>
-<hr>
-
-<!-- SENTIMENTAL CHECKLIST-->
-<section class="container-fluid">
-    <div id="myDIV" class="header">
-        <h1 class="mb-4 font-weight-bold">Sentimental Items Checklist
-            <div class="arrowpopup font-weight-bold blinking" role="alert" onclick="toolTipHeader()">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                          d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                    <circle cx="8" cy="4.5" r="1"/>
-                </svg>
-                <span class="tooltiptext" id="tooltipHeader">Sentimental items are those items that cannot be replace. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
+        <!--MAPBOX HTML-->
+        <section class="container-fluid">
+            <h1 class="font-weight-bold">Set Emergency Household Meet-Up Location</h1>
+            <!--MAPBOX CONTAINER-->
+            <div id="map"></div>
+            <br>
+            <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
+<!--            <div id="image"></div>-->
+            <div>
+                <h3>Map Navigation</h3>
+                <button id="btn1">Zoom In</button>
+                <button id="btn2">Zoom to Default</button>
+                <button id="btn3">Zoom Out</button>
             </div>
-        </h1>
-        <!--CHECKLIST INPUT FIELD-->
-        <input type="text" id="myInput" placeholder="Title...">
-        <span onclick="newElement()" class="addBtn">Add Item</span>
-    </div>
-    <br>
+        </section>
+        <hr>
 
-    <!--HARDCODED-->
-    <ul id="myUL">
-        <li>Item one</li>
-        <li>Item two</li>
-        <li>Item three</li>
-        <li>Item four</li>
-        <li>Item five</li>
-        <li>Item six</li>
-    </ul>
-</section>
-<hr>
+        <!-- SENTIMENTAL CHECKLIST-->
+        <section class="container-fluid">
+            <div id="myDIV" class="header">
+                <h1 class="mb-4 font-weight-bold">Sentimental Items Checklist
+                    <div class="arrowpopup font-weight-bold blinking" role="alert">
+                        <svg width=".8em" height=".8em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                            <circle cx="8" cy="4.5" r="1"/>
+                        </svg>
+                        <span class="tooltiptext" id="tooltipHeader">Sentimental items are those items that cannot be replace. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
+                    </div>
+                </h1>
+                <!--CHECKLIST INPUT FIELD-->
+                <input type="text" id="myInput" placeholder="Title...">
+                <span onclick="newElement()" class="addBtn">Add Item</span>
+            </div>
+            <br>
 
-<!--PRINT FORM BUTTON-->
-<div class="container-fluid" id="containerBlueButton1">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items
-        Checklist
-    </button>
-</div>
-<hr>
+            <!--HARDCODED-->
+            <ul id="myUL">
+                <li>Item one</li>
+                <li>Item two</li>
+                <li>Item three</li>
+                <li>Item four</li>
+                <li>Item five</li>
+                <li>Item six</li>
+            </ul>
+        </section>
+        <hr>
 
-<!--FILESTACK UPLOAD PICKER BUTTON-->
-<div class="container-fluid" id="containerBlueButton2">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker().open();">Import and Upload
-        Documents
-    </button>
-</div>
-<hr>
+        <!--PRINT FORM BUTTON-->
+        <div class="container-fluid" id="containerBlueButton1">
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
+        </div>
+        <hr>
 
-<!--GO TO PREPAREDNESS CHECKLIST BUTOON-->
-<div class="container-fluid" id="containerBlueButton3">
-    <button type="button" class="btn btn-primary btn-lg btn-block"
-            onclick="target='_blank'; location.href='/the-checklist'">Go To Emergency Preparedness Checklist
-    </button>
-</div>
-<hr>
+        <!--FILESTACK UPLOAD PICKER BUTTON-->
+        <div class="container-fluid" id="containerBlueButton2">
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker().open();">Import and Upload Documents</button>
+        </div>
+<!--        <div class="card">-->
+<!--            <div class="profileImg">-->
+<!--                <img th:src="${photoUrl}" style="width: 100%; height:100%; object-fit:cover">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--            <button id="profile-btn" class="pb" type="button">Update Profile Image</button>-->
+<!--            <div class="profile pic">-->
+<!--                <form th:action="@{/profile/pic}" method="post">-->
+<!--                    <input type="hidden" name="userId" th:value="${user.id}">-->
+<!--                    <input type="hidden" id="profileUrl" name="url" th:value="${photoUrl}"><br>-->
+<!--                    <button class="bio-btn" value="button" type="submit">submit</button>-->
+<!--                </form>-->
+<!--            </div>-->
+        <hr>
 
-<footer th:replace="partials/footer :: footer"></footer>
-<div th:replace="partials/scripts :: scripts"></div>
+        <!--GO TO PREPAREDNESS CHECKLIST BUTOON-->
+        <div class="container-fluid" id="containerBlueButton3">
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="target='_blank'; location.href='/the-checklist'">Go To Emergency Preparedness Checklist</button>
+        </div>
+        <hr>
+        <footer th:replace="partials/footer :: footer"></footer>
+        <div th:replace="partials/scripts :: scripts"></div>
 
-</body>
+    </body>
 </html>

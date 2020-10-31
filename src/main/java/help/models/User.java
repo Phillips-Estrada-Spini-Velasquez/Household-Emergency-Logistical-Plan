@@ -58,11 +58,16 @@ public class User {
     @JoinColumn (name = "group_id")
     private Group group;
 
+    // One user to Many documents
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JoinColumn(name = "document_id")
+    private List<Document> documents;
+
     //Empty constructor - do not delete/edit
     public User() {
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, List<Message> messages, Group group) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, List<Message> messages, Group group, List<Document> documents) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -77,6 +82,7 @@ public class User {
         this.isAdmin = isAdmin;
         this.messages = messages;
         this.group = group;
+        this.documents = documents;
     }
 
     public User(User copy) {
@@ -173,6 +179,14 @@ public class User {
     public void setZip(long zip) {
         this.zip = zip;
     }
+  
+      public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+
 
     public List<Message> getMessages() {
         return messages;
@@ -190,16 +204,16 @@ public class User {
         this.group = group;
     }
 
-
     public long getGroupID () {
         return group.getId();
     }
 
-    public Boolean getAdmin() {
-        return isAdmin;
+    public List<Document> getDocuments() {
+        return documents;
     }
 
-    public void setAdmin(Boolean admin) {
-        isAdmin = admin;
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+
     }
 }

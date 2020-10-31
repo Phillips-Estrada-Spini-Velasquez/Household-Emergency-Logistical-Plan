@@ -99,11 +99,39 @@ $('#downloadLink').click(function() {
 
 // FILESTACK API JAVASCRIPT
 const client = filestack.init(filestackKey);
+// const options = {
+//     uploadConfig: {
+//         tags: {
+//             "foo": "bar"
+//         }
+//     },
+//     fromSources: ["local_file_system","url","instagram","facebook","dropbox"],
+// };
+
+//File stack Api
+//------starting functionality for profile page
 const options = {
-    uploadConfig: {
-        tags: {
-            "foo": "bar"
-        }
-    },
-    fromSources: ["local_file_system","instagram","facebook"],
-};
+    onUploadDone : updateImage ,
+    accept: 'image/*',
+    maxSize: 10* 1000* 1000,
+    uploadInBackground: false
+}
+
+function updateImage(result){
+    const filedata = result.filesUploaded[0];
+    console.log(filedata);
+    $("#profileUrl").val(filedata.url);
+}
+
+
+//jquery
+$(document).ready(function() {
+
+    //filestack
+    console.log(url);
+    $("#profile-btn").click(function(){
+        stackClient.picker(options).open();
+    });
+
+})
+
