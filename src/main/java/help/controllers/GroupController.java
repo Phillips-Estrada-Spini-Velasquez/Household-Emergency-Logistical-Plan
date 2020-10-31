@@ -34,7 +34,6 @@ public class GroupController {
         groupDao.save(group);
         thisUser.setGroup(group);
         userDao.save(thisUser);
-
         return "redirect:/profile";
     }
 }

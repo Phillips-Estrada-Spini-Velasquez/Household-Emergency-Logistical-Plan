@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <title>The-Plan Page</title>
-    <div th:replace="partials/links :: links"></div>
-    <nav th:replace="partials/navbar :: navbar"></nav>
+<!--    <div th:replace="partials/links :: links"></div>-->
     <link th:replace="partials/links :: links"/>
 
     <link th:replace="partials/checklist-links :: links"/>
@@ -14,6 +13,7 @@
 </head>
 <body>
 <!--<header th:replace="partials/header :: header"></header>-->
+<nav th:replace="partials/navbar :: navbar"></nav>
 <hr>
 
 <!--JUMBOTRON -->
@@ -89,6 +89,5 @@
 
 <footer th:replace="partials/footer :: footer"></footer>
 <div th:replace="partials/scripts :: scripts"></div>
-
 </body>
 </html>

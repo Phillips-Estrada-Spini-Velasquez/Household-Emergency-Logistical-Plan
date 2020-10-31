@@ -97,41 +97,27 @@ $('#downloadLink').click(function() {
     this.href = img
 })
 
+
 // FILESTACK API JAVASCRIPT
 const client = filestack.init(filestackKey);
-// const options = {
-//     uploadConfig: {
-//         tags: {
-//             "foo": "bar"
-//         }
-//     },
-//     fromSources: ["local_file_system","url","instagram","facebook","dropbox"],
-// };
-
-//File stack Api
-//------starting functionality for profile page
 const options = {
-    onUploadDone : updateImage ,
+    onUploadDone : updateDocument ,
     accept: 'image/*',
     maxSize: 10* 1000* 1000,
     uploadInBackground: false
 }
-
-function updateImage(result){
+// FUNCTIONALITY THE-PLAN
+function updateDocument(result){
     const filedata = result.filesUploaded[0];
     console.log(filedata);
     $("#profileUrl").val(filedata.url);
 }
-
-
 //jquery
 $(document).ready(function() {
-
     //filestack
     console.log(url);
-    $("#profile-btn").click(function(){
-        stackClient.picker(options).open();
+    $("#containerBlueButton2").click(function(){
+        client.picker(options).open();
     });
-
 })
 
