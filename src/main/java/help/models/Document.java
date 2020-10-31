@@ -12,7 +12,7 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String url;
 
     // Many documents to One owner
@@ -21,19 +21,19 @@ public class Document {
     private User owner;
 
     // Many documents to One group
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonManagedReference
     @JoinColumn(name = "group_id")
     private Group group;
+
+    public Document() {
+    }
 
     public Document(long id, String url, User owner, Group group) {
         this.id = id;
         this.url = url;
         this.owner = owner;
         this.group = group;
-    }
-
-    public Document() {
     }
 
     public long getId() {

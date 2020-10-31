@@ -46,13 +46,13 @@ public class Group {
     //Empty constructor - do not delete/edit
     public Group(){}
 
-    public Group(long id, String name, String rallyPointCoordinates, User owner, List<User> users, List<Message> messages) {
+    public Group(long id, String name, String rallyPointCoordinates, User owner, List<User> users, List<Message> messages, List<Document> documents) {
         this.id = id;
         this.name = name;
         this.rallyPointCoordinates = rallyPointCoordinates;
-//        this.owner = owner;
         this.users = users;
         this.messages = messages;
+        this.documents = documents;
     }
 
 
@@ -102,5 +102,13 @@ public class Group {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 }

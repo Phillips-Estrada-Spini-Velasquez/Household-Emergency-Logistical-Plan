@@ -1,6 +1,8 @@
 package help.controllers;
 
 import com.sun.istack.NotNull;
+import help.models.Document;
+import help.models.Group;
 import help.models.User;
 import help.repositories.DocumentRepository;
 import help.repositories.GroupRepository;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HomeController {
     private final DocumentRepository documentDao;
-
     private final UserRepository userDao;
     private final GroupRepository groupDao;
 
@@ -46,14 +47,14 @@ public class HomeController {
         User getUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(getUser.getId());
         model.addAttribute("id", thisUser.getGroupID());
+//        model.addAttribute("user", userDao.getOne(thisUser.getId()).getDocuments());
+        model.addAttribute("documentUrl", userDao.getOne(thisUser.getId()).getDocuments());
         if (thisUser.getGroupID() == id) {
+            model.addAttribute("document", new Document());
             return "the-plan/the-plan";
         }
         return "/home";
     }
-
-    //        model.addAttribute("user", userDao.getOne(getUser.getId()).getDocuments());
-//        model.addAttribute("documentUrl", userDao.getOne(getUser.getId()).getDocuments())
 
 
 //    @PostMapping("/uploaded-document")
