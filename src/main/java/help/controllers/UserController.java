@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 @Controller
 public class UserController {
     private final UserRepository userDao;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
     private final GroupRepository groupDao;
 
 
@@ -45,13 +46,13 @@ public class UserController {
     //Member Registration
 
     //takes admin group number and sets it as the end url path
-//    @GetMapping("/member/register")
-//    public String redirectToMemberReg() {
-//        //this will work because the logged in admin will click "add member" and their id will be pulled
-//        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User thisUser = userDao.getOne(thisAuthor.getId());
-//        return "redirect:/member/register/" + thisUser.getGroup().getId();
-//    }
+    @GetMapping("/member/register")
+    public String redirectToMemberReg() {
+        //this will work because the logged in admin will click "add member" and their id will be pulled
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/profile";
+        }
 
     //shows form
     @GetMapping("/member/register/{id}")
