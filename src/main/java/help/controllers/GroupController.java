@@ -22,7 +22,7 @@ public class GroupController {
     }
 
     @GetMapping("/group/create")
-    public String showSignupForm(Model model) {
+    public String showCreateForm(Model model) {
         model.addAttribute("group", new Group());
         return "groups/createEdit";
     }
@@ -34,8 +34,13 @@ public class GroupController {
         groupDao.save(group);
         thisUser.setGroup(group);
         userDao.save(thisUser);
-
         return "redirect:/profile";
+    }
+
+    @GetMapping("/group/edit")
+    public String showEditForm(Model model) {
+        model.addAttribute("group", new Group());
+        return "groups/createEdit";
     }
 
     @PostMapping("/edit")
