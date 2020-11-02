@@ -17,8 +17,7 @@
                 <h5 class="card-title">Your Profile Info</h5>
                 <p class="card-text" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
                 <div th:if="${user.admin == true}">
-                    <p><strong>Your Role</strong></p>
-                    <p class="card-text"><em>Group Admin</em></p>
+                    <p><strong>Your Role</strong><br><em>Group Admin</em></p>
                 </div>
                 <div th:if="${user.admin == false}">
                     <p><strong>Your Role</strong><br><em>Group Member</em></p>
@@ -32,19 +31,22 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Quick Links</h5>
-                <a class="card-text" href="/messages">Message Your Group</a>
-                <div th:if="${user.admin == true}">
-                    <a class="card-text" href="/messages">Edit Your Group</a>
-                    <br>
-                    <!--CHANGE LATER-->
-                    <a class="card-text" href="/member/register/1">Invite New Members</a>
+        <div th:if="${user.group != null}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Links</h5>
+                    <a class="card-text" href="/messages">Message Your Group</a>
+                    <div th:if="${user.admin == true}">
+                        <a class="card-text" href="/messages">Edit Your Group</a>
+                        <br>
+                        <!--CHANGE LATER-->
+                        <a class="card-text" href="/member/register/1">Invite New Members</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="col-7 light-blue">
         <div th:if="${user.group != null}">
             <h2 style="text-align: center">Your Group Info</h2>

@@ -78,6 +78,6 @@ public class UserController {
         //WHHHHYYYYYYY
         // saves
         userDao.save(member);
-        return "redirect:/";
+        return "redirect:/profile";
     }
 }
