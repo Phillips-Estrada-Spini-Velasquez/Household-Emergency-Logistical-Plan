@@ -14,6 +14,7 @@ p {
     min-width: 250px;
 }
 
+
 /*THE-PLAN HTML*/
 /*MAPBOX CSS*/
 #geocoder-container > div {
@@ -93,7 +94,7 @@ ul li.checked::before {
 .header {
     background-color: grey;
     padding: 30px 40px;
-    color: darkblue;
+    color: black;
     text-align: center;
 }
 /* Clear floats after the header */
@@ -268,18 +269,21 @@ ul li.checked::before {
     animation:blinkingText 4.5s infinite;
 }
 @keyframes blinkingText{
-    0%{color: darkblue ;}
-    10%{color: darkblue ;}
-    20%{color: darkblue ;}
-    30%{color: darkblue ;}
+    0%{color: black ;}
+    10%{color: black ;}
+    20%{color: black ;}
+    25%{color: black ;}
+    30%{color: black;}
+    35%{color: gray ;}
     40%{color: transparent ;}
     50%{color: transparent ;}
     60%{color: transparent ;}
-    70%{color: darkblue ;}
-    80%{color: darkblue ;}
-    90%{color: darkblue ;}
-    100%{color: darkblue ;}
+    65%{color: gray ;}
+    70%{color: black ;}
+    75%{color: black ;}
+    80%{color: black ;}
+    90%{color: black ;}
+    100%{color: black ;}
 }
-
 
 

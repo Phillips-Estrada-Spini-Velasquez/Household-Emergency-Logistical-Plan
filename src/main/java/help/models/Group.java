@@ -38,6 +38,11 @@ public class Group {
     @JsonIgnore
     private List<Message> messages;
 
+    //One to Many because one group x many documents
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    @JsonIgnore
+    private List<Document> documents;
+
     //Empty constructor - do not delete/edit
     public Group(){}
 

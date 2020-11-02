@@ -12,6 +12,7 @@ p {
     min-width: 250px;
 }
 
+
 .jumbotron {
     /*background-image: url("/img/HELP_BrandingConcepts.jpg");*/
     height: 400px;
@@ -19,6 +20,9 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.light-blue {
+    background-color: #EBF2FA;}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;

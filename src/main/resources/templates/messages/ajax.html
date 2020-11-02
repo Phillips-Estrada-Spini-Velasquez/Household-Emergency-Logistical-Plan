@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>View all Messages using AJAX</title>
+    <title>View Your Messages</title>
     <div th:replace="partials/links :: links"></div>
     <nav th:replace="partials/navbar :: navbar"></nav>
     <link th:replace="partials/links :: links"/>
@@ -62,15 +62,16 @@
 <script type="text/javascript">
 
     (function ($) {
-        var request = $.ajax({'url': '/messages.json'});
+        let request = $.ajax({'url': '/messages.json'});
         request.done(function (messages) {
-            var html = '';
+            let html = '';
             messages.forEach(function (message) {
                 html += '<div class="message-container">';
                 // html += '<img src="/w3images/bandmember.jpg" alt="Avatar">';
                 html += '<p class="name">' + message.owner.firstName + ' ' + message.owner.lastName + '  <span class="time">' + message.createTime + '</span></p>';
                 html += '<p>' + message.body + '</p>';
                 html += '</div>';
+                //button to delete needed - not sure how to concatenate
             });
             $('#container div').html(html);
         });
