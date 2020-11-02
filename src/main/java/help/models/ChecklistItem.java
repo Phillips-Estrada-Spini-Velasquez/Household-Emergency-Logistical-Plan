@@ -5,17 +5,11 @@ import java.util.Date;
 
 @Entity
 @Table(name = "checklist_items")
-@IdClass(ChecklistItemPK.class)
 public class ChecklistItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "checklist_id", referencedColumnName = "id")
-    private Checklist checklist;
 
     @Id
     @ManyToOne
@@ -32,13 +26,15 @@ public class ChecklistItem {
     @Column(nullable = false)
     private Date date;
 
-    public ChecklistItem(long id, Checklist checklist, Item item, boolean isChecked, User checkedBy, Date date) {
+    public ChecklistItem(long id, Item item, boolean isChecked, User checkedBy, Date date) {
         this.id = id;
-        this.checklist = checklist;
         this.item = item;
         this.isChecked = isChecked;
         this.checkedBy = checkedBy;
         this.date = date;
+    }
+
+    public ChecklistItem() {
     }
 
     public long getId() {
@@ -47,14 +43,6 @@ public class ChecklistItem {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Checklist getChecklist() {
-        return checklist;
-    }
-
-    public void setChecklist(Checklist checklist) {
-        this.checklist = checklist;
     }
 
     public Item getItem() {
