@@ -53,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/messages", "/groups/create", // only authenticated users can view messages
-                        "/profile/the-plan", "/profile"// ******something else logged in users can see - might change later
+                        "/the-plan", "/profile"// ******something else logged in users can see - might change later
                 )
                 .authenticated()
         ;
