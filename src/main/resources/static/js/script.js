@@ -97,7 +97,6 @@ $('#downloadLink').click(function() {
     this.href = img
 })
 
-
 // FILESTACK API JAVASCRIPT
 const client = filestack.init(filestackKey);
 const options = {
@@ -110,7 +109,12 @@ const options = {
 function updateDocument(result){
     const filedata = result.filesUploaded[0];
     console.log(filedata);
-    $("#profileUrl").val(filedata.url);
+    $("#documentUrl").val(filedata.url);
+    const formData = new FormData();
+    formData.append('url', filedata.url);
+    fetch("/profile/submit-document", {method: "POST", body: formData}).catch(function(error) {
+        console.log(error)
+    });
 }
 //jquery
 $(document).ready(function() {
@@ -120,4 +124,3 @@ $(document).ready(function() {
         client.picker(options).open();
     });
 })
-
