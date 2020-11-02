@@ -14,6 +14,7 @@ p {
     min-width: 250px;
 }
 
+
 /*THE-PLAN HTML*/
 /*MAPBOX CSS*/
 #geocoder-container > div {
@@ -284,6 +285,5 @@ ul li.checked::before {
     90%{color: black ;}
     100%{color: black ;}
 }
-
 
 
