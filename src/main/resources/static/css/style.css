@@ -232,6 +232,7 @@ ul li.checked::before {
     visibility: hidden;
     width: 500px;
     background-color: #3C83C1;
+    font-size: 1.75em;
     color: white;
     text-align: center;
     border-radius: 10px;
@@ -265,6 +266,9 @@ ul li.checked::before {
     text-decoration: underline;
 }
 /*TOOLTIPS BLINKING CSS*/
+#tooltipClickMe {
+    font-size: 1.75em;
+}
 .blinking{
     animation:blinkingText 4.5s infinite;
 }
@@ -285,5 +289,3 @@ ul li.checked::before {
     90%{color: black ;}
     100%{color: black ;}
 }
-
-
