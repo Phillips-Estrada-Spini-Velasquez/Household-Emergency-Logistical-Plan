@@ -33,6 +33,17 @@ public class HomeController {
         return "the-plan/the-plan";
     }
 
+
+    @GetMapping("/info")
+    public String showGeneralInfo() {
+        return "inside-page";
+    }
+
+    @GetMapping("/our-team")
+    public String showOurTeam() {
+        return "our-team";
+    }
+
 //    @GetMapping("/the-plan")
 //    public String redirectToGroupPlan() {
 //        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -11,7 +11,7 @@
 <h1>Welcome to <span th:text="${user.firstName}"></span>'s Profile Page</h1>
 
 <div class="row">
-    <div class="col-2 ml-4">
+    <div class="col-3 ml-4">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Your Profile Info</h5>
@@ -27,7 +27,9 @@
                 <p class="card-text mb-0" th:text="${user.streetAddress}"></p>
                 <p class="card-text mt-0" th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
                 <!--add link to plan-->
-                <a href="#" class="btn btn-primary">Your Group Plan</a>
+                <div th:if="${user.group != null}">
+                    <a href="#" class="btn btn-primary">Your Group Plan</a>
+                </div>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -36,12 +38,14 @@
                 <a class="card-text" href="/messages">Message Your Group</a>
                 <div th:if="${user.admin == true}">
                     <a class="card-text" href="/messages">Edit Your Group</a>
-                    <a class="card-text" href="/messages">Invite New Members</a>
+                    <br>
+                    <!--CHANGE LATER-->
+                    <a class="card-text" href="/member/register/1">Invite New Members</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-7 light-blue">
         <div th:if="${user.group != null}">
             <h2 style="text-align: center">Your Group Info</h2>
             <div class="container">
@@ -53,20 +57,20 @@
                 <div th:each="user : ${user.group.users}">
                     <p class="card-text" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
                 </div>
-<!--                <div class="text-center">-->
-<!--                    <a class="btn btn-primary btn-lg text-center" href="/group/edit" role="button">Edit Your-->
-<!--                        Group</a>-->
-<!--                </div>-->
-<!--                <div class="text-center">-->
-<!--                    <a class="btn btn-primary btn-lg text-center" href="/the-plan" role="button">Your Emergency-->
-<!--                        Plan</a>-->
-<!--                </div>-->
+                <!--                <div class="text-center">-->
+                <!--                    <a class="btn btn-primary btn-lg text-center" href="/group/edit" role="button">Edit Your-->
+                <!--                        Group</a>-->
+                <!--                </div>-->
+                <!--                <div class="text-center">-->
+                <!--                    <a class="btn btn-primary btn-lg text-center" href="/the-plan" role="button">Your Emergency-->
+                <!--                        Plan</a>-->
+                <!--                </div>-->
             </div>
         </div>
         <div th:unless="${user.group != null}">
             <div style="text-align: center;">
                 <h2 style="text-align: center">Your Group Has Not Been Created</h2>
-                <form style="display: inline" th:action="@{'/groups/create'}">
+                <form style="display: inline" th:action="@{'/group/create'}">
                     <button class="btn btn-primary btn-lg text-center">Create Group</button>
                 </form>
             </div>
