@@ -15,20 +15,20 @@
         </div>
 
         <form th:action="@{/create}" method="POST" th:object="${group}">
-
-            <div class="d-flex flex-column">
-                <div class="d-flex flex-row justify-content-between">
+            <div class="form-row">
+                <div class="form-group col-6 col-md-6">
                     <label for="username">Group Name</label>
-                    <input id="username" th:field="*{name}"/>
-
+                    <input class="form-control" id="username" th:field="*{name}"/>
+                </div>
+                <div class="form-group col-6 col-md-6">
                     <label for="firstName">Group Meetup Spot</label>
-                    <input id="firstName" th:field="*{rallyPointCoordinates}"/>
-
-                    <div class="d-flex justify-content-end">
-                        <input value="Create Group" type="submit"/>
-                    </div>
+                    <input class="form-control" id="firstName" th:field="*{rallyPointCoordinates}"/>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-2">Save Group</button>
                 </div>
             </div>
+
         </form>
     </div>
 </div>
