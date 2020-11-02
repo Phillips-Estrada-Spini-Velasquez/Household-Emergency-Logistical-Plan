@@ -21,10 +21,10 @@ public class GroupController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/groups/create")
-    public String showSignupForm(Model model) {
+    @GetMapping("/group/create")
+    public String showCreateForm(Model model) {
         model.addAttribute("group", new Group());
-        return "groups/create";
+        return "groups/createEdit";
     }
 
     @PostMapping("/create")
@@ -36,4 +36,33 @@ public class GroupController {
         userDao.save(thisUser);
         return "redirect:/profile";
     }
+
+    @GetMapping("/group/edit")
+    public String showEditForm(Model model) {
+        model.addAttribute("group", new Group());
+        return "groups/createEdit";
+    }
+
+    @PostMapping("/edit")
+    public String editGroup(@ModelAttribute Group group) {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        groupDao.save(group);
+        thisUser.setGroup(group);
+        userDao.save(thisUser);
+        return "redirect:/profile";
+    }
+
+
+//Needs work
+    @GetMapping(path = "/group/delete")
+    public String deletePostById(@ModelAttribute Group group) {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        groupDao.delete(group);
+        userDao.save(thisUser);
+        return "redirect:/profile";
+    }
+
+
 }
