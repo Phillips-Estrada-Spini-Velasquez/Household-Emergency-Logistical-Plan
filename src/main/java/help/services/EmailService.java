@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service("mailService")
-public interface EmailService {
+public class EmailService {
 
 
-//    void sendText(String from, String to, String subject, String body);
-//
-    void sendHTML(String from, String to, String subject, String body) throws IOException;
 }

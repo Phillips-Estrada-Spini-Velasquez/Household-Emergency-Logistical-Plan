@@ -1,4 +1,5 @@
 package help.controllers;
+
 import help.models.Group;
 import help.models.Message;
 import help.models.User;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Controller
 public class MessageController {
     private final MessageRepository messageDao;
     private final UserRepository userDao;
     private final GroupRepository groupDao;
+
     //    private final EmailService emailService;
     public MessageController(MessageRepository messageDao, UserRepository userDao, GroupRepository groupDao) {
         this.messageDao = messageDao;
@@ -26,11 +29,12 @@ public class MessageController {
     }
 
     @GetMapping("/messages.json")
-    public @ResponseBody List<Message> viewAllMessagesInJSONFormat() {
+    public @ResponseBody
+    List<Message> viewAllMessagesInJSONFormat() {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
         Group group = groupDao.findById(thisUser.getGroupID()).orElse(null);
-        if (group == null){
+        if (group == null) {
             //Returns empty list
             return new ArrayList<Message>();
         }
@@ -73,6 +77,17 @@ public class MessageController {
         messageDao.save(message);
         return "redirect:/messages";
     }
+
+    //Works, need to add button for delete
+    @GetMapping(path = "/messages/delete/{id}")
+    public String deleteMessageById(@PathVariable long id) {
+        Message message = messageDao.getOne(id);
+        message.setOwner(messageDao.getOne(id).getOwner());
+        messageDao.deleteById(id);
+//        emailService.prepareAndSendPost(message, ("Post Deleted: " + message.getTitle()), message.getBody());
+        return "redirect:/messages";
+    }
+
 //    @PostMapping("/messages/submit")
 //    public String createMessage(@ModelAttribute Message message, @ModelAttribute User user) {
 //        long userId = user.getId();
@@ -103,19 +118,7 @@ public class MessageController {
 //        postRepo.save(post);
 //        return "redirect:/posts/" + post.getId();
 //    }
-    //    @GetMapping(path = "/messages")
-//    public String createMessageForm(Model model) {
-//        model.addAttribute("message", new Message());
-//        model.addAttribute("user", userDao.getOne(1L));
-//        return "/messages/ajax";
-//    }
-//    @GetMapping("/messages/show/{id}")
-//    public String getMessageById(@PathVariable long id, Model model) {
-//        model.addAttribute("message", messageDao.getOne(id));
-//        model.addAttribute("user", userDao.getOne(1L));
-////        model.addAttribute("email", userDao.getOne(1L).getEmail());
-//        return "/messages/show";
-//    }
+
 //    @GetMapping(path = "/messages/{id}/edit")
 //    public String editMessageForm(@PathVariable long id, Model model) {
 //        Message message = messageDao.getOne(id);
@@ -134,12 +137,5 @@ public class MessageController {
 //        return "redirect:/messages/show/ + {id}";
 //    }
 //
-//    @GetMapping(path = "/messages/delete/{id}")
-//    public String deleteMessageById(@PathVariable long id) {
-//        Message message = messageDao.getOne(id);
-//        message.setOwner(messageDao.getOne(id).getOwner());
-//        messageDao.deleteById(id);
-////        emailService.prepareAndSendPost(message, ("Post Deleted: " + message.getTitle()), message.getBody());
-//        return "/messages/delete-message";
-//    }
+
 }
