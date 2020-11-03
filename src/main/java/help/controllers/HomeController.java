@@ -52,6 +52,7 @@ public class HomeController {
         User getUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(getUser.getId());
         model.addAttribute("id", thisUser.getGroupID());
+        model.addAttribute("documents", documentDao.findAllByOwner(thisUser));
         if (thisUser.getGroupID() == id) {
             return "the-plan/the-plan";
         }
