@@ -61,12 +61,14 @@ public class User {
 
     // One user to Many documents
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-//    @JoinColumn(name = "document_id")
     private List<Document> documents;
 
+    // One user to Many items
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Item> items;
+
     //Empty constructor - do not delete/edit
-    public User() {
-    }
+    public User() {}
 
     public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, List<Message> messages, Group group, List<Document> documents) {
         this.id = id;

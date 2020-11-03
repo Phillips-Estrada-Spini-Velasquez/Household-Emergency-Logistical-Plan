@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "checklist_items")
-public class ChecklistItem {
+@Table(name = "items")
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,10 @@ public class ChecklistItem {
     @JoinColumn (name = "group_id")
     private Group group;
 
-    public ChecklistItem() {
+    public Item() {
     }
 
-    public ChecklistItem(long id, String title, String location, boolean isChecked, User owner, Group group) {
+    public Item(long id, String title, String location, boolean isChecked, User owner, Group group) {
         this.id = id;
         this.title = title;
         this.location = location;

@@ -28,14 +28,6 @@ public class HomeController {
         return "home";
     }
 
-
-    @GetMapping("/the-plan")
-    public String redirectToGroupPlan() {
-        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User thisUser = userDao.getOne(thisAuthor.getId());
-        return "redirect:/the-plan/" + thisUser.getGroup().getId();
-    }
-
     @GetMapping("/info")
     public String showGeneralInfo() {
         return "inside-page";
@@ -46,7 +38,16 @@ public class HomeController {
         return "our-team";
     }
 
-  
+
+    // This will be moved to THEPLANCONTROLLER when we clean up code
+    @GetMapping("/the-plan")
+    public String redirectToGroupPlan() {
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+        return "redirect:/the-plan/" + thisUser.getGroup().getId();
+    }
+
+    // This will be moved to THEPLANCONTROLLER when we clean up code
     @GetMapping("/the-plan/{id}")
     public String showThePlan(@PathVariable long id, Model model) {
         User getUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

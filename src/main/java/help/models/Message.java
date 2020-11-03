@@ -45,11 +45,6 @@ public class Message {
     @JoinColumn (name = "group_id")
     private Group group;
 
-    //Do we need to add a group id (think we can pull group_id from user )
-
-    // extract group id method
-
-
     //Empty constructor - do not delete/edit
     public Message(){}
 
