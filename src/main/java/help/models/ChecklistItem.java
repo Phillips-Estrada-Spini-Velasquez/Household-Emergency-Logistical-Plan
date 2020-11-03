@@ -1,5 +1,7 @@
 package help.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,30 +13,34 @@ public class ChecklistItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "item_id", referencedColumnName = "id")
-    private Item item;
+    @Column(nullable = false, length = 255)
+    private String title;
+
+    @Column(nullable = false, length = 255)
+    private String location;
 
     @Column(name = "is_checked")
     private boolean isChecked;
 
-    @OneToOne
-//    @Column(name = "checked_by")
-    private User checkedBy;
+    @ManyToOne
+    @JsonManagedReference
+    @JoinColumn (name = "owner_id")
+    private User owner;
 
-    @Column(nullable = false)
-    private Date date;
-
-    public ChecklistItem(long id, Item item, boolean isChecked, User checkedBy, Date date) {
-        this.id = id;
-        this.item = item;
-        this.isChecked = isChecked;
-        this.checkedBy = checkedBy;
-        this.date = date;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "group_id")
+    private Group group;
 
     public ChecklistItem() {
+    }
+
+    public ChecklistItem(long id, String title, String location, boolean isChecked, User owner, Group group) {
+        this.id = id;
+        this.title = title;
+        this.location = location;
+        this.isChecked = isChecked;
+        this.owner = owner;
+        this.group = group;
     }
 
     public long getId() {
@@ -45,12 +51,20 @@ public class ChecklistItem {
         this.id = id;
     }
 
-    public Item getItem() {
-        return item;
+    public String getTitle() {
+        return title;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public boolean isChecked() {
@@ -61,19 +75,19 @@ public class ChecklistItem {
         isChecked = checked;
     }
 
-    public User getCheckedBy() {
-        return checkedBy;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setCheckedBy(User checkedBy) {
-        this.checkedBy = checkedBy;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public Date getDate() {
-        return date;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
