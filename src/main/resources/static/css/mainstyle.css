@@ -46,3 +46,7 @@ h1 {
 #containerBlueButton4 {
     max-width: 500px;
 }
+
+.footer {
+    position:fixed;
+}
