@@ -55,11 +55,12 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label>State</label>
-                    <select th:replace="partials/states :: states"></select>
+                        <select th:replace="partials/states :: states"></select>
                 </div>
+
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip" placeholder="Zip" th:field="*{zip}">
+                    <input type="text" class="form-control" id="inputZip" th:field="*{zip}">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
