@@ -8,6 +8,6 @@ public class AuthenticationController {
     // listen for the GET request for the login page, to display the login form
     @GetMapping("/login")
     public String showLoginForm() {
-        return "/users/login";
+        return "users/login";
     }
 }
