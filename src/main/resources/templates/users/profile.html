@@ -22,12 +22,13 @@
                 <div th:if="${user.admin == false}">
                     <p><strong>Your Role</strong><br><em>Group Member</em></p>
                 </div>
-                <p class="card-text"><strong>Address</strong></p>
-                <p class="card-text mb-0" th:text="${user.streetAddress}"></p>
-                <p class="card-text mt-0" th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
+                <p class="card-text mb-0"><strong>Contact Info</strong></p>
+                <p class="card-text mt-0 mb-0" th:text="${user.streetAddress}"></p>
+                <p class="card-text mt-0 mb-0" th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
+                <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
                 <!--add link to plan-->
                 <div th:if="${user.group != null}">
-                    <a href="#" class="btn btn-primary">Your Group Plan</a>
+                    <a href="/the-plan" class="btn btn-primary">Your Group Plan</a>
                 </div>
             </div>
         </div>
@@ -54,19 +55,12 @@
                 <p class="card-text"><strong>Your Group Name</strong></p>
                 <p class="card-text" th:text="${user.group.name}"></p>
                 <p class="card-text"><strong>Your Group's Emergency Meetup Spot</strong></p>
-                <p class="card-text" th:text="${user.group.rallyPointCoordinates}"></p>
+                <p class="card-text " th:text="${user.group.rallyPointCoordinates}"></p>
                 <p class="card-text"><strong>Your Group Members</strong></p>
                 <div th:each="user : ${user.group.users}">
-                    <p class="card-text" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
+                    <p class="card-text mb-0" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
+                    <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
                 </div>
-                <!--                <div class="text-center">-->
-                <!--                    <a class="btn btn-primary btn-lg text-center" href="/group/edit" role="button">Edit Your-->
-                <!--                        Group</a>-->
-                <!--                </div>-->
-                <!--                <div class="text-center">-->
-                <!--                    <a class="btn btn-primary btn-lg text-center" href="/the-plan" role="button">Your Emergency-->
-                <!--                        Plan</a>-->
-                <!--                </div>-->
             </div>
         </div>
         <div th:unless="${user.group != null}">
@@ -78,6 +72,16 @@
             </div>
         </div>
     </div>
+
+    <!--FILESTACK UPLOAD PICKER BUTTON-->
+    <div class="container-fluid" id="containerBlueButton2">
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker(options).open();">Import and Upload Documents</button>
+    </div>
+    <hr>
+    <div th:each="item : ${documents}">
+        <a th:href="${item.url}" target="_blank">test</a>
+    </div>
+
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

@@ -96,28 +96,3 @@ $('#downloadLink').click(function() {
     var img = map.getCanvas().toDataURL('image/png')
     this.href = img
 })
-
-
-// FILESTACK API JAVASCRIPT
-const client = filestack.init(filestackKey);
-const options = {
-    onUploadDone : updateDocument ,
-    accept: 'image/*',
-    maxSize: 10* 1000* 1000,
-    uploadInBackground: false
-}
-// FUNCTIONALITY THE-PLAN
-function updateDocument(result){
-    const filedata = result.filesUploaded[0];
-    console.log(filedata);
-    $("#profileUrl").val(filedata.url);
-}
-//jquery
-$(document).ready(function() {
-    //filestack
-    console.log(url);
-    $("#containerBlueButton2").click(function(){
-        client.picker(options).open();
-    });
-})
-

@@ -32,10 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-src/main/resources/application.properties“sendgrid.env”
-“sendgrid.env”
-“sendgrid.env”
-sendgrid.env
-sendgrid.env
-sendgrid.env
-sendgrid.env
+src/main/resources/application.properties
