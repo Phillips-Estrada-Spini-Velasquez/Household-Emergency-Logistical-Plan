@@ -23,10 +23,10 @@ public class Group {
     @Column
     private String rallyPointCoordinates;
 
-//    //only one admin can be the owner - nothing needed on the other one
-//    @OneToOne
-//    @JoinColumn (name = "owner_id")
-//    private User owner;
+    //only one admin can be the owner - nothing needed on the other one
+    @OneToOne
+    @JoinColumn (name = "owner_id")
+    private User owner;
 
     //One to Many because one group x many users
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
@@ -50,7 +50,7 @@ public class Group {
         this.id = id;
         this.name = name;
         this.rallyPointCoordinates = rallyPointCoordinates;
-//        this.owner = owner;
+        this.owner = owner;
         this.users = users;
         this.messages = messages;
     }
@@ -80,13 +80,13 @@ public class Group {
         this.rallyPointCoordinates = rallyPointCoordinates;
     }
 
-//    public User getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(User owner) {
-//        this.owner = owner;
-//    }
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public List<User> getUsers() {
         return users;
