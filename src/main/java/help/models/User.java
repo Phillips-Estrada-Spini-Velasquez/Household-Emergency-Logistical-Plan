@@ -44,7 +44,7 @@ public class User {
     private String state;
 
     @Column(length = 16)
-    private  String zip;
+    private BigInteger zip;
 
     @Column(columnDefinition = "BOOLEAN")
     private Boolean isAdmin;
@@ -79,7 +79,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, BigInteger phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, BigInteger phone, String streetAddress, String city, String state, BigInteger zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -178,11 +178,11 @@ public class User {
         this.state = state;
     }
 
-    public String getZip() {
+    public BigInteger getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(BigInteger zip) {
         this.zip = zip;
     }
 
