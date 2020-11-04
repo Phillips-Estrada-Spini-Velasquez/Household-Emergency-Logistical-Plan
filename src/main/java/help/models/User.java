@@ -30,8 +30,8 @@ public class User {
     @JsonIgnore
     private String password;
 
-    @Column(columnDefinition = "integer default 10")
-    private long phone;
+    @Column(length = 13)
+    private String phone;
 
     @Column(length = 255)
     private String streetAddress;
@@ -78,7 +78,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, String phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -145,11 +145,11 @@ public class User {
         this.password = password;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
