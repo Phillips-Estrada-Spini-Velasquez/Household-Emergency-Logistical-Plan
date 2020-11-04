@@ -68,7 +68,7 @@ public class UserController {
         //create new user
         model.addAttribute("user", new User());
         //create pull the id of a group with the path variable id -right?? (group should already exist)
-        model.addAttribute("group", groupDao.getOne(id).getId());
+        model.addAttribute("group", groupDao.getOne(id));
         //returns member-register template
         return "/users/member-register";
     }
