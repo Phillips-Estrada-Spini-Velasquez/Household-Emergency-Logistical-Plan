@@ -11,6 +11,4 @@ import java.util.List;
 public interface MessageRepository extends JpaRepository<Message, Long> {
 //    List<Message> findAllByGroup_Id(long groupId);
 
-    @Query("from Message m where m.group = ?1")
-    List<Message> getMessagesByGroup_Id(long id);
 }

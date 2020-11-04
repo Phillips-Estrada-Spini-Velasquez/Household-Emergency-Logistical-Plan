@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>Your Group Plan</title>
-    <!--    <div th:replace="partials/links :: links"></div>-->
     <link th:replace="partials/links :: links"/>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
+
 
     <link th:replace="partials/checklist-links :: links"/>
 
@@ -16,14 +17,10 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 <hr>
 
-<!--JUMBOTRON -->
-<section class="container-fluid">
-    <div class="jumbotron"></div>
-</section>
 
 <!--MAPBOX HTML-->
 <section class="container-fluid">
-    <h1 class="font-weight-bold">Set Emergency Household Meet-Up Location</h1>
+    <h1 class="font-weight-bold">Emergency Household Meet-Up Location</h1>
     <!--MAPBOX CONTAINER-->
     <div id="map"></div>
     <pre id="coordinates" class="coordinates"></pre>
@@ -54,27 +51,41 @@
                     <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
                     <circle cx="8" cy="4.5" r="1"/>
                 </svg>
-                <span class="tooltiptext tooltipHeader">Sentimental items are those items that cannot be replace. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
+                <span class="tooltiptext tooltipHeader">Sentimental items are those items that cannot be replaced. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
             </div>
         </h1>
         <!--CHECKLIST INPUT FIELD-->
-        <input type="text" class="myInput" placeholder="Title...">
-        <span onclick="newElement()" class="addBtn">Add Item</span>
+        <div id="checklist-items">
+            <form th:action="@{/items/submit}" th:method="post" th:object="${item}">
+                <input class="form-control" id="exampleInputEmail1" placeholder="Your Sentimental Item"
+                       th:field="*{title}">
+                <input class="form-control" id="location" placeholder="The Item's Location" th:field="*{location}">
+                <br/>
+                <button type="button submit" class="btn btn-primary btn-lg btn-block">Add Item</button>
+            </form>
+        </div>
     </div>
     <br>
-
-    <!--HARDCODED-->
-    <ul class="myUL">
-        <li>Item one</li>
-        <li>Item two</li>
-        <li>Item three</li>
-        <li>Item four</li>
-        <li>Item five</li>
-        <li>Item six</li>
-    </ul>
+    <!--SHOW SENTIMENTAL ITEMS-->
+    <span th:if="${item == null}">
+    <!--purposely left empty so it shows nothing-->
+    </span>
+    <span th:unless="${item == null}">
+    <div class="d-flex row">
+        <h3 class="col-6 text-center">Item</h3>
+        <h3 class="col-6 text-center">Location</h3>
+    </div>
+    <div id="container">
+        <ul class="myUL">
+        </ul>
+    </div>
+    </span>
 </section>
 
 <!-- IMPORTANT DOCUMENTS CHECKLIST-->
+<span th:if="${documents == null}">
+    </span>
+<span th:if="${documents == null}">
 <section class="container-fluid">
     <div id="myDIV1" class="header">
         <h1 class="mb-4 font-weight-bold">Important Documents
@@ -89,20 +100,15 @@
                 <span class="tooltiptext tooltipHeader">This is important</span>
             </div>
         </h1>
-<!--        &lt;!&ndash;CHECKLIST INPUT FIELD&ndash;&gt;-->
-<!--        <input type="text" class="myInput" placeholder="Title...">-->
-<!--        <span onclick="newElement()" class="addBtn">Add Item</span>-->
-<!--    </div>-->
-<!--    <br>-->
-
-    <!--HARDCODED-->
+    </div>
     <ul class="myUL">
         <div th:each="item : ${documents}">
             <li>
-                <a th:href="${item.url}" target="_blank">test</a>
+                <a th:href="${url}" target="_blank">test</a>
             </li>
         </div>
     </ul>
+    </span>
 </section>
 <hr>
 
@@ -114,7 +120,7 @@
 </div>
 <hr>
 
-<!--GO TO PREPAREDNESS CHECKLIST BUTOON-->
+<!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
 <div class="container-fluid" id="containerBlueButton3">
     <button type="button" class="btn btn-primary btn-lg btn-block"
             onclick="target='_blank'; location.href='/the-checklist'">Go To Emergency Preparedness Checklist
@@ -122,8 +128,25 @@
 </div>
 <hr>
 
-<div th:replace="partials/scripts :: scripts"></div>
 <footer th:replace="partials/footer :: footer"></footer>
+<div th:replace="partials/scripts :: scripts"></div>
+<script type="text/javascript">
+    (function ($) {
+        let request = $.ajax({'url': '/items.json'});
+        request.done(function (items) {
+            let html = '';
+            items.forEach(function (item) {
+                html += '<li>' +
+                 '<div class="row"><div class="col-6 text-center">' + item.title + '</div>' + " " +
+                 '<div class="col-6 text-center">' + item.location +'</div></div>' +
+                  '</li>';
+                //button to delete needed - not sure how to concatenate
+            });
+            $('#container ul').html(html);
+        });
+    })(jQuery);
+</script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>

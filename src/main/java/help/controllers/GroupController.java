@@ -31,7 +31,7 @@ public class GroupController {
     public String createGroup(@ModelAttribute Group group) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
-        group.setOwner(thisUser);
+//        group.setOwner(thisUser);
         groupDao.save(group);
         thisUser.setGroup(group);
         userDao.save(thisUser);

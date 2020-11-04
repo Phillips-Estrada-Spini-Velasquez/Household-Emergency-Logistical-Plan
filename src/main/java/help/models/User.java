@@ -2,8 +2,7 @@ package help.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.beans.factory.annotation.Value;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.List;
 
@@ -49,10 +48,6 @@ public class User {
     @Column(columnDefinition = "BOOLEAN")
     private Boolean isAdmin;
 
-    //Owner to messages
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    @JsonBackReference
-    private List<Message> messages;
 
     //Many users to one group
     @ManyToOne
@@ -63,14 +58,27 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Document> documents;
 
-    // One user to Many items
+    //Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonBackReference
+    private List<Message> messages;
+
+    //Owner to Many items
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonBackReference
     private List<Item> items;
 
     //Empty constructor - do not delete/edit
     public User() {}
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, List<Message> messages, Group group, List<Document> documents) {
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
+    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -83,16 +91,10 @@ public class User {
         this.state = state;
         this.zip = zip;
         this.isAdmin = isAdmin;
-        this.messages = messages;
         this.group = group;
         this.documents = documents;
-    }
-
-    public User(User copy) {
-        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
+        this.messages = messages;
+        this.items = items;
     }
 
     public long getId() {
@@ -182,21 +184,13 @@ public class User {
     public void setZip(long zip) {
         this.zip = zip;
     }
-  
-      public Boolean getAdmin() {
+
+    public Boolean getAdmin() {
         return isAdmin;
     }
 
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 
     public Group getGroup() {
@@ -207,16 +201,32 @@ public class User {
         this.group = group;
     }
 
-    public long getGroupID () {
-        return group.getId();
-    }
-
     public List<Document> getDocuments() {
         return documents;
     }
 
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
-
     }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public long getGroupID () {
+        return group.getId();
+    }
+
 }
