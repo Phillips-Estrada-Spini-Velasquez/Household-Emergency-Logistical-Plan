@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -30,8 +31,8 @@ public class User {
     @JsonIgnore
     private String password;
 
-    @Column(columnDefinition = "integer default 10")
-    private long phone;
+    @Column(length = 13)
+    private BigInteger phone;
 
     @Column(length = 255)
     private String streetAddress;
@@ -78,7 +79,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, BigInteger phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -145,11 +146,11 @@ public class User {
         this.password = password;
     }
 
-    public long getPhone() {
+    public BigInteger getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(BigInteger phone) {
         this.phone = phone;
     }
 
