@@ -70,7 +70,7 @@ public class UserController {
         //create pull the id of a group with the path variable id -right?? (group should already exist)
         model.addAttribute("group", groupDao.getOne(id));
         //returns member-register template
-        return "/users/member-register";
+        return "users/member-register";
     }
 
     @PostMapping("/member/register/{id}")
