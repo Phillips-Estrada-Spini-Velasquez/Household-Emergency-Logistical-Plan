@@ -43,8 +43,8 @@ public class User {
     @Column(length = 255)
     private String state;
 
-    @Column(columnDefinition = "integer default 9")
-    private long zip;
+    @Column(length = 16)
+    private  String zip;
 
     @Column(columnDefinition = "BOOLEAN")
     private Boolean isAdmin;
@@ -178,11 +178,11 @@ public class User {
         this.state = state;
     }
 
-    public long getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(long zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
