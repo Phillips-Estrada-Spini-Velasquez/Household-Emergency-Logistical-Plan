@@ -1,45 +1,136 @@
-/*OUR-TEAM CSS*/
+@import url(https://fonts.googleapis.com/css?family=Open+sans);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+:root {
+    --bhue: 80;
+    --bsat: 60;
+    --blig: 55;
+    --light:hsl(var(--bhue), calc(var(--bsat)*1%), calc(var(--blig)*1%));
+    --dark:hsl(var(--bhue), calc(var(--bsat)*1%), calc(var(--blig)*1% - 15%));
+    --darkest:hsl(var(--bhue), calc(var(--bsat)*1%), calc(var(--blig)*1% - 35%));
 }
 
-.flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 500px;
-    perspective: 1000px;
+.color {
+    background: -moz-linear-gradient(0deg, var(--dark) 0%, var(--light) 9%, var(--dark) 17%, var(--darkest) 51%, var(--dark) 82%, var(--light) 91%, var(--dark) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, var(--dark)), color-stop(9%, var(--light)), color-stop(17%, var(--dark)), color-stop(51%, var(--darkest)), color-stop(82%, var(--dark)), color-stop(91%, var(--light)), color-stop(100%, var(--dark))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(0deg, rgba(113,153,18,1) 0%, rgba(150,204,24,1) 9%, rgba(113,153,18,1) 17%, rgba(51,69,8,1) 51%, rgba(113,153,18,1) 82%, rgba(150,204,24,1) 91%, rgba(113,153,18,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(0deg, var(--dark) 0%, var(--light) 10%, var(--dark) 20%, var(--darkest) 50%, var(--dark) 80%, var(--light) 90%, var(--dark) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(0deg, var(--dark) 0%, var(--light) 10%, var(--dark) 20%, var(--darkest) 50%, var(--dark) 80%, var(--light) 90%, var(--dark) 100%); /* ie10+ */
+    background: linear-gradient(90deg, var(--dark) 0%, var(--light) 10%, var(--dark) 20%, var(--darkest) 50%, var(--dark) 80%, var(--light) 90%, var(--dark) 100%); /* w3c */
 }
 
-.flip-card-inner {
+.ribbon {
+    height: 70px;
+    width:100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    /*border-top: 1px solid var(--light);*/
+    border-bottom: 1px solid var(--dark);
+}
+
+/*TEAM CARDS*/
+#outTeamCards {
+    /*CONTAINER BACKGROUND COLOR*/
+    background-color: grey;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.snip1515 {
+    font-family: 'Open Sans', Arial, sans-serif;
     position: relative;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 315px;
     width: 100%;
-    height: 100%;
+    color: #000000;
     text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    line-height: 1.4em;
+    font-size: 14px;
+    box-shadow: none !important;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+.snip1515 * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
+/*IMAGE*/
+.snip1515 .profile-image {
+    display: inline-block;
+    width: 80%;
+    z-index: 1;
+    position: relative;
+    padding: 10px;
+    /*IMAGE BORDER COLOR*/
+    border: 2px solid #e8b563;
+}
+/*IMAGE*/
+.snip1515 .profile-image img {
+    max-width: 100%;
+    vertical-align: top;
+    -webkit-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -ms-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    -o-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
+}
+/*LOWER CARD*/
+.snip1515 figcaption {
     width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    /*LOWER CARD BACHGROUND COLOR*/
+    background-color: #F2F2F2;
+    color: #555;
+    padding: 125px 25px 25px;
+    margin-top: -100px;
+    display: inline-block;
+}
+/*HEADERS*/
+.snip1515 h3,
+.snip1515 h4,
+.snip1515 p {
+    margin: 0 0 5px;
+}
+/*NAME*/
+.snip1515 h3 {
+    font-weight: 600;
+    font-size: 1.3em;
+    font-family: 'Playfair Display', Arial, sans-serif;
+}
+/*TITLE*/
+.snip1515 h4 {
+    color: #8c8c8c;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+/*QUOTE*/
+.snip1515 p {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+/*ICONS*/
+.snip1515 .icons {
+    /*LINKS BACKGROUND COLOR*/
+    background-color: #555555;
+    text-align: center;
+    width: 100%;
+}
+/*ICONS*/
+.snip1515 i {
+    padding: 10px 2px;
+    display: inline-block;
+    /*ICON SIZE*/
+    font-size: 20px;
+    font-weight: normal;
+    /*LINK ICONS COLOR*/
+    color: #e8b563;
+    opacity: 0.75;
+}
+/*ICONS*/
+.snip1515 i:hover {
+    opacity: 1;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
 }
 
-.flip-card-front {
-    background-color: white;
-    color: black;
-}
 
-.flip-card-back {
-    background-color: white;
-    color: black;
-    transform: rotateY(180deg);
-}
