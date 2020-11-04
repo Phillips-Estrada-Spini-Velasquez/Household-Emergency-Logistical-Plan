@@ -30,8 +30,8 @@ public class User {
     @JsonIgnore
     private String password;
 
-    @Column(columnDefinition = "integer default 10")
-    private long phone;
+    @Column(length = 16)
+    private String phone;
 
     @Column(length = 255)
     private String streetAddress;
@@ -42,8 +42,8 @@ public class User {
     @Column(length = 255)
     private String state;
 
-    @Column(columnDefinition = "integer default 9")
-    private long zip;
+    @Column(length = 16)
+    private  String zip;
 
     @Column(columnDefinition = "BOOLEAN")
     private Boolean isAdmin;
@@ -78,7 +78,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, long phone, String streetAddress, String city, String state, long zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, String phone, String streetAddress, String city, String state, String zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -145,11 +145,11 @@ public class User {
         this.password = password;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -177,11 +177,11 @@ public class User {
         this.state = state;
     }
 
-    public long getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(long zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
