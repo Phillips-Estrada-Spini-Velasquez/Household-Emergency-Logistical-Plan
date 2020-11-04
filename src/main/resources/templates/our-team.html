@@ -1,97 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Our Team</title>
-    <link th:replace="partials/links :: links"/>
-</head>
-<body>
-<nav th:replace="partials/navbar :: navbar"></nav>
+    <head>
+        <meta charset="UTF-8">
+        <title>Our Team</title>
+        <link th:replace="partials/links :: links"/>
+    </head>
+    <body>
+        <nav th:replace="partials/navbar :: navbar"></nav>
 
-<!--    ABOUT OUR PROJECT JUMBOTRON-->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">H.E.L.P.</h1>
-        <p class="lead">Household Emergency Logistic Planner</p>
-    </div>
-</div>
+        <!--    ABOUT OUR PROJECT JUMBOTRON-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">H.E.L.P.</h1>
+                <p class="lead">Household Emergency Logistic Planner</p>
+            </div>
+        </div>
 
-<!--    ABOUT US FLIP CARDS-->
-<h2 class="text-center">Our Team</h2>
-<container class="container-fluid text-center">
-    <section class="d-flex justify-content-around border-dark mx-5 my-5">
-        <div class="flip-card shadow-lg">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img" alt="Avatar" style="width:300px;height:500px;">
-                </div>
-                <div class="flip-card-back">
-                    <h1>HEADER</h1>
-                    <p>NAME</p>
-                    <p>TITLE</p>
-                    <div class="text-center">
-                        <img src="img" class="img-thumbnail" alt="...">
-                        <hr>
-                        <p>BIO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card shadow-lg">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img" alt="Avatar" style="width:300px;height:500px;">
-                </div>
-                <div class="flip-card-back">
-                    <h1>HEADER</h1>
-                    <p>NAME</p>
-                    <p>TITLE</p>
-                    <div class="text-center">
-                        <img src="img" class="img-thumbnail" alt="...">
-                        <hr>
-                        <p>BIO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card shadow-lg">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img" alt="Avatar" style="width:300px;height:500px;">
-                </div>
-                <div class="flip-card-back">
-                    <h1>HEADER</h1>
-                    <p>NAME</p>
-                    <p>TITLE</p>
-                    <div class="text-center">
-                        <img src="img" class="img-thumbnail" alt="...">
-                        <hr>
-                        <P>BIO</P>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card shadow-lg">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img" alt="Avatar" style="width:300px;height:500px;">
-                </div>
-                <div class="flip-card-back">
-                    <h1>HEADER</h1>
-                    <p>NAME</p>
-                    <p>TITLE</p>
-                    <div class="text-center">
-                        <img src="img" class="img-thumbnail" alt="...">
-                        <hr>
-                        <P>BIO</P>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</container>
+    <!--    ABOUT US FLIP CARDS-->
+        <container class="container-fluid text-center">
+            <div class="ribbon color"><h2 class="text-center pt-3 text-light">Meet out team of Web Developers</h2></div>
+            <br>
+            <section id="outTeamCards" class="col-12 d-flex justify-content-around">
 
-<footer th:replace="partials/footer :: footer"></footer>
-<div th:replace="partials/scripts :: scripts"></div>
-</body>
+                <figure class="snip1515">
+                    <div class="profile-image"><img src="image" alt="sample83" /></div>
+                    <figcaption>
+                        <h3>Tracy Velasquez</h3>
+                        <h4>Web Developer</h4>
+                        <p>put your quote here</p>
+                        <div>
+                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <figure class="snip1515">
+                    <div class="profile-image"><img src="image" alt="sample83" /></div>
+                    <figcaption>
+                        <h3>Jonathan Phillips</h3>
+                        <h4>Web Developer</h4>
+                        <p>put your quote here</p>
+                        <div>
+                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <figure class="snip1515">
+                    <div class="profile-image"><img src="image" alt="sample70" /></div>
+                    <figcaption>
+                        <h3>Santos Estrada</h3>
+                        <h4>Web Developer</h4>
+                        <p>put your quote here</p>
+                        <div>
+                            <div class="icons"><a href="#"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <figure class="snip1515">
+                    <div class="profile-image"><img src="img/our-team/spini.jpg" alt="Donald Spini" /></div>
+                    <figcaption>
+                        <h3>Donald Spini</h3>
+                        <h4>Web Developer</h4>
+                        <p>You can observe a lot by just watching. ~ Yogi Berra</p>
+                        <div>
+                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+            </section>
+        </container>
+        <br><br>
+        <footer th:replace="partials/footer :: footer"></footer>
+        <div th:replace="partials/scripts :: scripts"></div>
+    </body>
+
 </html>
