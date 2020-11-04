@@ -1,5 +1,6 @@
 package help.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -27,7 +28,7 @@ public class Item {
     @JoinColumn (name = "owner_id")
     private User owner;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn (name = "group_id")
     private Group group;
 

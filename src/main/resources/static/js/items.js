@@ -1,0 +1,4 @@
+(function($) {
+
+    $('#items').DataTable();
+})(jQuery);

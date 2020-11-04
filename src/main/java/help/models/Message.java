@@ -41,9 +41,14 @@ public class Message {
     private User owner;
 
     //Groups to User will be many-to-one because many messages can be posted by one group
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn (name = "group_id")
     private Group group;
+
+    //Do we need to add a group id (think we can pull group_id from user )
+
+    // extract group id method
+
 
     //Empty constructor - do not delete/edit
     public Message(){}
