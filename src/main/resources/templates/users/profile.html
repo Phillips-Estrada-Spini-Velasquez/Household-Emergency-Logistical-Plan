@@ -42,6 +42,9 @@
                         <br>
                         <!--CHANGE LATER-->
                         <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
+                        <br>
+                        <a href="#" class="card-text" onclick="client.picker(options).open();">Upload Important Documents
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,12 +76,7 @@
         </div>
     </div>
 
-    <!--FILESTACK UPLOAD PICKER BUTTON-->
-    <div class="container-fluid" id="containerBlueButton2">
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker(options).open();">Import and Upload Documents
-        </button>
-    </div>
-    <hr>
+
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
