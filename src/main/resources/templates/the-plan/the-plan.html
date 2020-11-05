@@ -7,13 +7,11 @@
     <title>Your Group Plan</title>
     <link th:replace="partials/links :: links"/>
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
-
-
     <link th:replace="partials/checklist-links :: links"/>
 
 </head>
 <body>
-<!--<header th:replace="partials/header :: header"></header>-->
+
 <nav th:replace="partials/navbar :: navbar"></nav>
 <hr>
 
@@ -23,10 +21,6 @@
     <h1 class="font-weight-bold">Emergency Household Meet-Up Location</h1>
     <!--MAPBOX CONTAINER-->
     <div id="map"></div>
-    <pre id="coordinates" class="coordinates"></pre>
-    <div class="filter-ctrl">
-        <input id="filter-input" type="text" name="filter" placeholder="Filter by name"/>
-    </div>
     <br>
     <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
     <div id="image"></div>
