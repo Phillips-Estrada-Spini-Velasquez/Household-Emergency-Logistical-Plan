@@ -57,7 +57,8 @@ public class User {
 
     // One user to Many documents
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private List<Document> documents;
+    @JsonBackReference
+    private List<Doc> doc;
 
     //Owner to messages
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
@@ -79,7 +80,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(long id, String firstName, String lastName, String username, String email, String password, BigInteger phone, String streetAddress, String city, String state, BigInteger zip, Boolean isAdmin, Group group, List<Document> documents, List<Message> messages, List<Item> items) {
+    public User(long id, String firstName, String lastName, String username, String email, String password, BigInteger phone, String streetAddress, String city, String state, BigInteger zip, Boolean isAdmin, Group group, List<Doc> doc, List<Message> messages, List<Item> items) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -93,7 +94,7 @@ public class User {
         this.zip = zip;
         this.isAdmin = isAdmin;
         this.group = group;
-        this.documents = documents;
+        this.doc = doc;
         this.messages = messages;
         this.items = items;
     }
@@ -202,12 +203,12 @@ public class User {
         this.group = group;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
+    public List<Doc> getDoc() {
+        return doc;
     }
 
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
+    public void setDoc(List<Doc> doc) {
+        this.doc = doc;
     }
 
     public List<Message> getMessages() {

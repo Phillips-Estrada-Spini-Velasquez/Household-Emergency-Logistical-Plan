@@ -1,14 +1,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div class="standard-links" th:fragment="footer">
-    <div class="fixed-bottom">
-        <div class="navbar navbar-expand-lg navbar-light bg-light">
+<style>
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
+</style>
+
+<div class="standard-links mt-5" th:fragment="footer">
+    <div class="mt-5">
+        <div class="navbar navbar-expand-lg navbar-light bg-light mt-5">
             <!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
             <!--                <span class="navbar-toggler-icon"></span>-->
             <!--            </button>-->
             <div class="collapse navbar-collapse" id="navbarNavMarkup">
                 <div class="navbar-nav mr-auto" id="footer-nav">
-                    <a class="nav-item nav-link" href="templates/our-team.html">About Us</a>
+                    <a class="nav-item nav-link" href="/our-team">About Us</a>
                     <a class="nav-item nav-link" href="/">Help</a>
                     <a class="nav-item nav-link" href="/">Send Feedback</a>
                     <a class="nav-item nav-link" href="/">Privacy</a>

@@ -36,21 +36,21 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Quick Links</h5>
-                    <a class="card-text" href="/messages">Message Your Group</a>
+                    <a class="card-text" href="/messages">Message Your Group</a><br>
+                    <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
+                    <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents
+                    </a>
                     <div th:if="${user.admin == true}">
                         <a class="card-text" href="/group/edit">Edit Your Group</a>
                         <br>
                         <!--CHANGE LATER-->
                         <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
                         <br>
-                        <a href="#" class="card-text" onclick="client.picker(options).open();">Upload Important Documents
-                        </a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="col-7 light-blue">
         <div th:if="${user.group != null}">
             <h2 style="text-align: center">Your Group Info</h2>
