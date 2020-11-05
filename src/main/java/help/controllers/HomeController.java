@@ -73,8 +73,8 @@ public class HomeController {
         User thisUser = userDao.getOne(getUser.getId());
         if (thisUser.getGroupID() == id) {
             model.addAttribute("id", thisUser.getGroupID());
-            model.addAttribute("documents", documentDao.findAllByOwner(thisUser));
             model.addAttribute("item", new Item());
+            model.addAttribute("documents", documentDao.findAllByGroup_Id(id));
             return "the-plan/the-plan";
         }
         return "/home";

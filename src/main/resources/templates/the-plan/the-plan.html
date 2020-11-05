@@ -67,10 +67,10 @@
     </div>
     <br>
     <!--SHOW SENTIMENTAL ITEMS-->
-<!--    <span th:if="${item == null}">-->
-<!--    &lt;!&ndash;purposely left empty so it shows nothing&ndash;&gt;-->
-<!--    </span>-->
-<!--    <span th:unless="${item == null}">-->
+    <!--    <span th:if="${item == null}">-->
+    <!--    &lt;!&ndash;purposely left empty so it shows nothing&ndash;&gt;-->
+    <!--    </span>-->
+    <!--    <span th:unless="${item == null}">-->
     <div class="d-flex row">
         <h3 class="col-6 text-center">Item</h3>
         <h3 class="col-6 text-center">Location</h3>
@@ -79,7 +79,7 @@
         <ul class="myUL">
         </ul>
     </div>
-<!--    </span>-->
+    <!--    </span>-->
 </section>
 
 <!-- IMPORTANT DOCUMENTS CHECKLIST-->
@@ -103,12 +103,10 @@
     </div>
     <ul class="myUL">
         <div th:each="item : ${documents}">
-            <li>
-                <a th:href="${url}" target="_blank">test</a>
-            </li>
+            <a th:href="${item.url}" target="_blank">test</a>
         </div>
     </ul>
-<!--    </span>-->
+    <!--    </span>-->
 </section>
 <hr>
 
@@ -137,9 +135,9 @@
             let html = '';
             items.forEach(function (item) {
                 html += '<li>' +
-                 '<div class="row"><div class="col-6 text-center">' + item.title + '</div>' + " " +
-                 '<div class="col-6 text-center">' + item.location +'</div></div>' +
-                  '</li>';
+                    '<div class="row"><div class="col-6 text-center">' + item.title + '</div>' + " " +
+                    '<div class="col-6 text-center">' + item.location + '</div></div>' +
+                    '</li>';
                 //button to delete needed - not sure how to concatenate
             });
             $('#container ul').html(html);

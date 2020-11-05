@@ -68,7 +68,7 @@ public class UserController {
         //create new user
         model.addAttribute("user", new User());
         //create pull the id of a group with the path variable id -right?? (group should already exist)
-        model.addAttribute("group", groupDao.getOne(id));
+        model.addAttribute("group", groupDao.getOne(id).getId());
         //returns member-register template
         return "users/member-register";
     }
@@ -81,7 +81,6 @@ public class UserController {
         //sets member as non-admin
         member.setAdmin(false);
         //sets the member's group as a group with id of "id"
-        System.out.println("Group id " + id);
         member.setGroup(groupDao.getOne(id));
         //WHHHHYYYYYYY
         // saves

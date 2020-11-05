@@ -23,11 +23,6 @@ public class Group {
     @Column
     private String rallyPointCoordinates;
 
-//    //only one admin can be the owner - nothing needed on the other one
-//    @OneToOne
-//    @JoinColumn(name = "owner_id")
-//    private User owner;
-
     //One to Many because one group x many users
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     @JsonIgnore
@@ -40,6 +35,7 @@ public class Group {
 
     //One to Many because one group x many documents
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    @JsonIgnore
     private List<Document> documents;
 
     //One to Many because one group x many items

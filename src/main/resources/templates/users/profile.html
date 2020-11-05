@@ -75,15 +75,10 @@
 
     <!--FILESTACK UPLOAD PICKER BUTTON-->
     <div class="container-fluid" id="containerBlueButton2">
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker(options).open();">Import
-            and Upload Documents
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker(options).open();">Import and Upload Documents
         </button>
     </div>
     <hr>
-    <div th:each="item : ${documents}">
-        <a th:href="${item.url}" target="_blank">test</a>
-    </div>
-
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>

@@ -1,5 +1,6 @@
 package help.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Document {
 
     // Many documents to One group
     @ManyToOne
-    @JsonManagedReference
+    @JsonIgnore
     @JoinColumn(name = "group_id")
     private Group group;
 

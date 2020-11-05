@@ -32,6 +32,7 @@ public class GroupController {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
 //        group.setOwner(thisUser);
+//        purposely removed
         groupDao.save(group);
         thisUser.setGroup(group);
         userDao.save(thisUser);
@@ -55,7 +56,7 @@ public class GroupController {
     }
 
 
-//Needs work
+    //Needs work
     @GetMapping(path = "/group/delete")
     public String deletePostById(@ModelAttribute Group group) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

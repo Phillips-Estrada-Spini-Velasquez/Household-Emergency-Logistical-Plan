@@ -28,7 +28,7 @@ public class ProfileController {
     public String showProfileDetails(Model model) {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", userDao.getOne(thisAuthor.getId()));
-        model.addAttribute("documents", documentDao.findAllByOwner(thisAuthor));
+        model.addAttribute("documents", new Document());
         return "users/profile";
     }
 
