@@ -36,18 +36,21 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Quick Links</h5>
-                    <a class="card-text" href="/messages">Message Your Group</a>
+                    <a class="card-text" href="/messages">Message Your Group</a><br>
+                    <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
+                    <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents
+                    </a>
                     <div th:if="${user.admin == true}">
                         <a class="card-text" href="/group/edit">Edit Your Group</a>
                         <br>
                         <!--CHANGE LATER-->
-                        <a class="card-text" href="/member/register">Invite New Members</a>
-                    </div>
+                        <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
+                        <br>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="col-7 light-blue">
         <div th:if="${user.group != null}">
             <h2 style="text-align: center">Your Group Info</h2>
@@ -73,20 +76,11 @@
         </div>
     </div>
 
-    <!--FILESTACK UPLOAD PICKER BUTTON-->
-    <div class="container-fluid" id="containerBlueButton2">
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="client.picker(options).open();">Import
-            and Upload Documents
-        </button>
-    </div>
-    <hr>
-    <div th:each="item : ${documents}">
-        <a th:href="${item.url}" target="_blank">test</a>
-    </div>
 
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script th:replace="partials/scripts :: scripts"></script>
+<script src="./js/profile.js"></script>
 </body>
 </html>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org" lang="en">
-        <head th:fragment="head">
-            <meta charset="UTF-8"/>
-            <title>Home</title>
-            <link th:fragment="bootstrap-css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        </head>
-        <body>
-        <nav th:fragment="navbar">
-            <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <link th:fragment="bootstrap-css" rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<nav th:fragment="navbar">
+    <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
                     <span th:case="${true}">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <a class="navbar-brand" href="/">HELP</a>
@@ -21,11 +22,8 @@
                                  <div class="navbar-nav">
                                     <a class="nav-item nav-link" href="/info">General Info</a>
                                     <a class="nav-item nav-link" href="/our-team">Our Team</a>
-                                    <a class="nav-item nav-link" href="/the-plan">The Plan</a>
                                     <a class="nav-item nav-link" href="/profile">Profile</a>
-<!--                                    <form th:action="@{'/the-plan/' + ${group.id}}" th:method="post">-->
-<!--                                        <button class="btn-link btn" style="margin-top: 8px">"THE PLAN"</button>-->
-<!--                                    </form>-->
+                                    <a class="nav-item nav-link" href="/the-plan">The Plan</a>
                                     <form th:action="@{/logout}" th:method="post">
                                         <button class="btn-link btn">Logout</button>
                                     </form>
@@ -34,22 +32,22 @@
                         </nav>
                     </span>
 
-                    <span th:case="${false}">
+        <span th:case="${false}">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <a class="navbar-brand" style="margin-top: 8px" href="/">HELP</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                    aria-expanded="false" aria-label="Toggle navigation">
 
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav">
-                                    <a class="nav-item nav-link" style="margin-top: 8px" href="/">General Info</a>
-                                    <a class="nav-item nav-link" style="margin-top: 8px" href="/#">Our Team</a>
-
+                                  <a class="nav-item nav-link" href="/info">General Info</a>
+                                    <a class="nav-item nav-link" href="/our-team">Our Team</a>
                                 <form th:action="@{/register}" th:method="get">
                                     <button class="btn-link btn" style="margin-top: 8px">Register</button>
                                 </form>
-
                                 <form th:action="@{/login}" th:method="get">
                                     <button class="btn-link btn" style="margin-top: 8px">Login</button>
                                 </form>
@@ -57,7 +55,8 @@
                             </div>
                         </nav>
                     </span>
-                </div>
-            </nav>
-        </body>
-    </html>
+    </div>
+</nav>
+</body>
+</html>
+

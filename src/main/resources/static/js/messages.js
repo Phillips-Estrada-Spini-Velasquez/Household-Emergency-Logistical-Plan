@@ -1,4 +1,0 @@
-(function($) {
-
-    $('#messages').DataTable();
-})(jQuery);

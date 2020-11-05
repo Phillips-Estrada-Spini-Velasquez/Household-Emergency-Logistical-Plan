@@ -23,11 +23,6 @@ public class Group {
     @Column
     private String rallyPointCoordinates;
 
-//    //only one admin can be the owner - nothing needed on the other one
-//    @OneToOne
-//    @JoinColumn(name = "owner_id")
-//    private User owner;
-
     //One to Many because one group x many users
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
     @JsonIgnore
@@ -38,9 +33,10 @@ public class Group {
     @JsonIgnore
     private List<Message> messages;
 
-    //One to Many because one group x many documents
+    //One to Many because one group x many docs
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
-    private List<Document> documents;
+    @JsonIgnore
+    private List<Doc> docs;
 
     //One to Many because one group x many items
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
@@ -52,13 +48,13 @@ public class Group {
     public Group() {
     }
 
-    public Group(long id, String name, String rallyPointCoordinates, List<User> users, List<Message> messages, List<Document> documents, List<Item> items) {
+    public Group(long id, String name, String rallyPointCoordinates, List<User> users, List<Message> messages, List<Doc> docs, List<Item> items) {
         this.id = id;
         this.name = name;
         this.rallyPointCoordinates = rallyPointCoordinates;
         this.users = users;
         this.messages = messages;
-        this.documents = documents;
+        this.docs = docs;
         this.items = items;
     }
 
@@ -102,12 +98,12 @@ public class Group {
         this.messages = messages;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
+    public List<Doc> getDocs() {
+        return docs;
     }
 
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
+    public void setDocs(List<Doc> docs) {
+        this.docs = docs;
     }
 
     public List<Item> getItems() {

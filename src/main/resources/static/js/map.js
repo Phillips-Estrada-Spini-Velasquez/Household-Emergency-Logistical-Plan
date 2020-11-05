@@ -76,30 +76,9 @@ map.addControl(
     'top-left'
 );
 
-// MARKER DROP
-var coordinates = document.getElementById('coordinates');
-
-var marker = new mapboxgl.Marker({
-    draggable: true
-})
-    .setLngLat([-95.2839, 38.9075])
-    .addTo(map);
-
-map.scrollZoom.disable();
-
-function onDragEnd() {
-    var lngLat = marker.getLngLat();
-    coordinates.style.display = 'block';
-    coordinates.innerHTML =
-        'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-}
-
-marker.on('dragend', onDragEnd);
-
-
 // NAVIGATION BUTTONS
 const btn1 = function () {
-    map.setZoom(16);
+    map.setZoom(19);
 };
 document.getElementById("btn1").addEventListener("click", btn1);
 

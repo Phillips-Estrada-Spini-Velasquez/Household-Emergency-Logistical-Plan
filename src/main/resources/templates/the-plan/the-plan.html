@@ -7,13 +7,11 @@
     <title>Your Group Plan</title>
     <link th:replace="partials/links :: links"/>
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
-
-
     <link th:replace="partials/checklist-links :: links"/>
 
 </head>
 <body>
-<!--<header th:replace="partials/header :: header"></header>-->
+
 <nav th:replace="partials/navbar :: navbar"></nav>
 <hr>
 
@@ -23,10 +21,6 @@
     <h1 class="font-weight-bold">Emergency Household Meet-Up Location</h1>
     <!--MAPBOX CONTAINER-->
     <div id="map"></div>
-    <pre id="coordinates" class="coordinates"></pre>
-    <div class="filter-ctrl">
-        <input id="filter-input" type="text" name="filter" placeholder="Filter by name"/>
-    </div>
     <br>
     <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
     <div id="image"></div>
@@ -67,27 +61,31 @@
     </div>
     <br>
     <!--SHOW SENTIMENTAL ITEMS-->
-<!--    <span th:if="${item == null}">-->
-<!--    &lt;!&ndash;purposely left empty so it shows nothing&ndash;&gt;-->
-<!--    </span>-->
-<!--    <span th:unless="${item == null}">-->
+    <!--    <span th:if="${item == null}">-->
+    <!--    &lt;!&ndash;purposely left empty so it shows nothing&ndash;&gt;-->
+    <!--    </span>-->
+    <!--    <span th:unless="${item == null}">-->
     <div class="d-flex row">
         <h3 class="col-6 text-center">Item</h3>
         <h3 class="col-6 text-center">Location</h3>
     </div>
-    <div id="container">
+    <div id="item-container">
         <ul class="myUL">
         </ul>
     </div>
-<!--    </span>-->
+    <!--    </span>-->
 </section>
 
-<!-- IMPORTANT DOCUMENTS CHECKLIST-->
-<!--<span th:if="${documents == null}">-->
-<!--    </span>-->
-<!--<span th:if="${documents == null}">-->
+<!--PRINT FORM BUTTON-->
+<div class="container-fluid" id="containerBlueButton1">
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
+</div>
+<hr>
+
+
+<!-- DOCUMENTS -->
 <section class="container-fluid">
-    <div id="myDIV1" class="header">
+    <div class="myDIV header">
         <h1 class="mb-4 font-weight-bold">Important Documents
             <div class="arrowpopup font-weight-bold blinking" role="alert" onclick="toolTipHeader()">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
@@ -97,28 +95,36 @@
                     <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
                     <circle cx="8" cy="4.5" r="1"/>
                 </svg>
-                <span class="tooltiptext tooltipHeader">This is important</span>
+                <span class="tooltiptext tooltipHeader">Sentimental items are those items that cannot be replaced. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
             </div>
         </h1>
-    </div>
-    <ul class="myUL">
-        <div th:each="item : ${documents}">
-            <li>
-                <a th:href="${url}" target="_blank">test</a>
-            </li>
+        <!--DOCUMENT INPUT FIELD-->
+        <div id="document-items">
+            <form th:action="@{/docs/submit}" th:method="post" th:object="${doc}">
+                <input class="form-control" id="exampleInputEmail2" placeholder="Your Important Documents"
+                       th:field="*{title}">
+                <input class="form-control" id="location1" placeholder="The Document's Secure URL" th:field="*{url}">
+                <br/>
+                <button type="button submit" class="btn btn-primary btn-lg btn-block">Add Item</button>
+            </form>
         </div>
-    </ul>
-<!--    </span>-->
+    </div>
+    <br>
+    <!--SHOW SENTIMENTAL ITEMS-->
+    <!--    <span th:if="${item == null}">-->
+    <!--    &lt;!&ndash;purposely left empty so it shows nothing&ndash;&gt;-->
+    <!--    </span>-->
+    <!--    <span th:unless="${item == null}">-->
+    <div class="d-flex row">
+        <h3 class="col-6 text-center">Document</h3>
+        <h3 class="col-6 text-center">URL</h3>
+    </div>
+    <div id="doc-container">
+        <ul class="myUL">
+        </ul>
+    </div>
+    <!--    </span>-->
 </section>
-<hr>
-
-<!--PRINT FORM BUTTON-->
-<div class="container-fluid" id="containerBlueButton1">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items
-        Checklist
-    </button>
-</div>
-<hr>
 
 <!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
 <div class="container-fluid" id="containerBlueButton3">
@@ -127,9 +133,17 @@
     </button>
 </div>
 <hr>
+<!--temporary breaks-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <footer th:replace="partials/footer :: footer"></footer>
 <div th:replace="partials/scripts :: scripts"></div>
+<!--ITEMS-->
 <script type="text/javascript">
     (function ($) {
         let request = $.ajax({'url': '/items.json'});
@@ -137,16 +151,32 @@
             let html = '';
             items.forEach(function (item) {
                 html += '<li>' +
-                 '<div class="row"><div class="col-6 text-center">' + item.title + '</div>' + " " +
-                 '<div class="col-6 text-center">' + item.location +'</div></div>' +
-                  '</li>';
+                    '<div class="row"><div class="col-6 text-center">' + item.title + '</div>' + " " +
+                    '<div class="col-6 text-center">' + item.location + '</div></div>' +
+                    '</li>';
                 //button to delete needed - not sure how to concatenate
             });
-            $('#container ul').html(html);
+            $('#item-container ul').html(html);
         });
     })(jQuery);
 </script>
-<script type="text/javascript" src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<!--DOCS-->
+<script type="text/javascript">
+    (function ($) {
+        let request = $.ajax({'url': '/docs.json'});
+        request.done(function (docs) {
+            let html = '';
+            docs.forEach(function (doc) {
+                html += '<li>' +
+                    '<div class="row"><div class="col-6 text-center">' + doc.title + '</div>' + " " +
+                    '<div class="col-6 text-center">' + doc.url + '</div></div>' +
+                    '</li>';
+                //button to delete needed - not sure how to concatenate
+            });
+            $('#doc-container ul').html(html);
+        });
+    })(jQuery);
+</script>
 
 </body>
 </html>

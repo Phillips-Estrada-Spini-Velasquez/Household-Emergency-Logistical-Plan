@@ -1,80 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Our Team</title>
-        <link th:replace="partials/links :: links"/>
-    </head>
-    <body>
-        <nav th:replace="partials/navbar :: navbar"></nav>
-
-        <!--    ABOUT OUR PROJECT JUMBOTRON-->
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">H.E.L.P.</h1>
-                <p class="lead">Household Emergency Logistic Planner</p>
-            </div>
-        </div>
-
-    <!--    ABOUT US FLIP CARDS-->
-        <container class="container-fluid text-center">
-            <div class="ribbon color"><h2 class="text-center pt-3 text-light">Meet out team of Web Developers</h2></div>
-            <br>
-            <section id="outTeamCards" class="col-12 d-flex justify-content-around">
-
-                <figure class="snip1515">
-                    <div class="profile-image"><img src="image" alt="sample83" /></div>
-                    <figcaption>
-                        <h3>Tracy Velasquez</h3>
-                        <h4>Web Developer</h4>
-                        <p>put your quote here</p>
-                        <div>
-                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
-                        </div>
-                    </figcaption>
-                </figure>
-
-                <figure class="snip1515">
-                    <div class="profile-image"><img src="image" alt="sample83" /></div>
-                    <figcaption>
-                        <h3>Jonathan Phillips</h3>
-                        <h4>Web Developer</h4>
-                        <p>put your quote here</p>
-                        <div>
-                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
-                        </div>
-                    </figcaption>
-                </figure>
-
-                <figure class="snip1515">
-                    <div class="profile-image"><img src="image" alt="sample70" /></div>
-                    <figcaption>
-                        <h3>Santos Estrada</h3>
-                        <h4>Web Developer</h4>
-                        <p>put your quote here</p>
-                        <div>
-                            <div class="icons"><a href="#"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
-                        </div>
-                    </figcaption>
-                </figure>
-
-                <figure class="snip1515">
-                    <div class="profile-image"><img src="img/our-team/spini.jpg" alt="Donald Spini" /></div>
-                    <figcaption>
-                        <h3>Donald Spini</h3>
-                        <h4>Web Developer</h4>
-                        <p>You can observe a lot by just watching. ~ Yogi Berra</p>
-                        <div>
-                            <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-github ml-3" aria-hidden="true"></i></a></div>
-                        </div>
-                    </figcaption>
-                </figure>
-
-            </section>
-        </container>
-        <br><br>
-        <footer th:replace="partials/footer :: footer"></footer>
-        <div th:replace="partials/scripts :: scripts"></div>
-    </body>
-
+<head>
+    <meta charset="UTF-8">
+    <title>Our Team</title>
+    <link th:replace="partials/links :: links"/>
+</head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+<!--    ABOUT OUR PROJECT JUMBOTRON-->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">H.E.L.P.</h1>
+        <p class="lead">Household Emergency Logistic Planner</p>
+    </div>
+</div>
+<!--    ABOUT US FLIP CARDS-->
+<container class="container-fluid text-center">
+    <section id="outTeamCards" class="col-12 d-flex justify-content-around">
+        <figure class="snip1515">
+            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample83" /></div>
+            <figcaption>
+                <h3>Tracy Velasquez</h3>
+                <h4>Web Developer</h4>
+                <p>put your quote here</p>
+                <div>
+                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                </div>
+            </figcaption>
+        </figure>
+        <figure class="snip1515">
+            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample83" /></div>
+            <figcaption>
+                <h3>Jonathan Phillips</h3>
+                <h4>Web Developer</h4>
+                <p>put your quote here</p>
+                <div>
+                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                </div>
+            </figcaption>
+        </figure>
+        <figure class="snip1515">
+            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample70" /></div>
+            <figcaption>
+                <h3>Santos Estrada</h3>
+                <h4>Web Developer</h4>
+                <p>put your quote here</p>
+                <div>
+                    <div class="icons"><a href="#"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                </div>
+            </figcaption>
+        </figure>
+        <figure class="snip1515">
+            <div class="profile-image"><img src="img/our-team/spini.jpg" alt="Donald Spini" /></div>
+            <figcaption>
+                <h3>Donald Spini</h3>
+                <h4>Web Developer</h4>
+                <p>You can observe a lot by just watching. ~ Yogi Berra</p>
+                <div>
+                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                </div>
+            </figcaption>
+        </figure>
+    </section>
+</container>
+<br><br>
+<footer th:replace="partials/footer :: footer"></footer>
+<div th:replace="partials/scripts :: scripts"></div>
+</body>
 </html>
