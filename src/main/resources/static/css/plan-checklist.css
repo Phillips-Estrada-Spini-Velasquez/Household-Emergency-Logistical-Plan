@@ -1,19 +1,26 @@
-/**/
+/*THIS IS FOR THE PLAN AND CHECKLIST*/
 
 /*INSIDE PAGE HTML JUMBOTRON CSS*/
 body{
-    font-family: 'Raleway', sans-serif;
-    background-color: lightgrey;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
     margin: 0; padding: 0;
     min-width: 250px;
 }
 
 p {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lato', sans-serif;
     margin: 0; padding: 0;
     min-width: 250px;
 }
 
+h1 {
+color: #444E5B;
+}
+
+.container {
+    font-family: 'Lato', sans-serif;
+}
 
 /*THE-PLAN HTML*/
 /*MAPBOX CSS*/
@@ -47,7 +54,7 @@ p {
 }
 
 .filter-ctrl input[type='text'] {
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: 12px/20px 'Lato', sans-serif;
     width: 100%;
     border: 0;
     background-color: #fff;
@@ -125,7 +132,7 @@ ul li.checked::before {
 .header {
     background-color: grey;
     padding: 30px 40px;
-    color: black;
+    color: #3B4451;
     text-align: center;
 }
 /* Clear floats after the header */
@@ -167,14 +174,14 @@ ul li.checked::before {
     max-width: 1500px;
 }
 .outer-form {
-    background: grey;
+    background: #444E5B;
     border-radius: 10px;
     -webkit-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     -ms-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     -o-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
-    color: black;
+    color: white;
 }
 .custom-container {
     display: block;
@@ -215,11 +222,11 @@ ul li.checked::before {
 }
 /* On mouse-over, add a grey background color */
 .custom-container:hover input ~ .checkmark, .custom-container:hover input ~ .checkmark-radio {
-    background-color: #04d9ff;
+    background-color: #1962d1;
 }
 /* When the checkbox/radio button is checked, add a blue background */
 .custom-container input:checked ~ .checkmark, .custom-container input:checked ~ .checkmark-radio {
-    background-color: #B5032C;
+    background-color: #1962d1;
 }
 /* Create the indicator: dot/circle/checkmark (hidden when not checked) */
 .checkmark:after, .checkmark-radio:after {
@@ -238,7 +245,7 @@ ul li.checked::before {
     width: 10px;
     height:10px;
     border-radius: 50%;
-    background: #08ffff;
+    background: black;
 }
 /* Style the checkmark/indicator */
 .custom-container .checkmark:after {
@@ -246,7 +253,7 @@ ul li.checked::before {
     top: 3px;
     width: 8px;
     height: 14px;
-    border: solid #08ffff;
+    border: solid black;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -261,6 +268,7 @@ ul li.checked::before {
 }
 .arrowpopup .tooltiptext {
     visibility: hidden;
+    font-family: 'Lato', sans-serif;
     width: 500px;
     background-color: #3C83C1;
     font-size: 1.75em;
