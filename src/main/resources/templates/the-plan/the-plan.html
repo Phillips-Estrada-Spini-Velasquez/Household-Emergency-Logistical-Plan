@@ -10,10 +10,26 @@
     <link th:replace="partials/checklist-links :: links"/>
 </head>
 <body>
-
-<nav th:replace="partials/navbar :: navbar"></nav>
-<hr>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">HELP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkupTrue" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkupTrue">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/info">General Info</a>
+            <a class="nav-item nav-link" href="/our-team">Our Team</a>
+            <a class="nav-item nav-link" href="/the-checklist">Checklist</a>
+            <a class="nav-item nav-link" href="/profile">Profile</a>
+            <a class="nav-item nav-link" href="/the-plan">The Plan</a>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
 
 <!--MAPBOX HTML-->
 <section class="container-fluid">
@@ -142,6 +158,7 @@
 
 <footer th:replace="partials/footer :: footer"></footer>
 <div th:replace="partials/scripts :: scripts"></div>
+<script src="/js/map.js"></script>
 <!--ITEMS-->
 <script type="text/javascript">
     (function ($) {
