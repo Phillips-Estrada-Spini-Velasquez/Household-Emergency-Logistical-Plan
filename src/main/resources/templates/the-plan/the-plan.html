@@ -6,7 +6,6 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>Your Group Plan</title>
     <link th:replace="partials/links :: links"/>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
     <link th:replace="partials/checklist-links :: links"/>
 </head>
 <body>
@@ -39,6 +38,10 @@
     <br>
     <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
     <div id="image"></div>
+    <div>
+        <p><strong>Your Designated Rally Point:</strong></p>
+        <p id="rallyPoint" th:text="${rallyPoint}"></p>
+    </div>
     <div>
         <h3>Map Navigation</h3>
         <button id="btn1">Zoom In</button>
