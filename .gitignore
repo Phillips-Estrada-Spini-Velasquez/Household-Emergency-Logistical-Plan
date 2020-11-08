@@ -34,3 +34,7 @@ build/
 
 src/main/resources/application.properties
 resources/static/js/keys.js
+
+
+###Hide Node Modules###
+node_modules/

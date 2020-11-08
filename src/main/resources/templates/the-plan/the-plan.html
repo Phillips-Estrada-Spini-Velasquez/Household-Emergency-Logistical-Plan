@@ -36,18 +36,18 @@
     <!--MAPBOX CONTAINER-->
     <div id="map"></div>
     <br>
-    <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
-    <div id="image"></div>
-    <div>
-        <p><strong>Your Designated Rally Point:</strong></p>
-        <p id="rallyPoint" th:text="${rallyPoint}"></p>
-    </div>
     <div>
         <h3>Map Navigation</h3>
         <button id="btn1">Zoom In</button>
         <button id="btn2">Zoom to Default</button>
         <button id="btn3">Zoom Out</button>
     </div>
+    <div>
+        <h2><strong>Your Household's Designated Meetup Spot:</strong></h2>
+        <small class="text-muted"><h2 id="rallyPoint" th:text="${rallyPoint}"></h2></small>
+    </div>
+    <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
+<!--    <div id="image"></div>-->
 </section>
 <hr>
 
