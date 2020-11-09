@@ -29,6 +29,11 @@ h1 {
 color: #444E5B;
 }
 
+.custom-container {
+    font-family: 'Work Sans', sans-serif;
+font-weight: normal;
+}
+
 .container {
     font-family: 'Work Sans', sans-serif;
 }
