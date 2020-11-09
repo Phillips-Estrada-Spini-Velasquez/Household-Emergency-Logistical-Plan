@@ -7,7 +7,7 @@ nav {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     font-weight: normal;
-    color:black;
+    color: black;
 }
 
 body {
@@ -16,7 +16,6 @@ body {
     padding: 0;
     min-width: 250px;
 }
-
 
 
 p {
@@ -41,11 +40,10 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Work Sans', sans-serif;
-    font-weight: bolder;
+    font-weight: 700;
 }
 
 h1 {
-    font-weight: bold;
     text-align: center;
 }
 
