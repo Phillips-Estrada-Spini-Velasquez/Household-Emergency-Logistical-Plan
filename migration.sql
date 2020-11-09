@@ -2,4 +2,5 @@
 CREATE DATABASE IF NOT EXISTS help_db;
 -- Run this every time you need to refresh DB
 DROP DATABASE IF EXISTS help_db;
+
 CREATE DATABASE IF NOT EXISTS help_db;
