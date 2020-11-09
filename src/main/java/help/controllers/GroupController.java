@@ -24,7 +24,7 @@ public class GroupController {
     @GetMapping("/group/create")
     public String showCreateForm(Model model) {
         model.addAttribute("group", new Group());
-        return "groups/createEdit";
+        return "groups/create";
     }
 
     @PostMapping("/create")
@@ -41,9 +41,12 @@ public class GroupController {
 
     @GetMapping("/group/edit")
     public String showEditForm(Model model) {
-        model.addAttribute("group", new Group());
-        return "groups/createEdit";
+        User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User thisUser = userDao.getOne(thisAuthor.getId());
+                model.addAttribute("group", thisUser.getGroup());
+        return "edit";
     }
+
 
     @PostMapping("/edit")
     public String editGroup(@ModelAttribute Group group) {

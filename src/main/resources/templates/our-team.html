@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Our Team</title>
     <link th:replace="partials/links :: links"/>
-    <link src="/css/our-team.css">
+    <link rel="stylesheet" th:href="@{/css/our-team.css}">
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
@@ -15,57 +15,93 @@
         <p class="lead">Household Emergency Logistic Planner</p>
     </div>
 </div>
+
+<!--Blue Container-->
+<div id="our-project">
+    <h2 class="">Our Project</h2>
+    <container class="container-fluid" >
+        <p>The Household Emergency Logistics Planner (HELP) is an application for planning and organizing an emergency
+            response plan for a single household and family groups. HELP is a full stack Java application the allows the user to register and account for personal or groups, create posts and view posts, create checklists, maps and upload documents. </p><br>
+        <p>This application utilizes the Mapbox API and Filestack API, HELP is implemented on MySQL database, Spring Boot
+            Security and Thymeleaf, as well as CSS and Bootstrap styling , and Javascript, JQuery, Json, and AJAX.</p>
+    </container>
+</div>
+
 <!--    ABOUT US FLIP CARDS-->
 <container class="container-fluid text-center">
     <section id="outTeamCards" class="col-12 d-flex justify-content-around">
+        <h2 style="color:white"> Our Team</h2>
         <figure class="snip1515">
-            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample83" /></div>
+            <div class="profile-image"><img src="img/our-team/tracy.jpg" alt="sample83"/></div>
             <figcaption>
                 <h3>Tracy Velasquez</h3>
-                <h4>Web Developer</h4>
-                <p>put your quote here</p>
+                <p><em>"I have no special talent. I am only passionately curious." - Albert Einstein</em></p>
+                <p class="card-text text-center"><strong>My Contributions</strong></p>
+                <p>Java, Spring Boot and SQL Functionality, Map Functionality, Database Design, Design, Content, Copywriting</p>
                 <div>
-                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                    <div class="icons">
+                        <a href="mailto:velasqueztracy25@gmail.com"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/tracy-velasquez/"> <i class="fa fa-github-square" aria-hidden="true"></i></a>
+                        <a href="https://github.com/VelasquezTracy25"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
                 </div>
             </figcaption>
         </figure>
         <figure class="snip1515">
-            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample83" /></div>
+            <div class="profile-image"><img src="img/our-team/jonathan.jpg" alt="sample83"/></div>
             <figcaption>
                 <h3>Jonathan Phillips</h3>
-                <h4>Web Developer</h4>
-                <p>put your quote here</p>
+                <p><em>quote here</em></p>
+                <p><em>quote here</em></p><br>
+                <p class="card-text text-center"><strong>My Contributions</strong></p>
+                <p>your contributions</p>
+                <p>your contributions</p>
+                <p>your contributions</p>
                 <div>
-                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                    <div class="icons">
+                        <a href="mailto:name@email.com"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a>
+                        <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
                 </div>
             </figcaption>
         </figure>
         <figure class="snip1515">
-            <div class="profile-image"><img src="img/portrait-placeholder.jpg" alt="sample70" /></div>
+            <div class="profile-image"><img src="img/our-team/santos.jpeg" alt="sample70"/></div>
             <figcaption>
                 <h3>Santos Estrada</h3>
-                <h4>Web Developer</h4>
-                <p>put your quote here</p>
+                <p><em>quote here</em></p>
+                <p><em>quote here</em></p><br>
+                <p class="card-text text-center"><strong>My Contributions</strong></p>
+                <p>your contributions</p>
+                <p>your contributions</p>
+                <p>your contributions</p>
                 <div>
-                    <div class="icons"><a href="#"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                    <div class="icons">
+                        <a href="mailto:name@email.com"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a>
+                        <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
                 </div>
             </figcaption>
         </figure>
         <figure class="snip1515">
-            <div class="profile-image"><img src="img/our-team/spini.jpg" alt="Donald Spini" /></div>
+            <div class="profile-image"><img src="img/our-team/donnie.png" alt="Donald Spini"/></div>
             <figcaption>
                 <h3>Donald Spini</h3>
-                <h4>Web Developer</h4>
-                <p>You can observe a lot by just watching. ~ Yogi Berra</p>
+                <p><em>You can observe a lot by just watching. - Yogi Berra</em></p><br>
+                <p class="card-text text-center"><strong>My Contributions</strong></p>
+                <p>Concept, Design, Content, API Integration Front End Development, Styling and Functionality</p><br>
                 <div>
-                    <div class="icons"><a href="#"> <i class="fa fa-envelope mr-3" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a> <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
+                    <div class="icons">
+                        <a href="mailto:name@email.com"><i class="fa fa-envelope mr-3" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/donald-spini/"> <i class="fa fa-github-square" aria-hidden="true"></i></a>
+                        <a href="https://github.com/dspini"><i class="fa fa-linkedin-square ml-3" aria-hidden="true"></i></a></div>
                 </div>
             </figcaption>
         </figure>
     </section>
 </container>
 <br><br>
-<footer th:replace="partials/footer :: footer"></footer>
+
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>

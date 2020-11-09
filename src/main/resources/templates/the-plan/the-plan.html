@@ -6,11 +6,10 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>Your Group Plan</title>
     <link th:replace="partials/links :: links"/>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"/>
     <link th:replace="partials/checklist-links :: links"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">HELP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarNavAltMarkupTrue" aria-controls="navbarNavAltMarkup"
@@ -19,32 +18,39 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkupTrue">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/info">General Info</a>
+<!--            <a class="nav-item nav-link" href="/info">General Info</a>-->
             <a class="nav-item nav-link" href="/our-team">Our Team</a>
             <a class="nav-item nav-link" href="/the-checklist">Checklist</a>
             <a class="nav-item nav-link" href="/profile">Profile</a>
             <a class="nav-item nav-link" href="/the-plan">The Plan</a>
-            <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn">Logout</button>
-            </form>
+        <form th:action="@{/logout}" th:method="post">
+            <button class="btn-link btn">Logout</button>
+        </form>
         </div>
     </div>
 </nav>
 
 <!--MAPBOX HTML-->
 <section class="container-fluid">
-    <h1 class="font-weight-bold">Emergency Household Meet-Up Location</h1>
+    <h1 class="font-weight-bold">Welcome to Your Emergency Plan</h1>
+    <br>
+    <div>
+    <div>
+        <h2><strong>Your Household's Designated Meetup Spot:</strong></h2><br>
+        <small class="text-muted"><h2 id="rallyPoint" th:text="${rallyPoint}"></h2></small>
+    </div>
     <!--MAPBOX CONTAINER-->
     <div id="map"></div>
     <br>
-    <a class="btn btn-primary btn-lg btn-block" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
-    <div id="image"></div>
     <div>
         <h3>Map Navigation</h3>
-        <button id="btn1">Zoom In</button>
-        <button id="btn2">Zoom to Default</button>
-        <button id="btn3">Zoom Out</button>
+        <button class="btn btn-primary" id="btn1">Zoom In</button>
+        <button class="btn btn-primary" id="btn2">Zoom to Default</button>
+        <button class="btn btn-primary" id="btn3">Zoom Out</button>
+        <a class="btn btn-primary" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
     </div>
+
+<!--    <div id="image"></div>-->
 </section>
 <hr>
 
@@ -92,10 +98,10 @@
 </section>
 
 <!--PRINT FORM BUTTON-->
-<div class="container-fluid" id="containerBlueButton1">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
-</div>
-<hr>
+<!--<div class="container-fluid" id="containerBlueButton1">-->
+<!--    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>-->
+<!--</div>-->
+<!--<hr>-->
 
 
 <!-- DOCUMENTS -->
@@ -141,13 +147,23 @@
     <!--    </span>-->
 </section>
 
-<!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
-<div class="container-fluid" id="containerBlueButton3">
-    <button type="button" class="btn btn-primary btn-lg btn-block"
-            onclick="target='_blank'; location.href='/the-checklist'">Go To Emergency Preparedness Checklist
-    </button>
-</div>
+<!--PRINT FORM BUTTON-->
 <hr>
+<div class="container-fluid" id="containerBlueButton1">
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
+</div>
+<br>
+<button type="button" class="btn btn-primary text-center"
+        onclick="target='_blank'; location.href='/the-checklist'">Standard Emergency Checklist
+</button>
+
+<!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
+<!--<div class="container-fluid" id="containerBlueButton3">-->
+<!--    <button type="button" class="btn btn-primary"-->
+<!--            onclick="target='_blank'; location.href='/the-checklist'">Go To Emergency Preparedness Checklist-->
+<!--    </button>-->
+<!--</div>-->
+<!--<hr>-->
 <!--temporary breaks-->
 <br>
 <br>
@@ -156,7 +172,7 @@
 <br>
 <br>
 
-<footer th:replace="partials/footer :: footer"></footer>
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 <div th:replace="partials/scripts :: scripts"></div>
 <script src="/js/map.js"></script>
 <!--ITEMS-->

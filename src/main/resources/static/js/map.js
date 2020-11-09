@@ -1,28 +1,27 @@
 // THE-PLAN HTML JAVASCRIPT
 // SENTIMANTAL ITEMS CHECKLIST
 // Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
+let myNodelist = document.getElementsByTagName("LI");
+let i;
 for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
+    let span = document.createElement("SPAN");
+    let txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
 }
 
 // Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
+let close = document.getElementsByClassName("close");
 for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
-        var div = this.parentElement;
+        let div = this.parentElement;
         div.style.display = "none";
     }
 }
 
 // Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
+let list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
@@ -31,9 +30,9 @@ list.addEventListener('click', function(ev) {
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
+    let li = document.createElement("li");
+    let inputValue = document.getElementById("myInput").innerText;
+    let t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
         alert("You must write something!");
@@ -42,15 +41,15 @@ function newElement() {
     }
     document.getElementById("myInput").value = "";
 
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
+    let span = document.createElement("SPAN");
+    let txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
-            var div = this.parentElement;
+            let div = this.parentElement;
             div.style.display = "none";
         }
     }
@@ -59,22 +58,30 @@ function newElement() {
 // THE-PLAN HTML JAVASCRIPT
 // MAPBOX JAVASCRIPT
 mapboxgl.accessToken = mapboxKey;
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
+    //default center
     center: [-95.2839, 38.9075],
-    zoom: 4,
+    zoom: 12,
     preserveDrawingBuffer: true
+});
+
+let directions = new MapboxDirections({
+    accessToken: mapboxKey
 });
 
 map.scrollZoom.disable();
 
-map.addControl(
-    new MapboxDirections({
-        accessToken: mapboxgl.accessToken
-    }),
-    'top-left'
-);
+map.addControl(directions,'top-left');
+
+//takes text value for element rallyPoint (pulling modelAttribute)
+let rallyPoint = document.getElementById("rallyPoint").innerText;
+console.log(rallyPoint)
+
+map.on('load',  function() {
+    directions.setDestination(rallyPoint); // can be address
+})
 
 // NAVIGATION BUTTONS
 const btn1 = function () {
@@ -93,6 +100,6 @@ const btn3 = function () {
 document.getElementById("btn3").addEventListener("click", btn3);
 
 $('#downloadLink').click(function() {
-    var img = map.getCanvas().toDataURL('image/png')
+    let img = map.getCanvas().toDataURL('image/png')
     this.href = img
 })

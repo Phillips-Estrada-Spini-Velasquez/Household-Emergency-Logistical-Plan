@@ -36,17 +36,16 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">Quick Links</h5>
-                    <a class="card-text" href="/messages">Message Your Group</a><br>
-                    <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
-                    <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents
-                    </a>
                     <div th:if="${user.admin == true}">
-                        <a class="card-text" href="/group/edit">Edit Your Group</a>
-                        <br>
                         <!--CHANGE LATER-->
                         <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
                         <br>
-                        </div>
+                        <a class="card-text" href="/group/edit">Edit Your Group</a>
+                        <br>
+                    </div>
+                    <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
+                    <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents</a>
+                    <a class="card-text" href="/messages">Message Your Group</a><br>
                 </div>
             </div>
         </div>
@@ -79,7 +78,7 @@
 
 </div>
 
-<footer th:replace="partials/footer :: footer"></footer>
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 <script th:replace="partials/scripts :: scripts"></script>
 <script src="./js/profile.js"></script>
 </body>

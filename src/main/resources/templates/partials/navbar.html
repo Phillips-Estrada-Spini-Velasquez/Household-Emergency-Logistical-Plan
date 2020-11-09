@@ -20,25 +20,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/info">General Info</a>
-                        </li>
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link" href="/info">General Info</a>-->
+                        <!--                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="/our-team">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/the-checklist">Checklist</a>
                         </li>
                         <li class="nav-item">
-                            <i class="far fa-user-circle"><a class="nav-link" href="/profile"></a></i>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/the-plan">The Plan</a>
                         </li>
-                        <form th:action="@{/logout}" th:method="post">
-                            <button class="btn-link btn">Logout</button>
-                        </form>
                     </ul>
+                    <form th:action="@{/logout}" th:method="post">
+                        <button class="btn-link btn" id="blue-text">Logout</button>
+                    </form>
                 </div>
             </nav>
         </div>
@@ -52,22 +52,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/info">General Info</a>
-                        </li>
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link" href="/info">General Info</a>-->
+                        <!--                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="/our-team">Our Team</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/the-checklist">Checklist</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/register">Register</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
                     </ul>
+                    <a class="nav-link btn" role="button" href="/register">Register</a>
+                    <a class="nav-link btn" role="button" href="/login">Login</a>
                 </div>
             </nav>
         </div>

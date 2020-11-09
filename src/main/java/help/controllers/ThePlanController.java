@@ -45,6 +45,7 @@ public class ThePlanController {
         User thisUser = userDao.getOne(getUser.getId());
         if (thisUser.getGroupID() == id) {
             model.addAttribute("id", thisUser.getGroupID());
+            model.addAttribute("rallyPoint", thisUser.getGroup().getRallyPointCoordinates());
             model.addAttribute("item", new Item());
             model.addAttribute("doc", new Doc());
             return "the-plan/the-plan";

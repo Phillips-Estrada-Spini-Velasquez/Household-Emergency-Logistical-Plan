@@ -1,0 +1,7 @@
+{
+  "name": "Household-Emergency-Logistical-Plan",
+  "version": "1.0.0",
+  "dependencies": {
+    "mysql": "github:mysqljs/mysql"
+  }
+}

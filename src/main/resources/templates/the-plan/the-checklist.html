@@ -7,12 +7,30 @@
     <link th:replace="partials/checklist-links :: links"/>
 </head>
 <body>
-<nav th:replace="partials/navbar :: navbar"></nav>
-<hr>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">HELP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkupTrue" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkupTrue">
+        <div class="navbar-nav">
+<!--            <a class="nav-item nav-link" href="/info">General Info</a>-->
+            <a class="nav-item nav-link" href="/our-team">Our Team</a>
+            <a class="nav-item nav-link" href="/profile">Profile</a>
+            <a class="nav-item nav-link" href="/the-checklist">Checklist</a>
+            <a class="nav-item nav-link" href="/the-plan">The Plan</a>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
 
 <!--CHECKLIST MAIN HEADER-->
 <section class="container-fluid" id="container">
-    <h1 class="d-flex justify-content-center font-weight-bold">Checklist & Links for 72 Hour Emergency Preparedness
+    <h1 class="d-flex justify-content-center font-weight-bold text-center">Checklist & Links for 72 Hour Emergency Preparedness
     </h1>
 
     <!--CHECKLIST RADIO BUTTONS 1-10-->
@@ -37,7 +55,7 @@
                     <br>
 
                     <div class="d-inline-flex">
-                        <label class="custom-container mb-4" for="radio1">Water, one gallon of water per person per day. for at least three days, for drinking and sanitation.
+                        <label class="custom-container mb-4" for="radio1">Water, one gallon of water per person per day, for at least three days, for drinking and sanitation.
                             <input type="checkbox" name="video" id="radio1" value="video">
                             <span class="checkmark"></span><br>
                         </label>
@@ -387,7 +405,7 @@
                     <br>
 
                     <div class="d-inline-flex">
-                        <label class="custom-container mb-4" for="radio25">Helpful information with lots of great ideas is available on the subject of preparedness  all over the internet.
+                        <label class="custom-container mb-4" for="radio25">Helpful info with lots of great ideas is available on the subject of preparedness  all over the internet.
                             <input type="checkbox" name="git" id="radio25" value="git">
                             <span class="checkmark"></span><br>
                         </label>
@@ -412,13 +430,15 @@
 </section>
 
 <!--PRINT FORM BUTTON-->
-<div class="container-fluid" id="containerBlueButton4">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Checklist</button>
+<div class="container-fluid text-center" id="containerBlueButton4">
+    <button type="button" class="btn btn-primary" onclick="window.print();">Print Checklist</button>
 </div>
 <br>
 
-<footer th:replace="partials/footer :: footer"></footer>
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
 <div th:replace="partials/scripts :: scripts"></div>
+<script src="https://kit.fontawesome.com/ec3ca42531.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
