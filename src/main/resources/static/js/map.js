@@ -62,7 +62,7 @@ let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     //default center
-    center: [-95.2839, 38.9075],
+    center: [-98.4951,29.4246],
     zoom: 12,
     preserveDrawingBuffer: true
 });

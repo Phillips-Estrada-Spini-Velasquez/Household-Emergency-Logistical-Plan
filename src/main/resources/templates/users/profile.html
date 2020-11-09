@@ -56,9 +56,9 @@
             <div class="container">
                 <p class="card-text"><strong>Your Group Name</strong></p>
                 <p class="card-text" th:text="${user.group.name}"></p>
-                <p class="card-text"><strong>Your Group's Emergency Meetup Spot</strong></p>
+                <p class="card-text mt-2"><strong>Your Group's Emergency Meetup Spot</strong></p>
                 <p class="card-text " th:text="${user.group.rallyPointCoordinates}"></p>
-                <p class="card-text"><strong>Your Group Members</strong></p>
+                <p class="card-text mt-2"><strong>Your Group Members</strong></p>
                 <div th:each="user : ${user.group.users}">
                     <p class="card-text mb-0" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
                     <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
