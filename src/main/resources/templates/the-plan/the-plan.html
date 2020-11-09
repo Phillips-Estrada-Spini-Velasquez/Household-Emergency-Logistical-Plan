@@ -18,46 +18,46 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkupTrue">
         <div class="navbar-nav">
-<!--            <a class="nav-item nav-link" href="/info">General Info</a>-->
             <a class="nav-item nav-link" href="/our-team">Our Team</a>
             <a class="nav-item nav-link" href="/the-checklist">Checklist</a>
             <a class="nav-item nav-link" href="/profile">Profile</a>
             <a class="nav-item nav-link" href="/the-plan">The Plan</a>
-        <form th:action="@{/logout}" th:method="post">
-            <button class="btn-link btn">Logout</button>
-        </form>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="btn-link btn">Logout</button>
+            </form>
         </div>
     </div>
 </nav>
-
-<!--MAPBOX HTML-->
-<section class="container-fluid">
-    <h1 class="font-weight-bold">Welcome to Your Emergency Plan</h1>
-    <br>
-    <div>
-    <div>
-        <h2><strong>Your Household's Designated Meetup Spot:</strong></h2><br>
-        <small class="text-muted"><h2 id="rallyPoint" th:text="${rallyPoint}"></h2></small>
-    </div>
-    <!--MAPBOX CONTAINER-->
-    <div id="map"></div>
-    <br>
-    <div>
-        <h3>Map Navigation</h3>
-        <button class="btn btn-primary" id="btn1">Zoom In</button>
-        <button class="btn btn-primary" id="btn2">Zoom to Default</button>
-        <button class="btn btn-primary" id="btn3">Zoom Out</button>
-        <a class="btn btn-primary" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
-    </div>
-
-<!--    <div id="image"></div>-->
-</section>
 <hr>
 
+<!--MAPBOX HTML-->
+<h1 class="font-weight-bold">Welcome to Your Emergency Plan</h1>
+<div class="light-blue-bg">
+<section class="container-fluid">
+    <div>
+        <div>
+            <h2><strong>Your Household's Designated Meetup Spot:</strong></h2>
+            <small class="text-muted"><h2 id="rallyPoint" th:text="${rallyPoint}"></h2></small>
+        </div>
+        <!--MAPBOX CONTAINER-->
+        <div id="map"></div>
+        <br>
+        <div>
+            <h3>Map Navigation</h3>
+            <button class="btn btn-primary" id="btn1">Zoom In</button>
+            <button class="btn btn-primary" id="btn2">Zoom to Default</button>
+            <button class="btn btn-primary" id="btn3">Zoom Out</button>
+            <a class="btn btn-primary" id="downloadLink" href="" download="map.png">Download and Print Maps</a>
+        </div>
+
+        <!--    <div id="image"></div>-->
+</section>
+</div>
+<hr>
 <!-- SENTIMENTAL CHECKLIST-->
 <section class="container-fluid">
     <div class="myDIV header">
-        <h1 class="mb-4 font-weight-bold">Sentimental Items Checklist
+        <h2 class="mb-4 font-weight-bold white-text">Sentimental Items Checklist
             <div class="arrowpopup font-weight-bold blinking" role="alert" onclick="toolTipHeader()">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
                      xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@
                 </svg>
                 <span class="tooltiptext tooltipHeader">Sentimental items are those items that cannot be replaced. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
             </div>
-        </h1>
+        </h2>
         <!--CHECKLIST INPUT FIELD-->
         <div id="checklist-items">
             <form th:action="@{/items/submit}" th:method="post" th:object="${item}">
@@ -107,7 +107,7 @@
 <!-- DOCUMENTS -->
 <section class="container-fluid">
     <div class="myDIV header">
-        <h1 class="mb-4 font-weight-bold">Important Documents
+        <h2 class="mb-4 font-weight-bold white-text">Important Documents
             <div class="arrowpopup font-weight-bold blinking" role="alert" onclick="toolTipHeader()">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
                      xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@
                 </svg>
                 <span class="tooltiptext tooltipHeader">Sentimental items are those items that cannot be replaced. Such as family photo albums and family heirlooms.<br><br>Enter name of item and location where item is kept in home.</span>
             </div>
-        </h1>
+        </h2>
         <!--DOCUMENT INPUT FIELD-->
         <div id="document-items">
             <form th:action="@{/docs/submit}" th:method="post" th:object="${doc}">
@@ -150,12 +150,16 @@
 <!--PRINT FORM BUTTON-->
 <hr>
 <div class="container-fluid" id="containerBlueButton1">
-    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items
+        Checklist
+    </button>
 </div>
 <br>
-<button type="button" class="btn btn-primary text-center"
-        onclick="target='_blank'; location.href='/the-checklist'">Standard Emergency Checklist
-</button>
+<div class="text-center">
+    <button type="button" class="btn btn-primary "
+            onclick="target='_blank'; location.href='/the-checklist'">Standard Emergency Checklist
+    </button>
+</div>
 
 <!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
 <!--<div class="container-fluid" id="containerBlueButton3">-->

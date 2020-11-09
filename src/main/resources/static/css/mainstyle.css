@@ -33,17 +33,44 @@ p {
     background-size: cover;
 }
 
+/*used on profile text*/
 .light-blue {
     background-color: #EBF2FA;
 }
 
 h1, h2, h3, h4, h5, h6, #logout{
     font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 h1 {
     text-align: center;
+}
+main {
+background-color: #EBF2FA;
+padding-top: 25px;
+padding-bottom: 25px;}
+
+.light-blue-bg {
+    background-color: #EBF2FA;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;}
+
+.white-box {
+    background-color: white;
+    margin: 0 50px 0 50px;
+    padding: 20px;
+    color:black;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+            0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .blue-text, #logout {
