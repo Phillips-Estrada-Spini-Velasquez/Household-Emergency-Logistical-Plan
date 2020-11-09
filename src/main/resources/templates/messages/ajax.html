@@ -56,8 +56,8 @@
         </div>
     </div>
     <div class="group-container">
-        <p class="card-text"><strong>Your Group Name</strong></p>
-        <p class="card-text" th:text="${user.group.name}"></p>
+        <p class="card-text mt-1"><strong>Your Group Name</strong></p>
+        <p class="card-text" th:text="${user.group.name}"></p><br>
         <p class="card-text"><strong>Your Group Members</strong></p>
         <div th:each="user : ${user.group.users}">
             <p class="card-text mb-0" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>

@@ -8,8 +8,8 @@ nav {
 .nav-link, button.btn-link.btn {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    font-weight: normal;
-    color:black;
+    font-weight: 600;
+    color: #1962d1;
 }
 
 body {
@@ -21,17 +21,18 @@ body {
 
 p {
     font-family: 'Work Sans', sans-serif;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     min-width: 250px;
 }
 
 h1 {
-color: #444E5B;
+    color: #444E5B;
 }
 
 .custom-container {
     font-family: 'Work Sans', sans-serif;
-font-weight: normal;
+    font-weight: normal;
 }
 
 .container {
@@ -44,11 +45,13 @@ font-weight: normal;
     min-width: 50%;
     margin-left: 25%;
 }
+
 #map {
     /* the width and height may be set to any size */
     width: 100%;
     height: 700px;
 }
+
 .coordinates {
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -62,6 +65,7 @@ font-weight: normal;
     border-radius: 3px;
     display: none;
 }
+
 .filter-ctrl {
     position: absolute;
     top: 10px;
@@ -81,16 +85,19 @@ font-weight: normal;
     border-radius: 3px;
     width: 180px;
 }
+
 /*SENTIMENTAL ITEMS CHECKLIST CSS*/
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
 }
+
 /* Remove margins and padding from the list */
 ul {
     margin: 0;
     padding: 0;
 }
+
 /* Style the list items */
 ul li {
     cursor: pointer;
@@ -106,20 +113,24 @@ ul li {
     -ms-user-select: none;
     user-select: none;
 }
+
 /* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
     background: #f9f9f9;
 }
+
 /* Darker background-color on hover */
 ul li:hover {
     background: #ddd;
 }
+
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
     background: #888;
     color: #fff;
     text-decoration: line-through;
 }
+
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
     content: '';
@@ -133,6 +144,7 @@ ul li.checked::before {
     height: 15px;
     width: 7px;
 }
+
 /* Style the close button */
 .close {
     position: absolute;
@@ -140,10 +152,12 @@ ul li.checked::before {
     top: 0;
     padding: 12px 16px 12px 16px;
 }
+
 .close:hover {
     background-color: #f44336;
     color: white;
 }
+
 /* Style the header */
 .header {
     background-color: grey;
@@ -151,12 +165,14 @@ ul li.checked::before {
     color: #3B4451;
     text-align: center;
 }
+
 /* Clear floats after the header */
 .header:after {
     content: "";
     display: table;
     clear: both;
 }
+
 /* Style the input */
 #myInput {
     margin: 0;
@@ -167,6 +183,7 @@ ul li.checked::before {
     float: left;
     font-size: 16px;
 }
+
 /* Style the "Add" button */
 .addBtn {
     padding: 10px;
@@ -180,6 +197,7 @@ ul li.checked::before {
     transition: 0.3s;
     border-radius: 0;
 }
+
 .addBtn:hover {
     background-color: #bbb;
 }
@@ -189,6 +207,7 @@ ul li.checked::before {
 #container {
     max-width: 1500px;
 }
+
 .outer-form {
     background: grey;
     border-radius: 10px;
@@ -199,6 +218,7 @@ ul li.checked::before {
     box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     color: white;
 }
+
 .custom-container {
     display: block;
     position: relative;
@@ -211,6 +231,7 @@ ul li.checked::before {
     -ms-user-select: none;
     user-select: none;
 }
+
 /* Hide the browser's default checkbox and radio */
 .custom-container input {
     position: absolute;
@@ -219,6 +240,7 @@ ul li.checked::before {
     height: 0;
     width: 0;
 }
+
 /* Create a custom checkbox */
 .checkmark, .checkmark-radio {
     position: absolute;
@@ -232,37 +254,44 @@ ul li.checked::before {
     -o-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
 }
+
 /* Create a custom radio button shape*/
-.checkmark-radio{
+.checkmark-radio {
     border-radius: 50%;
 }
+
 /* On mouse-over, add a grey background color */
 .custom-container:hover input ~ .checkmark, .custom-container:hover input ~ .checkmark-radio {
     background-color: #1962d1;
 }
+
 /* When the checkbox/radio button is checked, add a blue background */
 .custom-container input:checked ~ .checkmark, .custom-container input:checked ~ .checkmark-radio {
     background-color: #1962d1;
 }
+
 /* Create the indicator: dot/circle/checkmark (hidden when not checked) */
 .checkmark:after, .checkmark-radio:after {
     content: "";
     position: absolute;
     display: none;
 }
+
 /* Show the indicator: dot/circle/checkmark  when checked */
-.custom-container input:checked ~ .checkmark:after, .custom-container input:checked ~ .checkmark-radio:after  {
+.custom-container input:checked ~ .checkmark:after, .custom-container input:checked ~ .checkmark-radio:after {
     display: block;
 }
+
 /* Style the indicator (dot/circle) */
-.custom-container .checkmark-radio:after{
+.custom-container .checkmark-radio:after {
     top: 7px;
     left: 7px;
     width: 10px;
-    height:10px;
+    height: 10px;
     border-radius: 50%;
     background: black;
 }
+
 /* Style the checkmark/indicator */
 .custom-container .checkmark:after {
     left: 8px;
@@ -275,6 +304,7 @@ ul li.checked::before {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 /*THE-PLAN_&_THE-CHECKLIST HTML*/
 /*TOOLTIPS CSS*/
 .arrowpopup {
@@ -282,17 +312,18 @@ ul li.checked::before {
     display: inline-block;
     cursor: pointer;
 }
+
 .arrowpopup .tooltiptext {
     visibility: hidden;
     font-family: 'Work Sans', sans-serif;
     font-weight: normal;
-    font-size:18px;
+    font-size: 18px;
     width: 500px;
     background-color: #3C83C1;
     color: white;
     text-align: center;
     border-radius: 10px;
-    padding: 9px ;
+    padding: 9px;
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -303,6 +334,7 @@ ul li.checked::before {
     -o-box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
     box-shadow: 0px 4px 11px 2px rgba(0, 0, 0, 0.8);
 }
+
 .arrowpopup .tooltiptext::after {
     content: "";
     position: absolute;
@@ -313,35 +345,70 @@ ul li.checked::before {
     border-style: solid;
     border-color: #3C83C1 transparent transparent transparent;
 }
+
 .arrowpopup:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
+
 .hrefToolTip {
     color: white;
     text-decoration: underline;
 }
+
 /*TOOLTIPS BLINKING CSS*/
 #tooltipClickMe {
     font-size: 1.75em;
 }
-.blinking{
-    animation:blinkingText 4.5s infinite;
+
+.blinking {
+    animation: blinkingText 4.5s infinite;
 }
-@keyframes blinkingText{
-    0%{color: black ;}
-    10%{color: black ;}
-    20%{color: black ;}
-    25%{color: black ;}
-    30%{color: black;}
-    35%{color: gray ;}
-    40%{color: transparent ;}
-    50%{color: transparent ;}
-    60%{color: transparent ;}
-    65%{color: gray ;}
-    70%{color: black ;}
-    75%{color: black ;}
-    80%{color: black ;}
-    90%{color: black ;}
-    100%{color: black ;}
+
+@keyframes blinkingText {
+    0% {
+        color: black;
+    }
+    10% {
+        color: black;
+    }
+    20% {
+        color: black;
+    }
+    25% {
+        color: black;
+    }
+    30% {
+        color: black;
+    }
+    35% {
+        color: gray;
+    }
+    40% {
+        color: transparent;
+    }
+    50% {
+        color: transparent;
+    }
+    60% {
+        color: transparent;
+    }
+    65% {
+        color: gray;
+    }
+    70% {
+        color: black;
+    }
+    75% {
+        color: black;
+    }
+    80% {
+        color: black;
+    }
+    90% {
+        color: black;
+    }
+    100% {
+        color: black;
+    }
 }

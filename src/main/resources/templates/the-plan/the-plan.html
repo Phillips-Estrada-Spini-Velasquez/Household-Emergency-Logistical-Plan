@@ -23,13 +23,9 @@
             <a class="nav-item nav-link" href="/the-checklist">Checklist</a>
             <a class="nav-item nav-link" href="/profile">Profile</a>
             <a class="nav-item nav-link" href="/the-plan">The Plan</a>
-            <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn">Logout</button>
-            </form>
-
-            <button type="button" class="btn btn-primary"
-                    onclick="target='_blank'; location.href='/the-checklist'">Standard Emergency Checklist
-            </button>
+        <form th:action="@{/logout}" th:method="post">
+            <button class="btn-link btn">Logout</button>
+        </form>
         </div>
     </div>
 </nav>
@@ -39,10 +35,8 @@
     <h1 class="font-weight-bold">Welcome to Your Emergency Plan</h1>
     <br>
     <div>
-    <div class="d-flex">
-        <i class="fas fa-map-marker-alt"></i>
-        <h2><strong>Your Household's Designated Meetup Spot:</strong></h2>
-    </div>
+    <div>
+        <h2><strong>Your Household's Designated Meetup Spot:</strong></h2><br>
         <small class="text-muted"><h2 id="rallyPoint" th:text="${rallyPoint}"></h2></small>
     </div>
     <!--MAPBOX CONTAINER-->
@@ -158,6 +152,10 @@
 <div class="container-fluid" id="containerBlueButton1">
     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.print();">Print Sentimental Items Checklist</button>
 </div>
+<br>
+<button type="button" class="btn btn-primary text-center"
+        onclick="target='_blank'; location.href='/the-checklist'">Standard Emergency Checklist
+</button>
 
 <!--GO TO PREPAREDNESS CHECKLIST BUTTON-->
 <!--<div class="container-fluid" id="containerBlueButton3">-->
