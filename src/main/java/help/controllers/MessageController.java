@@ -55,6 +55,7 @@ public class MessageController {
         User thisAuthor = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User thisUser = userDao.getOne(thisAuthor.getId());
         model.addAttribute("id", thisUser.getGroup().getId());
+        model.addAttribute("user", userDao.getOne(thisAuthor.getId()));
         if (thisUser.getGroup().getId() == id) {
             model.addAttribute("message", new Message());
             return "messages/ajax";

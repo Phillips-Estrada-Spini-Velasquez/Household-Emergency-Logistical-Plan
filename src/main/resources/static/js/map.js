@@ -83,8 +83,6 @@ map.on('load',  function() {
     directions.setDestination(rallyPoint); // can be address
 })
 
-
-
 // NAVIGATION BUTTONS
 const btn1 = function () {
     map.setZoom(19);
