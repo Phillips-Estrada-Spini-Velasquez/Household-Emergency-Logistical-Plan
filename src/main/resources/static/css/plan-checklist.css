@@ -1,8 +1,9 @@
 /*THIS IS FOR THE PLAN AND CHECKLIST*/
 
 /*INSIDE PAGE HTML JUMBOTRON CSS*/
-nav {
+nav.navbar.navbar-expand-lg {
     font-family: 'Poppins', sans-serif;
+    margin-bottom: 0;
 }
 
 .nav-link, button.btn-link.btn {
@@ -11,6 +12,9 @@ nav {
     font-weight: 600;
     color: #1962d1;
 }
+
+hr{
+margin: 0px}
 
 body {
     font-family: 'Work Sans', sans-serif;
@@ -27,8 +31,10 @@ p {
 }
 
 h1 {
-    color: #444E5B;
+    color: #1962d1;
 }
+
+.white-text{ color: white;}
 
 .custom-container {
     font-family: 'Work Sans', sans-serif;
@@ -162,7 +168,7 @@ ul li.checked::before {
 .header {
     background-color: grey;
     padding: 30px 40px;
-    color: #3B4451;
+    color: white;
     text-align: center;
 }
 
@@ -356,59 +362,59 @@ ul li.checked::before {
     text-decoration: underline;
 }
 
-/*TOOLTIPS BLINKING CSS*/
-#tooltipClickMe {
-    font-size: 1.75em;
-}
+/*!*TOOLTIPS BLINKING CSS*!*/
+/*#tooltipClickMe {*/
+/*    font-size: 1.75em;*/
+/*}*/
 
-.blinking {
-    animation: blinkingText 4.5s infinite;
-}
+/*.blinking {*/
+/*    animation: blinkingText 4.5s infinite;*/
+/*}*/
 
-@keyframes blinkingText {
-    0% {
-        color: black;
-    }
-    10% {
-        color: black;
-    }
-    20% {
-        color: black;
-    }
-    25% {
-        color: black;
-    }
-    30% {
-        color: black;
-    }
-    35% {
-        color: gray;
-    }
-    40% {
-        color: transparent;
-    }
-    50% {
-        color: transparent;
-    }
-    60% {
-        color: transparent;
-    }
-    65% {
-        color: gray;
-    }
-    70% {
-        color: black;
-    }
-    75% {
-        color: black;
-    }
-    80% {
-        color: black;
-    }
-    90% {
-        color: black;
-    }
-    100% {
-        color: black;
-    }
-}
+/*@keyframes blinkingText {*/
+/*    0% {*/
+/*        color: black;*/
+/*    }*/
+/*    10% {*/
+/*        color: black;*/
+/*    }*/
+/*    20% {*/
+/*        color: black;*/
+/*    }*/
+/*    25% {*/
+/*        color: black;*/
+/*    }*/
+/*    30% {*/
+/*        color: black;*/
+/*    }*/
+/*    35% {*/
+/*        color: gray;*/
+/*    }*/
+/*    40% {*/
+/*        color: transparent;*/
+/*    }*/
+/*    50% {*/
+/*        color: transparent;*/
+/*    }*/
+/*    60% {*/
+/*        color: transparent;*/
+/*    }*/
+/*    65% {*/
+/*        color: gray;*/
+/*    }*/
+/*    70% {*/
+/*        color: black;*/
+/*    }*/
+/*    75% {*/
+/*        color: black;*/
+/*    }*/
+/*    80% {*/
+/*        color: black;*/
+/*    }*/
+/*    90% {*/
+/*        color: black;*/
+/*    }*/
+/*    100% {*/
+/*        color: black;*/
+/*    }*/
+/*}*/
