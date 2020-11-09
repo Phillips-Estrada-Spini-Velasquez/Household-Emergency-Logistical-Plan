@@ -7,77 +7,75 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-
-<h1>Welcome to <span th:text="${user.firstName}"></span>'s Profile Page</h1>
-
-<div class="row">
-    <div class="col-3 ml-4">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Your Profile Info</h5>
-                <p class="card-text" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
-                <div th:if="${user.admin == true}">
-                    <p><strong>Your Role</strong><br><em>Group Admin</em></p>
-                </div>
-                <div th:if="${user.admin == false}">
-                    <p><strong>Your Role</strong><br><em>Group Member</em></p>
-                </div>
-                <p class="card-text mb-0"><strong>Contact Info</strong></p>
-                <p class="card-text mt-0 mb-0" th:text="${user.streetAddress}"></p>
-                <p class="card-text mt-0 mb-0" th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
-                <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
-                <!--add link to plan-->
-                <div th:if="${user.group != null}">
-                    <a href="/the-plan" class="btn btn-primary">Your Group Plan</a>
-                </div>
-            </div>
-        </div>
-        <div th:if="${user.group != null}">
+<h1 class="mb-4">Welcome to <span th:text="${user.firstName}"></span>'s Profile Page</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Quick Links</h5>
+                    <h5 class="card-title">Your Profile Info</h5>
+                    <p class="card-text" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
                     <div th:if="${user.admin == true}">
-                        <!--CHANGE LATER-->
-                        <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
-                        <br>
-                        <a class="card-text" href="/group/edit">Edit Your Group</a>
-                        <br>
+                        <p><strong>Your Role</strong><br><em>Group Admin</em></p>
                     </div>
-                    <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
-                    <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents</a>
-                    <a class="card-text" href="/messages">Message Your Group</a><br>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-7 light-blue">
-        <div th:if="${user.group != null}">
-            <h2 style="text-align: center">Your Group Info</h2>
-            <div class="container">
-                <p class="card-text"><strong>Your Group Name</strong></p>
-                <p class="card-text" th:text="${user.group.name}"></p>
-                <p class="card-text mt-2"><strong>Your Group's Emergency Meetup Spot</strong></p>
-                <p class="card-text " th:text="${user.group.rallyPointCoordinates}"></p>
-                <p class="card-text mt-2"><strong>Your Group Members</strong></p>
-                <div th:each="user : ${user.group.users}">
-                    <p class="card-text mb-0" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
+                    <div th:if="${user.admin == false}">
+                        <p><strong>Your Role</strong><br><em>Group Member</em></p>
+                    </div>
+                    <p class="card-text mb-0"><strong>Contact Info</strong></p>
+                    <p class="card-text mt-0 mb-0" th:text="${user.streetAddress}"></p>
+                    <p class="card-text mt-0 mb-0"
+                       th:text="${user.city} + ', ' + ${user.state} + ' ' + ${user.zip}"></p>
                     <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
+                    <!--add link to plan-->
+                    <div th:if="${user.group != null}">
+                        <a href="/the-plan" class="btn btn-primary">Your Group Plan</a>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${user.group != null}">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Quick Links</h5>
+                        <div th:if="${user.admin == true}">
+                            <!--CHANGE LATER-->
+                            <a class="card-text" id="invite-email" href="/member/register">Invite New Members</a>
+                            <br>
+                            <a class="card-text" href="/group/edit">Edit Your Group</a>
+                            <br>
+                        </div>
+                        <a href="/the-plan/#item-container" class="card-text">Add Sentimental Items</a><br>
+                        <a href="/the-plan/#doc-container" class="card-text">Upload Important Documents</a>
+                        <a class="card-text" href="/messages">Message Your Group</a><br>
+                    </div>
                 </div>
             </div>
         </div>
-        <div th:unless="${user.group != null}">
-            <div style="text-align: center;">
-                <h2 style="text-align: center">Your Group Has Not Been Created</h2>
-                <form style="display: inline" th:action="@{'/group/create'}">
-                    <button class="btn btn-primary btn-lg text-center">Create Group</button>
-                </form>
+        <div class="col-8 light-blue">
+            <div th:if="${user.group != null}">
+                <h2 style="text-align: center">Your Group Info</h2>
+                <div class="container">
+                    <p class="card-text"><strong>Your Group Name</strong></p>
+                    <p class="card-text" th:text="${user.group.name}"></p>
+                    <p class="card-text mt-2"><strong>Your Group's Emergency Meetup Spot</strong></p>
+                    <p class="card-text " th:text="${user.group.rallyPointCoordinates}"></p>
+                    <p class="card-text mt-2"><strong>Your Group Members</strong></p>
+                    <div th:each="user : ${user.group.users}">
+                        <p class="card-text mb-0" th:text="${user.firstName} + ' ' + ${user.lastName}"></p>
+                        <p class="card-text mt-0 mb-2" th:text="${user.phone}"></p>
+                    </div>
+                </div>
+            </div>
+            <div th:unless="${user.group != null}">
+                <div style="text-align: center;">
+                    <h2 style="text-align: center">Your Group Has Not Been Created</h2>
+                    <form style="display: inline" th:action="@{'/group/create'}">
+                        <button class="btn btn-primary btn-lg text-center">Create Group</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-
 </div>
-
 <!--<footer th:replace="partials/footer :: footer"></footer>-->
 <script th:replace="partials/scripts :: scripts"></script>
 <script src="./js/profile.js"></script>
