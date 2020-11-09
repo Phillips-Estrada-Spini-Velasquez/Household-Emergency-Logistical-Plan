@@ -63,7 +63,6 @@ public class ThePlanController {
         User thisUser = userDao.getOne(thisAuthor.getId());
         Group group = groupDao.findById(thisUser.getGroupID()).orElse(null);
         if (group == null) {
-            //Returns empty list
             return new ArrayList<Item>();
         }
         return group.getItems();
@@ -90,7 +89,6 @@ public class ThePlanController {
         User thisUser = userDao.getOne(thisAuthor.getId());
         Group group = groupDao.findById(thisUser.getGroupID()).orElse(null);
         if (group == null) {
-            //Returns empty list
             return new ArrayList<Doc>();
         }
         return group.getDocs();

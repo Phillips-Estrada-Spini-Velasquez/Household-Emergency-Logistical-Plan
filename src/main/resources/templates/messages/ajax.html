@@ -79,20 +79,17 @@
 
     (function ($) {
         function convertUTCtoCST(time) {
-            var utc = new Date(time)
-            var cdt = new Date(utc.getTime() - ((1 * 60 * 60 * 1000) * 6));
-            return cdt.toLocaleDateString();
+            var utc = new Date(`01 Jan 1970 ${time} UTC`)
+            return utc.toTimeString();
         }
         let request = $.ajax({'url': '/messages.json'});
         request.done(function (messages) {
             let html = '';
             messages.forEach(function (message) {
                 html += '<div class="message-container">';
-                // html += '<img src="/w3images/bandmember.jpg" alt="Avatar">';
                 html += '<p class="name">' + message.owner.firstName + ' ' + message.owner.lastName + '  <span class="time">' + convertUTCtoCST(message.createTime) + '</span></p>';
                 html += '<p>' + message.body + '</p>';
                 html += '</div>';
-                //button to delete needed - not sure how to concatenate
             });
             $('#container div').html(html);
         });

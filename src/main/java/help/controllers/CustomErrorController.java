@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 public class CustomErrorController implements ErrorController {
 
-    // ...
 
     @RequestMapping("/error")
     public ModelAndView handleError(HttpServletResponse response) {
