@@ -79,7 +79,7 @@ public class ThePlanController {
         Group currentGroup = groupDao.getOne(groupId);
         item.setGroup(currentGroup);
         itemDao.save(item);
-        return "redirect:/the-plan";
+        return "redirect:/the-plan#checklist-items";
     }
 
     //DOCS
@@ -106,7 +106,7 @@ public class ThePlanController {
         Group currentGroup = groupDao.getOne(groupId);
         doc.setGroup(currentGroup);
         docDao.save(doc);
-        return "redirect:/the-plan";
+        return "redirect:/the-plan#document-items";
     }
 
 
